@@ -1,0 +1,43 @@
+name: 予約投稿
+
+on:
+  schedule:
+    # GitHub の時刻は UTC（日本時間 -9時間）。遅延に備えて20分後にも再実行する
+    - cron: "0,20 22 * * *"  # 日本時間 7:00 / 7:20  Threads 朝
+    - cron: "0,20 11 * * *"  # 日本時間 20:00 / 20:20 Instagram
+    - cron: "0,20 12 * * *"  # 日本時間 21:00 / 21:20 Threads 夜
+  workflow_dispatch:  # 手動実行ボタン
+
+permissions:
+  contents: write
+
+concurrency:
+  group: post  # 同時に2つ動いて二重投稿しないように
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: 投稿
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+        run: python post.py
+      - name: 投稿済みの記録を保存
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add posted.json 2>/dev/null || exit 0
+          git diff --cached --quiet && exit 0
+          git commit -m "投稿済みを記録"
+          git pull --rebase && git push

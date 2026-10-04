@@ -1,0 +1,37 @@
+# ── 予定ファイルの見本 ──
+# 1日ごとに、投稿する種類を書きます（使わない枠は書かなくてOK）
+#   threads_morning … Threads 朝 7:00
+#   instagram       … Instagram 夜 20:00（画像が必須）
+#   threads_night   … Threads 夜 21:00
+#
+# 内容を確認したら approved: false を true に変えてください。
+# true になっているものだけが投稿されます。
+
+- date: 2099-01-01
+  threads_morning:
+    text: |
+      おはようございます☀️ 今日の星座占い
+
+      1位 おうし座 ♉ 小さなご褒美が運気アップの鍵
+      2位 かに座 ♋ 懐かしい人から連絡があるかも
+      3位 うお座 ♓ 直感を信じると吉
+    approved: false
+
+  instagram:
+    image: images/見本.jpg
+    caption: |
+      恋が叶いやすい星座ランキング💗
+
+      今週は、自分から一歩踏み出すと
+      思わぬ展開が待っているかも…
+
+      #星座占い #恋愛占い #今週の運勢
+    approved: false
+
+  threads_night:
+    text: |
+      寝る前に、ちょっとだけ恋の話🌙
+
+      片思い中の人へ。
+      「返信が遅い＝脈なし」とは限りません。
+    approved: false
