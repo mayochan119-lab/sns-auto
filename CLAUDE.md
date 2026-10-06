@@ -1,15 +1,16 @@
 # SNS自動投稿
 
-星座・恋愛ジャンルのアカウントで、Instagram と Threads に予約投稿する仕組み。
+星座アカウント（seiza）と恋愛アカウント（renai）の2つで、Instagram と Threads に予約投稿する仕組み。
 
 ## 下書きを頼まれたとき
 
 - `schedule/YYYY-MM-DD.yaml`（その週の月曜日の日付）に、`schedule/見本.yaml` と同じ形式で書く
 - 必ず `approved: false` で書く。true にするのは本人の確認後
-- 投稿枠: `threads_morning`（7:00）、`instagram`（20:00）、`threads_night`（21:00）
-- 朝のThreads → 星座ジャンル（今日の運勢・ランキングなど）
-- 夜のThreads → 恋愛ジャンル（あるある・アドバイス・問いかけ）
-- Instagram → 星座×恋愛など保存されやすいテーマ。画像は `images/` にある本人の画像から選ぶ
+- アカウントと投稿枠は `accounts.yaml` を見る（各アカウントに threads_morning 7:00 / instagram 20:00 / threads_night 21:00）
+- seiza → 星座ジャンル（今日の運勢・ランキング・星座ごとの性格など）
+- renai → 恋愛ジャンル（あるある・アドバイス・問いかけ・星座別の恋愛傾向など）
+- 朝は短く明るく、夜は共感・語りかけ寄りにする
+- Instagram は保存されやすいテーマ。画像は `images/seiza/` `images/renai/` にある本人の画像から選ぶ
   - 使える画像がなければ `image:` を空にして、どんな画像が合うかをコメントで書く
   - 同じ画像を続けて使わない
 - 文字数: Threads は500文字以内、Instagram のキャプションは2200文字以内

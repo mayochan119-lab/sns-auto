@@ -1,0 +1,22 @@
+# アカウントと投稿枠の設定
+#
+# アカウントごとに、投稿枠（名前・SNS・時刻）を決めます。
+# 時刻は日本時間。時刻を変えたら .github/workflows/post.yml の実行時刻も合わせて変えます。
+#
+# トークンは GitHub の Secrets に次の名前で保存します（ID は大文字にする）:
+#   IG_ACCESS_TOKEN_<ID>       例: IG_ACCESS_TOKEN_SEIZA
+#   THREADS_ACCESS_TOKEN_<ID>  例: THREADS_ACCESS_TOKEN_SEIZA
+
+seiza:
+  name: 星座アカウント
+  slots:
+    threads_morning: {platform: threads, time: "07:00"}
+    instagram: {platform: instagram, time: "20:00"}
+    threads_night: {platform: threads, time: "21:00"}
+
+renai:
+  name: 恋愛アカウント
+  slots:
+    threads_morning: {platform: threads, time: "07:00"}
+    instagram: {platform: instagram, time: "20:00"}
+    threads_night: {platform: threads, time: "21:00"}

@@ -25,14 +25,8 @@ import yaml
 ROOT = Path(__file__).parent
 SCHEDULE_DIR = ROOT / "schedule"
 POSTED_FILE = ROOT / "posted.json"
+ACCOUNTS_FILE = ROOT / "accounts.yaml"
 JST = ZoneInfo("Asia/Tokyo")
-
-# 投稿の種類ごとの時刻（日本時間）
-SLOTS = {
-    "threads_morning": dt.time(7, 0),
-    "instagram": dt.time(20, 0),
-    "threads_night": dt.time(21, 0),
-}
 # 予定時刻からこれ以上遅れたら投稿しない（古い投稿が突然出ないように）
 MAX_DELAY = dt.timedelta(hours=6)
 
@@ -46,8 +40,13 @@ IG_MAX_HASHTAGS = 30
 
 # ---------- 予定ファイルの読み込み ----------
 
+def load_accounts():
+    return yaml.safe_load(ACCOUNTS_FILE.read_text(encoding="utf-8"))
+
+
 def load_posts():
     """schedule/*.yaml から投稿の一覧を返す。"""
+    accounts = load_accounts()
     posts = []
     for path in sorted(SCHEDULE_DIR.glob("*.yaml")):
         if path.name.startswith("見本"):
@@ -57,24 +56,31 @@ def load_posts():
             date = day["date"]
             if isinstance(date, str):
                 date = dt.date.fromisoformat(date)
-            for slot, slot_time in SLOTS.items():
-                item = day.get(slot)
-                if not item:
-                    continue
-                posts.append({
-                    "id": f"{date.isoformat()}_{slot}",
-                    "slot": slot,
-                    "due": dt.datetime.combine(date, slot_time, tzinfo=JST),
-                    "file": path.name,
-                    **item,
-                })
+            for account_id, account in accounts.items():
+                for slot, item in (day.get(account_id) or {}).items():
+                    conf = account["slots"].get(slot)
+                    if conf is None:
+                        raise ValueError(f"{path.name} {date}: {account_id} に枠 {slot} はありません")
+                    hour, minute = map(int, conf["time"].split(":"))
+                    posts.append({
+                        "id": f"{date.isoformat()}_{account_id}_{slot}",
+                        "account": account_id,
+                        "platform": conf["platform"],
+                        "due": dt.datetime.combine(date, dt.time(hour, minute), tzinfo=JST),
+                        "file": path.name,
+                        **item,
+                    })
     return posts
+
+
+def get_token(prefix, account_id):
+    return os.environ[f"{prefix}_ACCESS_TOKEN_{account_id.upper()}"]
 
 
 def check_post(post):
     """問題点のリストを返す（空なら OK）。"""
     errors = []
-    if post["slot"] == "instagram":
+    if post["platform"] == "instagram":
         caption = post.get("caption") or ""
         if not post.get("image"):
             errors.append("画像 (image) がありません。インスタは画像が必須です")
@@ -160,7 +166,7 @@ def wait_until_ready(url, token, field):
 
 
 def post_instagram(post):
-    token = os.environ["IG_ACCESS_TOKEN"]
+    token = get_token("IG", post["account"])
     image_url = upload_image(post["image"])
     container = api_call(
         "POST", f"{IG_API}/me/media",
@@ -176,7 +182,7 @@ def post_instagram(post):
 # ---------- Threads ----------
 
 def post_threads(post):
-    token = os.environ["THREADS_ACCESS_TOKEN"]
+    token = get_token("THREADS", post["account"])
     params = {"text": post["text"], "access_token": token}
     if post.get("image"):
         params.update(media_type="IMAGE", image_url=upload_image(post["image"]))
@@ -229,7 +235,7 @@ def run_post(posts, dry_run):
             print(f"[dry-run] {post['id']}: {summary(post)}")
             continue
         try:
-            if post["slot"] == "instagram":
+            if post["platform"] == "instagram":
                 media_id = post_instagram(post)
             else:
                 media_id = post_threads(post)

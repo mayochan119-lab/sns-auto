@@ -9,21 +9,20 @@ on:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {name: IG_ACCESS_TOKEN_SEIZA, url: "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token"}
+          - {name: IG_ACCESS_TOKEN_RENAI, url: "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token"}
+          - {name: THREADS_ACCESS_TOKEN_SEIZA, url: "https://graph.threads.net/refresh_access_token?grant_type=th_refresh_token"}
+          - {name: THREADS_ACCESS_TOKEN_RENAI, url: "https://graph.threads.net/refresh_access_token?grant_type=th_refresh_token"}
     steps:
-      - name: Instagram
+      - name: ${{ matrix.name }}
         env:
-          TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          TOKEN: ${{ secrets[matrix.name] }}
           GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
-          new=$(curl -fsS "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=$TOKEN" | jq -r .access_token)
+          new=$(curl -fsS "${{ matrix.url }}&access_token=$TOKEN" | jq -r .access_token)
           echo "::add-mask::$new"
-          gh secret set IG_ACCESS_TOKEN --repo "$GITHUB_REPOSITORY" --body "$new"
-      - name: Threads
-        if: always()
-        env:
-          TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
-          GH_TOKEN: ${{ secrets.GH_PAT }}
-        run: |
-          new=$(curl -fsS "https://graph.threads.net/refresh_access_token?grant_type=th_refresh_token&access_token=$TOKEN" | jq -r .access_token)
-          echo "::add-mask::$new"
-          gh secret set THREADS_ACCESS_TOKEN --repo "$GITHUB_REPOSITORY" --body "$new"
+          gh secret set "${{ matrix.name }}" --repo "$GITHUB_REPOSITORY" --body "$new"
