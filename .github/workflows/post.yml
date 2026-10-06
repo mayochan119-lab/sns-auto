@@ -7,6 +7,11 @@ on:
     - cron: "0,20 11 * * *"  # 日本時間 20:00 / 20:20 Instagram
     - cron: "0,20 12 * * *"  # 日本時間 21:00 / 21:20 Threads 夜
   workflow_dispatch:  # 手動実行ボタン
+    inputs:
+      now:
+        description: "今すぐ投稿する投稿ID（カンマ区切り。空なら時刻が来たものだけ）"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -33,7 +38,8 @@ jobs:
           CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
           CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
           CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
-        run: python post.py
+          NOW_IDS: ${{ inputs.now }}
+        run: python post.py --now "$NOW_IDS"
       - name: 投稿済みの記録を保存
         if: always()
         run: |

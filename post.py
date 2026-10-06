@@ -8,6 +8,7 @@ Instagram / Threads に投稿する。投稿済みのものは posted.json に�
   python post.py --dry-run # 投稿せずに、何が投稿されるかだけ表示
   python post.py --check   # 予定ファイルの書き方をチェック
   python post.py --verify  # 鍵（トークン）が使えるかを確認（投稿はしない）
+  python post.py --now 2026-10-07_seiza_threads_morning  # 時刻を待たずに今すぐ投稿
 """
 
 import argparse
@@ -220,16 +221,30 @@ def run_check(posts):
     return problems == 0
 
 
-def run_post(posts, dry_run):
+def run_post(posts, dry_run, now_ids=()):
+    """期限が来た投稿を実行する。now_ids に入っている投稿は時刻に関係なく今すぐ投稿する。"""
     now = dt.datetime.now(JST)
     posted = load_posted()
     failed = False
+    unknown = set(now_ids) - {p["id"] for p in posts}
+    for post_id in sorted(unknown):
+        print(f"❌ {post_id}: 予定ファイルに見つかりません")
+        failed = True
     for post in sorted(posts, key=lambda p: p["due"]):
-        if post["id"] in posted or not post.get("approved"):
+        if post["id"] in posted:
+            if post["id"] in now_ids:
+                print(f"⏭  {post['id']}: もう投稿済みです")
             continue
-        if post["due"] > now:
+        if not post.get("approved"):
+            if post["id"] in now_ids:
+                print(f"❌ {post['id']}: approved: true になっていません")
+                failed = True
             continue
-        if now - post["due"] > MAX_DELAY:
+        if post["id"] in now_ids:
+            pass
+        elif now_ids or post["due"] > now:
+            continue
+        elif now - post["due"] > MAX_DELAY:
             print(f"⏭  {post['id']}: 予定時刻を{MAX_DELAY}以上過ぎたのでスキップ")
             continue
         errors = check_post(post)
@@ -293,12 +308,14 @@ def main():
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--check", action="store_true")
     parser.add_argument("--verify", action="store_true")
+    parser.add_argument("--now", default="", help="今すぐ投稿する投稿ID（カンマ区切り）")
     args = parser.parse_args()
 
     if args.verify:
         sys.exit(0 if run_verify() else 1)
     posts = load_posts()
-    ok = run_check(posts) if args.check else run_post(posts, args.dry_run)
+    now_ids = {i.strip() for i in args.now.split(",") if i.strip()}
+    ok = run_check(posts) if args.check else run_post(posts, args.dry_run, now_ids)
     sys.exit(0 if ok else 1)
 
 
