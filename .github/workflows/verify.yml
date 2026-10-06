@@ -1,0 +1,25 @@
+name: 鍵の確認
+
+# 手動で実行して、各アカウントの鍵が使えるかを確認する（投稿はしない）
+on:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: 確認
+        env:
+          IG_ACCESS_TOKEN_SEIZA: ${{ secrets.IG_ACCESS_TOKEN_SEIZA }}
+          THREADS_ACCESS_TOKEN_SEIZA: ${{ secrets.THREADS_ACCESS_TOKEN_SEIZA }}
+          IG_ACCESS_TOKEN_RENAI: ${{ secrets.IG_ACCESS_TOKEN_RENAI }}
+          THREADS_ACCESS_TOKEN_RENAI: ${{ secrets.THREADS_ACCESS_TOKEN_RENAI }}
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+        run: python post.py --verify

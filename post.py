@@ -7,6 +7,7 @@ Instagram / Threads に投稿する。投稿済みのものは posted.json に�
   python post.py           # 期限が来た投稿を実行
   python post.py --dry-run # 投稿せずに、何が投稿されるかだけ表示
   python post.py --check   # 予定ファイルの書き方をチェック
+  python post.py --verify  # 鍵（トークン）が使えるかを確認（投稿はしない）
 """
 
 import argparse
@@ -249,12 +250,47 @@ def run_post(posts, dry_run):
     return not failed
 
 
+def run_verify():
+    """各アカウントの鍵で自分のユーザー名を取得できるか確認する。投稿はしない。"""
+    ok = True
+    checks = []
+    for account_id, account in load_accounts().items():
+        platforms = {slot["platform"] for slot in account["slots"].values()}
+        if "instagram" in platforms:
+            checks.append((account["name"], "Instagram", f"{IG_API}/me", "IG", account_id))
+        if "threads" in platforms:
+            checks.append((account["name"], "Threads", f"{TH_API}/me", "THREADS", account_id))
+    for name, label, url, prefix, account_id in checks:
+        try:
+            me = api_call("GET", url, fields="username", access_token=get_token(prefix, account_id))
+            print(f"✅ {name} {label}: @{me.get('username')}")
+        except Exception as e:
+            print(f"❌ {name} {label}: {e}")
+            ok = False
+    try:
+        cloud = os.environ["CLOUDINARY_CLOUD_NAME"]
+        res = requests.get(
+            f"https://api.cloudinary.com/v1_1/{cloud}/ping",
+            auth=(os.environ["CLOUDINARY_API_KEY"], os.environ["CLOUDINARY_API_SECRET"]),
+            timeout=30,
+        )
+        res.raise_for_status()
+        print(f"✅ Cloudinary: {cloud}")
+    except Exception as e:
+        print(f"❌ Cloudinary: {e}")
+        ok = False
+    return ok
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--check", action="store_true")
+    parser.add_argument("--verify", action="store_true")
     args = parser.parse_args()
 
+    if args.verify:
+        sys.exit(0 if run_verify() else 1)
     posts = load_posts()
     ok = run_check(posts) if args.check else run_post(posts, args.dry_run)
     sys.exit(0 if ok else 1)
