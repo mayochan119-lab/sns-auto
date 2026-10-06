@@ -121,8 +121,13 @@ def check_post(post):
     errors = []
     if post["platform"] == "instagram":
         caption = post.get("caption") or ""
-        if not post_images(post):
-            errors.append("画像 (image / images) がありません。インスタは画像が必須です")
+        if post.get("video"):
+            if not (ROOT / post["video"]).exists():
+                errors.append(f"動画ファイルが見つかりません: {post['video']}")
+            if post_images(post):
+                errors.append("video と image(s) は同時に書けません")
+        elif not post_images(post):
+            errors.append("画像 (image / images) か動画 (video) がありません。インスタは必須です")
         errors += check_images(post, IG_MAX_IMAGES)
         if not caption.strip():
             errors.append("キャプション (caption) が空です")
@@ -157,6 +162,15 @@ def save_posted(posted):
 
 def upload_image(rel_path):
     """画像を Cloudinary に上げ、インスタ用の JPEG の公開 URL を返す。"""
+    return upload_media(rel_path, "image")
+
+
+def upload_video(rel_path):
+    """動画を Cloudinary に上げ、MP4 の公開 URL を返す。"""
+    return upload_media(rel_path, "video")
+
+
+def upload_media(rel_path, kind):
     cloud = env("CLOUDINARY_CLOUD_NAME")
     key = env("CLOUDINARY_API_KEY")
     secret = env("CLOUDINARY_API_SECRET")
@@ -166,7 +180,7 @@ def upload_image(rel_path):
     timestamp = str(int(time.time()))
     to_sign = f"overwrite=true&public_id={public_id}&timestamp={timestamp}{secret}"
     res = requests.post(
-        f"https://api.cloudinary.com/v1_1/{cloud}/image/upload",
+        f"https://api.cloudinary.com/v1_1/{cloud}/{kind}/upload",
         data={
             "api_key": key,
             "timestamp": timestamp,
@@ -175,9 +189,12 @@ def upload_image(rel_path):
             "signature": hashlib.sha1(to_sign.encode()).hexdigest(),
         },
         files={"file": (Path(rel_path).name, data)},
-        timeout=60,
+        timeout=600,
     )
-    res.raise_for_status()
+    if not res.ok:
+        raise RuntimeError(f"Cloudinary へのアップロードに失敗しました: {res.status_code} {res.text}")
+    if kind == "video":
+        return f"https://res.cloudinary.com/{cloud}/video/upload/{public_id}.mp4"
     # インスタは JPEG のみ対応なので、拡張子を .jpg にして変換させる
     return f"https://res.cloudinary.com/{cloud}/image/upload/{public_id}.jpg"
 
@@ -191,19 +208,31 @@ def api_call(method, url, **params):
     return res.json()
 
 
-def wait_until_ready(url, token, field):
-    for _ in range(30):
+def wait_until_ready(url, token, field, tries=30):
+    for _ in range(tries):
         status = api_call("GET", url, fields=field, access_token=token).get(field)
         if status == "FINISHED":
             return
         if status in ("ERROR", "EXPIRED"):
             raise RuntimeError(f"メディアの準備に失敗しました: {status}")
-        time.sleep(5)
+        time.sleep(10 if tries > 30 else 5)
     raise RuntimeError("メディアの準備がタイムアウトしました")
 
 
 def post_instagram(post):
     token = get_token("IG", post["account"])
+    if post.get("video"):
+        # リール: 動画の処理に数分かかることがあるので長めに待つ
+        container = api_call(
+            "POST", f"{IG_API}/me/media",
+            media_type="REELS", video_url=upload_video(post["video"]),
+            caption=post["caption"], share_to_feed="true", access_token=token,
+        )["id"]
+        wait_until_ready(f"{IG_API}/{container}", token, "status_code", tries=60)
+        return api_call(
+            "POST", f"{IG_API}/me/media_publish",
+            creation_id=container, access_token=token,
+        )["id"]
     image_urls = [upload_image(rel) for rel in post_images(post)]
     if len(image_urls) == 1:
         container = api_call(
