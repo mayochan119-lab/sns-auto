@@ -1,0 +1,24 @@
+# 誕生日ランキング（1〜5位が下から順に出てくる）
+seed: 33
+scenes:
+  - text: "本命彼女に\nなれる人"
+    size: 128
+    emphasis: [1]
+    note: "誕生日TOP5"
+    seconds: 2.4
+  - text: "本命彼女になれる人\n誕生日TOP5"
+    size: 72
+    y: 360
+    emphasis: [1]
+    items:
+      - {text: "5位　30日", y: 1520, at: 0.3, sub_size: 44, sub: "笑顔で場を明るくする"}
+      - {text: "4位　9日", y: 1280, at: 1.1, sub_size: 44, sub: "芯の強さが特別に映る"}
+      - {text: "3位　24日", y: 1040, at: 1.9, sub_size: 44, sub: "相手を立てる気配り上手"}
+      - {text: "2位　6日", y: 800, at: 2.7, sub_size: 44, sub: "一緒にいると安心させる"}
+      - {text: "1位　17日", y: 570, at: 3.5, size: 84, emphasis: [0], sub_size: 44, sub: "素直な愛情表現で心をつかむ"}
+    seconds: 6.4
+  - text: "あなたの誕生日は\n入っていましたか？"
+    size: 80
+    moon: true
+    note: "もっと詳しく視てほしい人は\nDMで「鑑定希望」と送ってね"
+    seconds: 3.0

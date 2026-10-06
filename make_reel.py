@@ -21,7 +21,6 @@ W, H, FPS = 1080, 1920, 24
 FADE = 0.45  # 場面の切り替えの秒数
 MINCHO = "/System/Library/Fonts/ヒラギノ明朝 ProN.ttc"
 ROOT = Path(__file__).parent
-MOON = ROOT / "images/renai/彼の返信が遅い本当の理由/2.jpg"
 
 INK = (255, 240, 250)
 GLOW = (255, 60, 200)
@@ -94,29 +93,47 @@ def text_layer(lines, size, y_center, emphasis=()):
     return Image.alpha_composite(out, layer)
 
 
-def moon_layer(y_center, width=520):
-    src = Image.open(MOON).convert("RGB").crop((300, 250, 822, 660))
-    src = src.resize((width, int(width * src.height / src.width)))
-    mask = Image.new("L", src.size, 0)
-    ImageDraw.Draw(mask).ellipse((30, 30, src.width - 30, src.height - 10), fill=255)
-    mask = mask.filter(ImageFilter.GaussianBlur(36))
-    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    layer.paste(src, ((W - src.width) // 2, y_center - src.height // 2), mask)
+def moon_layer(y_center, r=120):
+    """細い三日月（ルナの画像の締めページにある月と同じ雰囲気）を光らせて描く。"""
+    cx = W // 2
+    shape = Image.new("L", (W, H), 0)
+    d = ImageDraw.Draw(shape)
+    d.ellipse((cx - r, y_center - r, cx + r, y_center + r), fill=255)
+    off = int(r * 0.42)
+    d.ellipse((cx - r + off, y_center - r - int(r * 0.18), cx + r + off, y_center + r - int(r * 0.18)), fill=0)
+    body = Image.new("RGBA", (W, H), ACCENT + (0,))
+    body.putalpha(shape)
+    glow = Image.new("RGBA", (W, H), GLOW + (0,))
+    glow.putalpha(shape.filter(ImageFilter.GaussianBlur(r * 0.35)))
+    layer = Image.alpha_composite(Image.alpha_composite(glow, glow), body)
+    # まわりに小さな星をいくつか
+    d = ImageDraw.Draw(layer)
+    for dx, dy, sr in [(-r * 1.7, -r * 0.6, 5), (r * 1.6, -r * 0.9, 6), (r * 1.3, r * 0.9, 4), (-r * 1.3, r * 1.0, 4)]:
+        x, y = cx + dx, y_center + dy
+        d.line((x - sr * 3, y, x + sr * 3, y), fill=INK + (230,), width=2)
+        d.line((x, y - sr * 3, x, y + sr * 3), fill=INK + (230,), width=2)
     return layer
 
 
 def scene_layer(scene):
+    """場面の土台のレイヤーと、あとから順番に出てくる項目 [(出る秒, レイヤー)] を返す。"""
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    lines = scene["text"].split("\n")
     size = scene.get("size", 84)
     y = scene.get("y", H // 2)
     if scene.get("moon"):
         layer = Image.alpha_composite(layer, moon_layer(y - 330))
-        y += 170
-    layer = Image.alpha_composite(layer, text_layer(lines, size, y, set(scene.get("emphasis", []))))
+        y += 120
+    if scene.get("text"):
+        layer = Image.alpha_composite(layer, text_layer(scene["text"].split("\n"), size, y, set(scene.get("emphasis", []))))
     if scene.get("note"):
         layer = Image.alpha_composite(layer, text_layer(scene["note"].split("\n"), 46, H - 330))
-    return layer
+    items = []
+    for item in scene.get("items", []):
+        lay = text_layer(item["text"].split("\n"), item.get("size", 70), item["y"], set(item.get("emphasis", [])))
+        if item.get("sub"):
+            lay = Image.alpha_composite(lay, text_layer(item["sub"].split("\n"), item.get("sub_size", 40), item["y"] + item.get("sub_gap", 78)))
+        items.append((item.get("at", 0.0), lay))
+    return layer, items
 
 
 def main(spec_path):
@@ -149,11 +166,17 @@ def main(spec_path):
                 alpha = min(1.0, max(0.0, (now - a + FADE) / FADE)) if now < b - FADE or i == len(times) - 1 else max(0.0, (b - now) / FADE)
             if alpha <= 0:
                 continue
-            lay = layers[i]
-            if alpha < 1:
-                lay = lay.copy()
-                lay.putalpha(lay.getchannel("A").point(lambda v: int(v * alpha)))
-            frame = Image.alpha_composite(frame, lay)
+            base, items = layers[i]
+            parts = [(alpha, base)]
+            for at, lay in items:
+                a2 = alpha * min(1.0, max(0.0, (now - a - at) / 0.35))
+                if a2 > 0:
+                    parts.append((a2, lay))
+            for al, lay in parts:
+                if al < 1:
+                    lay = lay.copy()
+                    lay.putalpha(lay.getchannel("A").point(lambda v, al=al: int(v * al)))
+                frame = Image.alpha_composite(frame, lay)
         rgb = frame.convert("RGB")
         if n == 0:
             first = rgb

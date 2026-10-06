@@ -1,0 +1,34 @@
+# 3択リーディング
+seed: 21
+scenes:
+  - text: "今のあなたに\n必要な\nメッセージ"
+    size: 120
+    emphasis: [1]
+    note: "直感で1つ選んでね"
+    seconds: 2.8
+  - text: "直感で1つ選んで"
+    size: 80
+    y: 520
+    note: "画面を長押しして止めてね"
+    items:
+      - {text: "A　月", size: 104, y: 860, at: 0.3, sub: "静かに見守る光", sub_size: 46}
+      - {text: "B　薔薇", size: 104, y: 1120, at: 0.7, sub: "あふれる愛の花", sub_size: 46}
+      - {text: "C　蝶", size: 104, y: 1380, at: 1.1, sub: "流れを変える翼", sub_size: 46}
+    seconds: 4.2
+  - text: "A　月を選んだ\nあなたへ\n\n焦らなくて大丈夫。\nあなたの気持ちは\nちゃんと届いています。\n今は心を休める時期。"
+    emphasis: [0, 1]
+    size: 72
+    seconds: 3.6
+  - text: "B　薔薇を選んだ\nあなたへ\n\nあなたの魅力が\nいちばん輝く時。\n笑顔で一歩\n近づいてみて。"
+    emphasis: [0, 1]
+    size: 72
+    seconds: 3.6
+  - text: "C　蝶を選んだ\nあなたへ\n\n止まっていた流れが\n動き始めています。\nうれしい知らせが\n届きそう。"
+    emphasis: [0, 1]
+    size: 72
+    seconds: 3.6
+  - text: "当たってた人は\nコメントで\nA・B・Cを教えてね"
+    size: 76
+    moon: true
+    note: "もっと詳しく視てほしい人は\nDMで「鑑定希望」と送ってね"
+    seconds: 3.4
