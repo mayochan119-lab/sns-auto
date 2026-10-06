@@ -126,6 +126,8 @@ def check_post(post):
                 errors.append(f"動画ファイルが見つかりません: {post['video']}")
             if post_images(post):
                 errors.append("video と image(s) は同時に書けません")
+            if post.get("cover") and not (ROOT / post["cover"]).exists():
+                errors.append(f"カバー画像が見つかりません: {post['cover']}")
         elif not post_images(post):
             errors.append("画像 (image / images) か動画 (video) がありません。インスタは必須です")
         errors += check_images(post, IG_MAX_IMAGES)
@@ -223,11 +225,14 @@ def post_instagram(post):
     token = get_token("IG", post["account"])
     if post.get("video"):
         # リール: 動画の処理に数分かかることがあるので長めに待つ
-        container = api_call(
-            "POST", f"{IG_API}/me/media",
+        params = dict(
             media_type="REELS", video_url=upload_video(post["video"]),
             caption=post["caption"], share_to_feed="true", access_token=token,
-        )["id"]
+        )
+        if post.get("cover"):
+            # カバー（サムネイル）画像を指定する
+            params["cover_url"] = upload_image(post["cover"])
+        container = api_call("POST", f"{IG_API}/me/media", **params)["id"]
         wait_until_ready(f"{IG_API}/{container}", token, "status_code", tries=60)
         return api_call(
             "POST", f"{IG_API}/me/media_publish",
