@@ -4,10 +4,14 @@ scenes:
   - text: "本命彼女に\nなれる人"
     size: 128
     emphasis: [1]
+    y: 900
     note: "誕生日TOP5"
+    note_size: 96
+    note_y: 1200
+    note_emphasis: [0]
     seconds: 2.4
   - text: "本命彼女になれる人\n誕生日TOP5"
-    size: 72
+    size: 80
     y: 360
     emphasis: [1]
     items:
@@ -19,6 +23,5 @@ scenes:
     seconds: 6.4
   - text: "あなたの誕生日は\n入っていましたか？"
     size: 80
-    moon: true
     note: "もっと詳しく視てほしい人は\nDMで「鑑定希望」と送ってね"
     seconds: 3.0

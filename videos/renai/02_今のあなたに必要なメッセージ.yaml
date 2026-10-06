@@ -4,7 +4,11 @@ scenes:
   - text: "今のあなたに\n必要な\nメッセージ"
     size: 120
     emphasis: [1]
+    y: 900
     note: "直感で1つ選んでね"
+    note_size: 76
+    note_y: 1330
+    note_emphasis: [0]
     seconds: 2.8
   - text: "直感で1つ選んで"
     size: 80
@@ -29,6 +33,5 @@ scenes:
     seconds: 3.6
   - text: "当たってた人は\nコメントで\nA・B・Cを教えてね"
     size: 76
-    moon: true
     note: "もっと詳しく視てほしい人は\nDMで「鑑定希望」と送ってね"
     seconds: 3.4

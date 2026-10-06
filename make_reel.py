@@ -87,9 +87,11 @@ def text_layer(lines, size, y_center, emphasis=()):
         y += h + gap
     wide = glow.filter(ImageFilter.GaussianBlur(size * 0.45))
     near = glow.filter(ImageFilter.GaussianBlur(size * 0.12))
+    tight = glow.filter(ImageFilter.GaussianBlur(size * 0.05))
     out = Image.alpha_composite(wide, wide)
     out = Image.alpha_composite(out, near)
     out = Image.alpha_composite(out, near)
+    out = Image.alpha_composite(out, tight)
     return Image.alpha_composite(out, layer)
 
 
@@ -126,7 +128,7 @@ def scene_layer(scene):
     if scene.get("text"):
         layer = Image.alpha_composite(layer, text_layer(scene["text"].split("\n"), size, y, set(scene.get("emphasis", []))))
     if scene.get("note"):
-        layer = Image.alpha_composite(layer, text_layer(scene["note"].split("\n"), 46, H - 330))
+        layer = Image.alpha_composite(layer, text_layer(scene["note"].split("\n"), scene.get("note_size", 46), scene.get("note_y", H - 330), set(scene.get("note_emphasis", []))))
     items = []
     for item in scene.get("items", []):
         lay = text_layer(item["text"].split("\n"), item.get("size", 70), item["y"], set(item.get("emphasis", [])))

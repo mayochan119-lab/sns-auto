@@ -15,6 +15,5 @@ scenes:
     seconds: 3.4
   - text: "不安な夜に\n見返せるように\n保存してね"
     size: 76
-    moon: true
     note: "もっと詳しく視てほしい人は\nDMで「鑑定希望」と送ってね"
     seconds: 3.2
