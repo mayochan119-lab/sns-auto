@@ -1,0 +1,242 @@
+<title>レイとルナの投稿ボード</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: 上に「次の投稿」と数字の帯、下は左に日付ごとの予定、右にインスタのグリッド予想 */
+:root {
+  --bg: #F2F0F6;
+  --surface: #FFFFFF;
+  --sunk: #E9E6F0;
+  --ink: #1F1C33;
+  --muted: #6A6580;
+  --line: #DCD7E7;
+  --rei: #9A6C1E;
+  --luna: #B0436F;
+  --ok: #2E7A57;
+  --plan: #3A57A3;
+  --draft: #9A5F0C;
+  --bad: #B03636;
+  --display: "Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --body: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #13121D; --surface: #1C1B2A; --sunk: #242336; --ink: #ECE9F6; --muted: #A39DBA; --line: #322F47;
+    --rei: #DDB264; --luna: #E77FAE; --ok: #5FC193; --plan: #8FA8F0; --draft: #E3A64B; --bad: #EE7B7B;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #13121D; --surface: #1C1B2A; --sunk: #242336; --ink: #ECE9F6; --muted: #A39DBA; --line: #322F47;
+  --rei: #DDB264; --luna: #E77FAE; --ok: #5FC193; --plan: #8FA8F0; --draft: #E3A64B; --bad: #EE7B7B;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.6; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 64px; display: grid; gap: 24px; }
+h1, h2 { font-family: var(--display); font-weight: 800; text-wrap: balance; margin: 0; letter-spacing: .02em; }
+h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); }
+h2 { font-size: 1.15rem; }
+.mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--muted); }
+header { display: grid; gap: 6px; }
+header p { margin: 0; font-size: .85rem; }
+
+/* 帯 */
+.strip { display: grid; grid-template-columns: minmax(0, 2fr) repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.strip > div { background: var(--surface); padding: 14px 16px; display: grid; gap: 2px; align-content: start; min-width: 0; }
+.label { font-size: .72rem; letter-spacing: .08em; color: var(--muted); }
+.big { font-family: var(--mono); font-size: 1.5rem; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.next-title { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.warn .big { color: var(--draft); }
+
+/* フィルター */
+.controls { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--surface); }
+.seg button { border: 0; background: transparent; color: var(--muted); font: inherit; font-size: .85rem; padding: 5px 14px; border-radius: 999px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.seg button:focus-visible, summary:focus-visible { outline: 2px solid var(--plan); outline-offset: 2px; }
+
+.main { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 28px; align-items: start; }
+
+/* 予定一覧 */
+.day { display: grid; gap: 8px; }
+.day + .day { margin-top: 18px; }
+.day-head { display: flex; align-items: baseline; gap: 10px; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
+.day-head h2 { font-size: 1.05rem; }
+.day-head .today { font-size: .72rem; color: var(--bg); background: var(--ink); padding: 1px 8px; border-radius: 999px; }
+.post { display: grid; grid-template-columns: 52px 64px minmax(0, 1fr); gap: 12px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+.post[data-acc="seiza"] { box-shadow: inset 3px 0 0 var(--rei); }
+.post[data-acc="renai"] { box-shadow: inset 3px 0 0 var(--luna); }
+.time { font-family: var(--mono); font-size: .95rem; padding-top: 2px; }
+.thumb { width: 64px; aspect-ratio: 4 / 5; border-radius: 6px; background: var(--sunk); object-fit: cover; display: grid; place-items: center; font-size: .7rem; color: var(--muted); overflow: hidden; }
+.thumb.reel { aspect-ratio: 9 / 16; }
+.info { display: grid; gap: 4px; min-width: 0; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: .78rem; }
+.acc { font-weight: 700; }
+.acc.seiza { color: var(--rei); }
+.acc.renai { color: var(--luna); }
+.chip { border: 1px solid var(--line); border-radius: 999px; padding: 0 8px; color: var(--muted); }
+.pill { border-radius: 999px; padding: 0 9px; font-weight: 700; color: var(--surface); }
+.pill.posted { background: var(--ok); }
+.pill.scheduled { background: var(--plan); }
+.pill.draft { background: var(--draft); }
+.pill.missed, .pill.problem { background: var(--bad); }
+.title { font-weight: 700; overflow-wrap: anywhere; }
+.problems { color: var(--bad); font-size: .8rem; margin: 0; padding-left: 1.1em; }
+details summary { cursor: pointer; font-size: .8rem; color: var(--muted); width: fit-content; }
+details pre { white-space: pre-wrap; overflow-wrap: anywhere; font-family: var(--body); font-size: .85rem; background: var(--sunk); border-radius: 8px; padding: 10px 12px; margin: 6px 0 0; max-height: 360px; overflow-y: auto; }
+.empty { color: var(--muted); padding: 24px 0; }
+
+/* グリッド予想 */
+aside { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); display: grid; gap: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+aside p { margin: 0; font-size: .8rem; }
+.profile { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; }
+.cell { position: relative; aspect-ratio: 3 / 4; background: var(--sunk); overflow: hidden; }
+.cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cell .tag { position: absolute; left: 4px; bottom: 4px; font-size: .62rem; font-family: var(--mono); background: rgba(0,0,0,.62); color: #fff; padding: 0 5px; border-radius: 4px; }
+.cell.draft img { opacity: .55; }
+.cell.manual { display: grid; place-items: center; font-size: .7rem; color: var(--muted); text-align: center; padding: 4px; }
+.legend { display: flex; flex-wrap: wrap; gap: 10px; font-size: .75rem; color: var(--muted); }
+
+@media (max-width: 900px) {
+  .main { grid-template-columns: minmax(0, 1fr); }
+  aside { position: static; order: -1; }
+  .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .strip > .next { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .post { transition: border-color .15s; }
+  .post:hover { border-color: var(--muted); }
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>レイとルナの投稿ボード</h1>
+    <p class="muted">最終更新 <span id="gen" class="mono"></span>（日本時間）。この画面は自動では変わりません。Claudeに「ダッシュボード更新して」と頼むと最新になります。</p>
+  </header>
+
+  <section class="strip" aria-label="概要">
+    <div class="next">
+      <span class="label">次の投稿</span>
+      <span class="big" id="countdown">—</span>
+      <span class="next-title" id="nextTitle">承認済みの予定はありません</span>
+    </div>
+    <div><span class="label">予約済み</span><span class="big" id="nScheduled">0</span></div>
+    <div><span class="label">未承認（下書き）</span><span class="big" id="nDraft">0</span></div>
+    <div><span class="label">投稿済み</span><span class="big" id="nPosted">0</span></div>
+    <div id="tokenBox"><span class="label">鍵の期限まで</span><span class="big" id="tokenDays">—</span><span class="muted" style="font-size:.75rem" id="tokenDate"></span></div>
+  </section>
+
+  <div class="controls">
+    <div class="seg" role="group" aria-label="アカウント">
+      <button type="button" id="acc-all" data-acc="all" aria-pressed="true">すべて</button>
+      <button type="button" id="acc-seiza" data-acc="seiza" aria-pressed="false">レイ（星座）</button>
+      <button type="button" id="acc-renai" data-acc="renai" aria-pressed="false">ルナ（恋愛）</button>
+    </div>
+    <div class="seg" role="group" aria-label="期間">
+      <button type="button" id="range-future" data-range="future" aria-pressed="true">これから</button>
+      <button type="button" id="range-all" data-range="all" aria-pressed="false">すべて</button>
+    </div>
+  </div>
+
+  <div class="main">
+    <section id="list" aria-label="投稿予定"></section>
+    <aside aria-label="インスタのグリッド予想">
+      <div class="profile"><h2>グリッド予想</h2><span class="muted mono">@rei.seizauranai</span></div>
+      <p class="muted">プロフィールに並んだときの見え方です。左上がいちばん新しい投稿。</p>
+      <div class="grid" id="grid"></div>
+      <div class="legend"><span>薄い画像＝未承認</span><span>灰色＝これまでの手動投稿</span></div>
+    </aside>
+  </div>
+</div>
+
+<script>
+const DATA = /*__DATA__*/null;
+const STATUS = { posted: "投稿済み", scheduled: "予約済み", draft: "未承認", missed: "時間切れ", problem: "要確認" };
+const WEEK = ["日", "月", "火", "水", "木", "金", "土"];
+// これまでに手動で投稿した3つ（古い順）
+const MANUAL = ["牡羊座", "リール", "牡牛座"];
+let state = { acc: "all", range: "future" };
+try { const s = JSON.parse(localStorage.getItem("board") || "{}"); state = { ...state, ...s }; } catch (e) {}
+
+const jst = (iso) => new Date(iso);
+const fmtTime = (d) => d.toLocaleTimeString("ja-JP", { timeZone: "Asia/Tokyo", hour: "2-digit", minute: "2-digit" });
+const dayKey = (d) => d.toLocaleDateString("sv-SE", { timeZone: "Asia/Tokyo" });
+const dayLabel = (key) => { const [y, m, d] = key.split("-").map(Number); const w = new Date(Date.UTC(y, m - 1, d)).getUTCDay(); return `${m}月${d}日（${WEEK[w]}）`; };
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+function postCard(p) {
+  const d = jst(p.due);
+  const reel = p.kind === "リール";
+  const thumb = p.thumb ? `<img class="thumb${reel ? " reel" : ""}" src="${p.thumb}" alt="">` : `<div class="thumb">文字</div>`;
+  const acc = DATA.accounts.find((a) => a.id === p.account);
+  const problems = p.problems.length ? `<ul class="problems">${p.problems.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : "";
+  const postedAt = p.postedAt ? `<span class="muted mono">${fmtTime(jst(p.postedAt))} に投稿</span>` : "";
+  return `<article class="post" data-acc="${p.account}">
+    <div class="time">${fmtTime(d)}</div>
+    ${thumb}
+    <div class="info">
+      <div class="meta"><span class="acc ${p.account}">${esc(acc ? acc.name.replace("アカウント", "") : p.account)}</span><span class="chip">${esc(p.slot)}</span><span class="chip">${esc(p.kind)}</span><span class="pill ${p.status}">${STATUS[p.status]}</span>${postedAt}</div>
+      <div class="title">${esc(p.title)}</div>
+      ${problems}
+      <details><summary>本文を見る</summary><pre>${esc(p.body)}</pre></details>
+    </div>
+  </article>`;
+}
+
+function render() {
+  const now = new Date();
+  const today = dayKey(now);
+  let posts = DATA.posts.filter((p) => state.acc === "all" || p.account === state.acc);
+  if (state.range === "future") posts = posts.filter((p) => dayKey(jst(p.due)) >= today || p.status === "scheduled");
+  const byDay = new Map();
+  posts.forEach((p) => { const k = dayKey(jst(p.due)); if (!byDay.has(k)) byDay.set(k, []); byDay.get(k).push(p); });
+  const list = document.getElementById("list");
+  list.innerHTML = byDay.size ? [...byDay].map(([k, ps]) => `<div class="day"><div class="day-head"><h2>${dayLabel(k)}</h2>${k === today ? '<span class="today">今日</span>' : ""}<span class="muted" style="font-size:.8rem">${ps.length}件</span></div>${ps.map(postCard).join("")}</div>`).join("") : `<p class="empty">この条件の投稿はありません。</p>`;
+  document.querySelectorAll("[data-acc]").forEach((b) => b.tagName === "BUTTON" && b.setAttribute("aria-pressed", String(b.dataset.acc === state.acc)));
+  document.querySelectorAll("[data-range]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.range === state.range)));
+}
+
+function renderSummary() {
+  const now = new Date();
+  const count = (s) => DATA.posts.filter((p) => p.status === s).length;
+  document.getElementById("nScheduled").textContent = count("scheduled");
+  document.getElementById("nDraft").textContent = count("draft");
+  document.getElementById("nPosted").textContent = count("posted");
+  const next = DATA.posts.filter((p) => p.status === "scheduled" && jst(p.due) > now).sort((a, b) => jst(a.due) - jst(b.due))[0];
+  if (next) {
+    const ms = jst(next.due) - now, h = Math.floor(ms / 3600000), m = Math.floor((ms % 3600000) / 60000);
+    document.getElementById("countdown").textContent = h >= 24 ? `${Math.floor(h / 24)}日${h % 24}時間後` : `${h}時間${m}分後`;
+    const acc = DATA.accounts.find((a) => a.id === next.account);
+    document.getElementById("nextTitle").textContent = `${dayLabel(dayKey(jst(next.due)))} ${fmtTime(jst(next.due))}・${acc ? acc.name.replace("アカウント", "") : ""} ${next.slot}・${next.title}`;
+  }
+  const days = Math.ceil((new Date(DATA.tokenExpires + "T00:00:00+09:00") - now) / 86400000);
+  document.getElementById("tokenDays").textContent = `${days}日`;
+  document.getElementById("tokenDate").textContent = `${DATA.tokenExpires.slice(5).replace("-", "/")} ごろ。自動延長は未設定`;
+  if (days <= 30) document.getElementById("tokenBox").classList.add("warn");
+  document.getElementById("gen").textContent = DATA.generatedAt.slice(0, 16).replace("T", " ");
+}
+
+function renderGrid() {
+  const ig = DATA.posts.filter((p) => p.account === "seiza" && p.platform === "instagram").sort((a, b) => jst(a.due) - jst(b.due));
+  const cells = MANUAL.map((t) => `<div class="cell manual">${t}</div>`).concat(ig.map((p) => {
+    const d = jst(p.due);
+    return `<div class="cell ${p.status}">${p.thumb ? `<img src="${p.thumb}" alt="${esc(p.title)}">` : ""}<span class="tag">${d.getMonth() + 1}/${d.getDate()}</span></div>`;
+  }));
+  document.getElementById("grid").innerHTML = cells.reverse().join("");
+}
+
+document.querySelectorAll("button[data-acc]").forEach((b) => b.addEventListener("click", () => { state.acc = b.dataset.acc; save(); render(); }));
+document.querySelectorAll("button[data-range]").forEach((b) => b.addEventListener("click", () => { state.range = b.dataset.range; save(); render(); }));
+function save() { try { localStorage.setItem("board", JSON.stringify(state)); } catch (e) {} }
+
+renderSummary();
+renderGrid();
+render();
+setInterval(renderSummary, 60000);
+</script>

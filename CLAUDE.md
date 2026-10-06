@@ -23,3 +23,8 @@
 - ハッシュタグ: Instagram は5〜10個程度。Threads はトピックタグ1つまで（なくてもよい）
 - 「必ず〜になる」など断定的な表現や、不安をあおる表現は使わない
 - 書き終わったら `python post.py --check` で確認する
+
+## ダッシュボード
+
+- `python dashboard.py` で `dashboard/index.html` を作り、Artifact https://claude.ai/artifact/Lbe1q2htQ5wpkTUbH6ynDg に公開し直す（同じURLを使う）
+- 予定を変えたとき・「ダッシュボード更新して」と言われたときに更新する。投稿済みの状態は `git pull` で posted.json を取ってから作る
