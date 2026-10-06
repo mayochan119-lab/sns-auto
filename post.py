@@ -43,6 +43,9 @@ TH_API = "https://graph.threads.net/v1.0"
 THREADS_MAX_CHARS = 500
 IG_MAX_CHARS = 2200
 IG_MAX_HASHTAGS = 30
+IG_MAX_IMAGES = 10       # インスタの複数枚投稿は最大10枚
+THREADS_MAX_IMAGES = 20  # Threads の複数枚投稿は最大20枚
+IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp", ".heic"}
 
 
 # ---------- 予定ファイルの読み込み ----------
@@ -84,15 +87,43 @@ def get_token(prefix, account_id):
     return env(f"{prefix}_ACCESS_TOKEN_{account_id.upper()}")
 
 
+def post_images(post):
+    """投稿に使う画像のパス一覧を返す。
+
+    image: に1枚、images: に複数枚を書ける。フォルダを指定すると、
+    中の画像を名前順（1.jpg, 2.jpg, ...）に全部使う。
+    """
+    entries = post.get("images") or ([post["image"]] if post.get("image") else [])
+    paths = []
+    for entry in entries:
+        path = ROOT / entry
+        if path.is_dir():
+            files = sorted(f for f in path.iterdir() if f.suffix.lower() in IMAGE_EXTS)
+            paths += [str(f.relative_to(ROOT)) for f in files]
+        else:
+            paths.append(entry)
+    return paths
+
+
+def check_images(post, max_images):
+    errors = []
+    images = post_images(post)
+    for rel in images:
+        if not (ROOT / rel).exists():
+            errors.append(f"画像ファイルが見つかりません: {rel}")
+    if len(images) > max_images:
+        errors.append(f"画像が多すぎます ({len(images)}/{max_images}枚)")
+    return errors
+
+
 def check_post(post):
     """問題点のリストを返す（空なら OK）。"""
     errors = []
     if post["platform"] == "instagram":
         caption = post.get("caption") or ""
-        if not post.get("image"):
-            errors.append("画像 (image) がありません。インスタは画像が必須です")
-        elif not (ROOT / post["image"]).exists():
-            errors.append(f"画像ファイルが見つかりません: {post['image']}")
+        if not post_images(post):
+            errors.append("画像 (image / images) がありません。インスタは画像が必須です")
+        errors += check_images(post, IG_MAX_IMAGES)
         if not caption.strip():
             errors.append("キャプション (caption) が空です")
         if len(caption) > IG_MAX_CHARS:
@@ -105,8 +136,7 @@ def check_post(post):
             errors.append("本文 (text) が空です")
         if len(text) > THREADS_MAX_CHARS:
             errors.append(f"本文が長すぎます ({len(text)}/{THREADS_MAX_CHARS}文字)")
-        if post.get("image") and not (ROOT / post["image"]).exists():
-            errors.append(f"画像ファイルが見つかりません: {post['image']}")
+        errors += check_images(post, THREADS_MAX_IMAGES)
     return errors
 
 
@@ -174,11 +204,27 @@ def wait_until_ready(url, token, field):
 
 def post_instagram(post):
     token = get_token("IG", post["account"])
-    image_url = upload_image(post["image"])
-    container = api_call(
-        "POST", f"{IG_API}/me/media",
-        image_url=image_url, caption=post["caption"], access_token=token,
-    )["id"]
+    image_urls = [upload_image(rel) for rel in post_images(post)]
+    if len(image_urls) == 1:
+        container = api_call(
+            "POST", f"{IG_API}/me/media",
+            image_url=image_urls[0], caption=post["caption"], access_token=token,
+        )["id"]
+    else:
+        # 複数枚: 1枚ずつ部品を作ってから、まとめた投稿を作る
+        children = []
+        for url in image_urls:
+            child = api_call(
+                "POST", f"{IG_API}/me/media",
+                image_url=url, is_carousel_item="true", access_token=token,
+            )["id"]
+            wait_until_ready(f"{IG_API}/{child}", token, "status_code")
+            children.append(child)
+        container = api_call(
+            "POST", f"{IG_API}/me/media",
+            media_type="CAROUSEL", children=",".join(children),
+            caption=post["caption"], access_token=token,
+        )["id"]
     wait_until_ready(f"{IG_API}/{container}", token, "status_code")
     return api_call(
         "POST", f"{IG_API}/me/media_publish",
@@ -191,8 +237,20 @@ def post_instagram(post):
 def post_threads(post):
     token = get_token("THREADS", post["account"])
     params = {"text": post["text"], "access_token": token}
-    if post.get("image"):
-        params.update(media_type="IMAGE", image_url=upload_image(post["image"]))
+    image_urls = [upload_image(rel) for rel in post_images(post)]
+    if len(image_urls) == 1:
+        params.update(media_type="IMAGE", image_url=image_urls[0])
+    elif image_urls:
+        # 複数枚: 1枚ずつ部品を作ってから、まとめた投稿を作る
+        children = []
+        for url in image_urls:
+            child = api_call(
+                "POST", f"{TH_API}/me/threads",
+                media_type="IMAGE", image_url=url, is_carousel_item="true", access_token=token,
+            )["id"]
+            wait_until_ready(f"{TH_API}/{child}", token, "status")
+            children.append(child)
+        params.update(media_type="CAROUSEL", children=",".join(children))
     else:
         params["media_type"] = "TEXT"
     container = api_call("POST", f"{TH_API}/me/threads", **params)["id"]

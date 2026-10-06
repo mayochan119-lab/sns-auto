@@ -5,6 +5,10 @@
 #   instagram       … Instagram 夜 20:00（画像が必須）
 #   threads_night   … Threads 夜 21:00
 #
+# 画像は image: に1枚、または images: にフォルダを書くと複数枚投稿になります。
+#   フォルダの中の画像は、名前順（1.jpg, 2.jpg, ...）に並びます。
+#   インスタは最大10枚、Threads は最大20枚。
+#
 # 内容を確認したら approved: false を true に変えてください。
 # true になっているものだけが投稿されます。
 
@@ -19,7 +23,7 @@
         3位 うお座 ♓ 直感を信じると吉
       approved: false
     instagram:
-      image: images/見本.jpg
+      images: [images/seiza/今週のランキング]   # フォルダの中の画像を全部、複数枚投稿に
       caption: |
         今週の星座ランキング✨
 
