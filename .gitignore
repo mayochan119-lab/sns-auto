@@ -2,3 +2,6 @@
 __pycache__/
 .DS_Store
 .venv/
+
+# 画像の一時置き場（仕分け前）
+images/ここに入れる/
