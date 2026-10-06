@@ -42,7 +42,7 @@ TH_API = "https://graph.threads.net/v1.0"
 
 THREADS_MAX_CHARS = 500
 IG_MAX_CHARS = 2200
-IG_MAX_HASHTAGS = 30
+IG_MAX_HASHTAGS = 5  # インスタはハッシュタグ5個まで
 IG_MAX_IMAGES = 10       # インスタの複数枚投稿は最大10枚
 THREADS_MAX_IMAGES = 20  # Threads の複数枚投稿は最大20枚
 IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp", ".heic"}
