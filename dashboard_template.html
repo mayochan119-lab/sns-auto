@@ -147,8 +147,8 @@ aside p { margin: 0; font-size: .8rem; }
   <div class="main">
     <section id="list" aria-label="投稿予定"></section>
     <aside aria-label="インスタのグリッド予想">
-      <div class="profile"><h2>グリッド予想</h2><span class="muted mono">@rei.seizauranai</span></div>
-      <p class="muted">プロフィールに並んだときの見え方です。左上がいちばん新しい投稿。</p>
+      <div class="profile"><h2>グリッド予想</h2><span class="muted mono" id="gridHandle">@rei.seizauranai</span></div>
+      <p class="muted">プロフィールに並んだときの見え方です。左上がいちばん新しい投稿。上の「ルナ」を押すとルナのグリッドになります。</p>
       <div class="grid" id="grid"></div>
       <div class="legend"><span>薄い画像＝未承認</span><span>灰色＝これまでの手動投稿</span></div>
     </aside>
@@ -159,8 +159,8 @@ aside p { margin: 0; font-size: .8rem; }
 const DATA = /*__DATA__*/null;
 const STATUS = { posted: "投稿済み", scheduled: "予約済み", draft: "未承認", missed: "時間切れ", problem: "要確認" };
 const WEEK = ["日", "月", "火", "水", "木", "金", "土"];
-// これまでに手動で投稿した3つ（古い順）
-const MANUAL = ["牡羊座", "リール", "牡牛座"];
+// これまでに手動で投稿したもの（古い順）
+const MANUAL = { seiza: ["牡羊座", "リール", "牡牛座"], renai: [] };
 let state = { acc: "all", range: "future" };
 try { const s = JSON.parse(localStorage.getItem("board") || "{}"); state = { ...state, ...s }; } catch (e) {}
 
@@ -223,15 +223,18 @@ function renderSummary() {
 }
 
 function renderGrid() {
-  const ig = DATA.posts.filter((p) => p.account === "seiza" && p.platform === "instagram").sort((a, b) => jst(a.due) - jst(b.due));
-  const cells = MANUAL.map((t) => `<div class="cell manual">${t}</div>`).concat(ig.map((p) => {
+  const acc = state.acc === "renai" ? "renai" : "seiza";
+  const info = DATA.accounts.find((a) => a.id === acc);
+  document.getElementById("gridHandle").textContent = "@" + (info ? info.handle : acc);
+  const ig = DATA.posts.filter((p) => p.account === acc && p.platform === "instagram").sort((a, b) => jst(a.due) - jst(b.due));
+  const cells = MANUAL[acc].map((t) => `<div class="cell manual">${t}</div>`).concat(ig.map((p) => {
     const d = jst(p.due);
     return `<div class="cell ${p.status}">${p.thumb ? `<img src="${p.thumb}" alt="${esc(p.title)}">` : ""}<span class="tag">${d.getMonth() + 1}/${d.getDate()}</span></div>`;
   }));
   document.getElementById("grid").innerHTML = cells.reverse().join("");
 }
 
-document.querySelectorAll("button[data-acc]").forEach((b) => b.addEventListener("click", () => { state.acc = b.dataset.acc; save(); render(); }));
+document.querySelectorAll("button[data-acc]").forEach((b) => b.addEventListener("click", () => { state.acc = b.dataset.acc; save(); render(); renderGrid(); }));
 document.querySelectorAll("button[data-range]").forEach((b) => b.addEventListener("click", () => { state.range = b.dataset.range; save(); render(); }));
 function save() { try { localStorage.setItem("board", JSON.stringify(state)); } catch (e) {} }
 
