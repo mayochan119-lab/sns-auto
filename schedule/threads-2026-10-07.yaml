@@ -17,7 +17,7 @@
         天秤座さん、お誕生日の季節おめでとうございます🎂
 
         #星座占い
-      approved: false
+      approved: true
   renai:
     threads_morning:
       text: |
@@ -27,7 +27,7 @@
 
         今日は、その気持ちを大切に持ったまま
         自分のために一日を過ごしてね💜
-      approved: false
+      approved: true
     threads_night:
       text: |
         夜にだけ話せる、恋の話🌙
@@ -45,7 +45,7 @@
         今夜は、そんな自分を少し褒めてあげてね💜
 
         #恋愛占い
-      approved: false
+      approved: true
 
 - date: 2026-10-08
   seiza:
@@ -69,7 +69,7 @@
         今日も素敵な一日になりますように✨
 
         #星座占い
-      approved: false
+      approved: true
     threads_night:
       text: |
         🌙 星座別｜疲れているときのサイン
@@ -90,7 +90,7 @@
         当てはまった人は、今夜は早めに休んでね🌙
 
         #星座占い
-      approved: false
+      approved: true
   renai:
     threads_morning:
       text: |
@@ -100,7 +100,7 @@
         安心できる恋を選んでいいんです。
 
         今日のあなたが、少しでも心地よくいられますように🌹
-      approved: false
+      approved: true
     threads_night:
       text: |
         既読スルーされた夜のあなたへ🌙
@@ -121,7 +121,7 @@
         温かい飲み物でひと息ついてね🌹
 
         #恋愛占い
-      approved: false
+      approved: true
 
 - date: 2026-10-09
   seiza:
@@ -145,7 +145,7 @@
         今日も素敵な一日になりますように✨
 
         #星座占い
-      approved: false
+      approved: true
     threads_night:
       text: |
         🌙 あなたの星座はどのグループ？
@@ -166,7 +166,7 @@
         コメントで星座を教えてください✨
 
         #星座占い
-      approved: false
+      approved: true
   renai:
     threads_morning:
       text: |
@@ -176,7 +176,7 @@
         それが、運命のサインです。
 
         今日、あなたが自然体でいられますように✨
-      approved: false
+      approved: true
     threads_night:
       text: |
         別れた彼を、まだ想っているあなたへ🌙
@@ -196,7 +196,7 @@
         もっと詳しく視てほしい方は、DMで「鑑定希望」と送ってください💜
 
         #恋愛占い
-      approved: false
+      approved: true
 
 - date: 2026-10-10
   seiza:
@@ -220,7 +220,7 @@
         今日も素敵な一日になりますように✨
 
         #星座占い
-      approved: false
+      approved: true
     threads_night:
       text: |
         🌙 星座別｜恋が始まりやすい場所
@@ -241,7 +241,7 @@
         週末、ちょっと出かけてみませんか？
 
         #星座占い
-      approved: false
+      approved: true
   renai:
     threads_morning:
       text: |
@@ -251,7 +251,7 @@
         どこかでそっと繋がっています。
 
         焦らず、今日は自分を満たす時間に💜
-      approved: false
+      approved: true
     threads_night:
       text: |
         恋がうまくいく人の、夜の習慣🌙
@@ -267,7 +267,7 @@
         今夜、ひとつだけ試してみてね🌹
 
         #恋愛占い
-      approved: false
+      approved: true
 
 - date: 2026-10-11
   seiza:
@@ -291,7 +291,7 @@
         今日も素敵な一日になりますように✨
 
         #星座占い
-      approved: false
+      approved: true
     threads_night:
       text: |
         🌙 星座別｜あなたの隠れた才能
@@ -312,7 +312,7 @@
         自分の才能をもっと詳しく知りたい方は、DMで「鑑定希望」と送ってください🔮
 
         #星座占い
-      approved: false
+      approved: true
   renai:
     threads_morning:
       text: |
@@ -321,7 +321,7 @@
         運命の人は、あなたが自分を大切にし始めたときに現れる。
 
         今日は自分を一番にしていい日です🌹
-      approved: false
+      approved: true
     threads_night:
       text: |
         あなたに聞きたいこと🌙
@@ -338,7 +338,7 @@
         多かった方の、恋が叶うコツを今度お届けします✨
 
         #恋愛占い
-      approved: false
+      approved: true
 
 - date: 2026-10-12
   seiza:
@@ -362,7 +362,7 @@
         今日も素敵な一日になりますように✨
 
         #星座占い
-      approved: false
+      approved: true
     threads_night:
       text: |
         🌙 新しい一週間の過ごし方
@@ -382,7 +382,7 @@
         今週もあなたらしく過ごせますように✨
 
         #星座占い
-      approved: false
+      approved: true
   renai:
     threads_morning:
       text: |
@@ -392,7 +392,7 @@
         その気持ちは、恥ずかしいものじゃありません。
 
         新しい一週間、あなたの恋が優しく動き出しますように✨
-      approved: false
+      approved: true
     threads_night:
       text: |
         結婚を考えるあなたへ🌙
@@ -410,7 +410,7 @@
         あなたの選ぶ未来が、温かいものでありますように🌹
 
         #恋愛占い
-      approved: false
+      approved: true
 
 - date: 2026-10-13
   seiza:
@@ -434,7 +434,7 @@
         今日も素敵な一日になりますように✨
 
         #星座占い
-      approved: false
+      approved: true
     threads_night:
       text: |
         🌙 星座別｜言われるとうれしいひと言
@@ -455,7 +455,7 @@
         大切な人の星座、チェックしてみてね💫
 
         #星座占い
-      approved: false
+      approved: true
   renai:
     threads_morning:
       text: |
@@ -465,7 +465,7 @@
         待つことも、離れることも、ひとつの愛の形。
 
         今日のあなたの選択を、信じてね💜
-      approved: false
+      approved: true
     threads_night:
       text: |
         片思い中のあなたへ🌙
@@ -484,4 +484,4 @@
         あなたの恋を詳しく視てほしい方は、DMで「鑑定希望」と送ってください💜
 
         #恋愛占い
-      approved: false
+      approved: true
