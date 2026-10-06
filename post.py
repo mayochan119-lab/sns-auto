@@ -28,6 +28,11 @@ SCHEDULE_DIR = ROOT / "schedule"
 POSTED_FILE = ROOT / "posted.json"
 ACCOUNTS_FILE = ROOT / "accounts.yaml"
 JST = ZoneInfo("Asia/Tokyo")
+
+
+def env(name):
+    """環境変数を読む。貼り付けで入った前後の空白・改行は取り除く。"""
+    return os.environ[name].strip()
 # 予定時刻からこれ以上遅れたら投稿しない（古い投稿が突然出ないように）
 MAX_DELAY = dt.timedelta(hours=6)
 
@@ -75,7 +80,7 @@ def load_posts():
 
 
 def get_token(prefix, account_id):
-    return os.environ[f"{prefix}_ACCESS_TOKEN_{account_id.upper()}"]
+    return env(f"{prefix}_ACCESS_TOKEN_{account_id.upper()}")
 
 
 def check_post(post):
@@ -121,9 +126,9 @@ def save_posted(posted):
 
 def upload_image(rel_path):
     """画像を Cloudinary に上げ、インスタ用の JPEG の公開 URL を返す。"""
-    cloud = os.environ["CLOUDINARY_CLOUD_NAME"]
-    key = os.environ["CLOUDINARY_API_KEY"]
-    secret = os.environ["CLOUDINARY_API_SECRET"]
+    cloud = env("CLOUDINARY_CLOUD_NAME")
+    key = env("CLOUDINARY_API_KEY")
+    secret = env("CLOUDINARY_API_SECRET")
     data = (ROOT / rel_path).read_bytes()
     # 同じ画像は同じ名前で上書きする
     public_id = "sns/" + hashlib.sha1(data).hexdigest()[:16]
@@ -268,13 +273,14 @@ def run_verify():
             print(f"❌ {name} {label}: {e}")
             ok = False
     try:
-        cloud = os.environ["CLOUDINARY_CLOUD_NAME"]
+        cloud = env("CLOUDINARY_CLOUD_NAME")
         res = requests.get(
             f"https://api.cloudinary.com/v1_1/{cloud}/ping",
-            auth=(os.environ["CLOUDINARY_API_KEY"], os.environ["CLOUDINARY_API_SECRET"]),
+            auth=(env("CLOUDINARY_API_KEY"), env("CLOUDINARY_API_SECRET")),
             timeout=30,
         )
-        res.raise_for_status()
+        if not res.ok:
+            raise RuntimeError(f"{res.status_code} {res.text}")
         print(f"✅ Cloudinary: {cloud}")
     except Exception as e:
         print(f"❌ Cloudinary: {e}")
