@@ -11,6 +11,10 @@ on:
         description: "今すぐ投稿する投稿ID（カンマ区切り。空なら時刻が来たものだけ）"
         required: false
         default: ""
+      prepare:
+        description: "インスタを公開せずに準備だけ試す投稿ID（カンマ区切り）"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -41,7 +45,13 @@ jobs:
           CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
           CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
           NOW_IDS: ${{ inputs.now }}
-        run: python post.py --now "$NOW_IDS"
+          PREPARE_IDS: ${{ inputs.prepare }}
+        run: |
+          if [ -n "$PREPARE_IDS" ]; then
+            python post.py --prepare "$PREPARE_IDS"
+          else
+            python post.py --now "$NOW_IDS"
+          fi
       - name: 投稿済みの記録を保存
         if: always()
         run: |

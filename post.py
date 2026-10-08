@@ -205,7 +205,10 @@ def upload_media(rel_path, kind):
 # ---------- Instagram ----------
 
 def api_call(method, url, **params):
-    res = requests.request(method, url, params=params, timeout=60)
+    if method == "POST":
+        res = requests.post(url, data=params, timeout=60)
+    else:
+        res = requests.request(method, url, params=params, timeout=60)
     if not res.ok:
         raise RuntimeError(f"{res.status_code} {res.text}")
     return res.json()
@@ -222,7 +225,8 @@ def wait_until_ready(url, token, field, tries=30):
     raise RuntimeError("メディアの準備がタイムアウトしました")
 
 
-def post_instagram(post):
+def post_instagram(post, publish=True):
+    """インスタに投稿する。publish=False なら公開せず、準備（コンテナ作成）まで確認する。"""
     token = get_token("IG", post["account"])
     if post.get("video"):
         # リール: 動画の処理に数分かかることがあるので長めに待つ
@@ -235,6 +239,8 @@ def post_instagram(post):
             params["cover_url"] = upload_image(post["cover"])
         container = api_call("POST", f"{IG_API}/me/media", **params)["id"]
         wait_until_ready(f"{IG_API}/{container}", token, "status_code", tries=60)
+        if not publish:
+            return f"prepared:{container}"
         return api_call(
             "POST", f"{IG_API}/me/media_publish",
             creation_id=container, access_token=token,
@@ -261,6 +267,8 @@ def post_instagram(post):
             caption=post["caption"], access_token=token,
         )["id"]
     wait_until_ready(f"{IG_API}/{container}", token, "status_code")
+    if not publish:
+        return f"prepared:{container}"
     return api_call(
         "POST", f"{IG_API}/me/media_publish",
         creation_id=container, access_token=token,
@@ -402,9 +410,21 @@ def main():
     parser.add_argument("--check", action="store_true")
     parser.add_argument("--verify", action="store_true")
     parser.add_argument("--due", action="store_true")
+    parser.add_argument("--prepare", default="", help="インスタの投稿IDを公開せずに準備だけ試す（カンマ区切り）")
     parser.add_argument("--now", default="", help="今すぐ投稿する投稿ID（カンマ区切り）")
     args = parser.parse_args()
 
+    if args.prepare:
+        ids = {i.strip() for i in args.prepare.split(",") if i.strip()}
+        ok = True
+        for post in load_posts():
+            if post["id"] in ids and post["platform"] == "instagram":
+                try:
+                    print(f"✅ {post['id']}: {post_instagram(post, publish=False)}（公開はしていません）")
+                except Exception as e:
+                    print(f"❌ {post['id']}: {e}")
+                    ok = False
+        sys.exit(0 if ok else 1)
     if args.due:
         now = dt.datetime.now(JST)
         posted = load_posted()
