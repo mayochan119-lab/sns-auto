@@ -229,12 +229,15 @@ def api_call(method, url, **params):
 
 
 def wait_until_ready(url, token, field, tries=30):
+    # インスタは status_code が状態、status に失敗の理由が入る。Threads は status と error_message
+    detail = "status" if field == "status_code" else "error_message"
     for _ in range(tries):
-        status = api_call("GET", url, fields=field, access_token=token).get(field)
+        res = api_call("GET", url, fields=f"{field},{detail}", access_token=token)
+        status = res.get(field)
         if status == "FINISHED":
             return
         if status in ("ERROR", "EXPIRED"):
-            raise RuntimeError(f"メディアの準備に失敗しました: {status}")
+            raise RuntimeError(f"メディアの準備に失敗しました: {status} {res.get(detail) or ''}".strip())
         time.sleep(10 if tries > 30 else 5)
     raise RuntimeError("メディアの準備がタイムアウトしました")
 
