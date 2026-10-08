@@ -16,9 +16,11 @@ import argparse
 import datetime as dt
 import hashlib
 import json
+import re
 import os
 import sys
 import time
+import unicodedata
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -36,7 +38,7 @@ def env(name):
     """環境変数を読む。貼り付けで入った前後の空白・改行は取り除く。"""
     return os.environ[name].strip()
 # 予定時刻からこれ以上遅れたら投稿しない（古い投稿が突然出ないように）
-MAX_DELAY = dt.timedelta(hours=6)
+MAX_DELAY = dt.timedelta(hours=3)
 
 IG_API = "https://graph.instagram.com/" + os.environ.get("IG_API_VERSION", "v23.0")
 TH_API = "https://graph.threads.net/v1.0"
@@ -117,6 +119,18 @@ def check_images(post, max_images):
     return errors
 
 
+def threads_length(text):
+    """Threads の文字数。絵文字（記号類）は UTF-8 のバイト数で数えられるので、多めに見積もる。"""
+    n = 0
+    for ch in text:
+        cat = unicodedata.category(ch)
+        if cat in ("So", "Sk", "Cf") or 0xFE00 <= ord(ch) <= 0xFE0F or ord(ch) >= 0x1F000:
+            n += len(ch.encode("utf-8"))
+        else:
+            n += 1
+    return n
+
+
 def check_post(post):
     """問題点のリストを返す（空なら OK）。"""
     errors = []
@@ -142,8 +156,8 @@ def check_post(post):
         text = post.get("text") or ""
         if not text.strip():
             errors.append("本文 (text) が空です")
-        if len(text) > THREADS_MAX_CHARS:
-            errors.append(f"本文が長すぎます ({len(text)}/{THREADS_MAX_CHARS}文字)")
+        if threads_length(text) > THREADS_MAX_CHARS:
+            errors.append(f"本文が長すぎます ({threads_length(text)}/{THREADS_MAX_CHARS}文字・絵文字は数文字分)")
         errors += check_images(post, THREADS_MAX_IMAGES)
     return errors
 
@@ -304,6 +318,36 @@ def post_threads(post):
     )["id"]
 
 
+# ---------- 二重投稿の防止 ----------
+
+def _fingerprint(text):
+    """比べるための本文の目印。Threads はハッシュタグを本文から消すので、タグと空白を除いて比べる。"""
+    text = re.sub(r"#\S+", "", text or "")
+    return re.sub(r"\s+", "", text)[:80]
+
+
+def already_published(post):
+    """直近の投稿に同じ本文があれば、その投稿IDを返す（前回の公開は成功したが記録できなかった場合）。"""
+    if post["platform"] == "instagram":
+        url, token, field = f"{IG_API}/me/media", get_token("IG", post["account"]), "caption"
+        body = post.get("caption")
+    else:
+        url, token, field = f"{TH_API}/me/threads", get_token("THREADS", post["account"]), "text"
+        body = post.get("text")
+    target = _fingerprint(body)
+    if not target:
+        return None
+    try:
+        recent = api_call("GET", url, fields=f"id,{field},timestamp", limit=10, access_token=token).get("data", [])
+    except Exception as e:  # 確認できなくても投稿は止めない
+        print(f"⚠️  {post['id']}: 直近の投稿を確認できませんでした: {e}")
+        return None
+    for item in recent:
+        if _fingerprint(item.get(field)) == target:
+            return item["id"]
+    return None
+
+
 # ---------- メイン ----------
 
 def summary(post):
@@ -313,6 +357,12 @@ def summary(post):
 
 def run_check(posts):
     problems = 0
+    seen = {}
+    for post in posts:
+        if post["id"] in seen:
+            print(f"❌ {post['id']}: {seen[post['id']]} と {post['file']} の両方にあります。どちらかを消してください")
+            problems += 1
+        seen[post["id"]] = post["file"]
     for post in posts:
         for err in check_post(post):
             print(f"❌ {post['file']} {post['id']}: {err}")
@@ -346,7 +396,8 @@ def run_post(posts, dry_run, now_ids=()):
         elif now_ids or post["due"] > now:
             continue
         elif now - post["due"] > MAX_DELAY:
-            print(f"⏭  {post['id']}: 予定時刻を{MAX_DELAY}以上過ぎたのでスキップ")
+            print(f"❌ {post['id']}: 予定時刻を{MAX_DELAY}以上過ぎたので出しませんでした（予定の組み直しが必要）")
+            failed = True
             continue
         errors = check_post(post)
         if errors:
@@ -357,7 +408,10 @@ def run_post(posts, dry_run, now_ids=()):
             print(f"[dry-run] {post['id']}: {summary(post)}")
             continue
         try:
-            if post["platform"] == "instagram":
+            media_id = already_published(post)
+            if media_id:
+                print(f"ℹ️  {post['id']}: すでに公開されていたので記録だけします")
+            elif post["platform"] == "instagram":
                 media_id = post_instagram(post)
             else:
                 media_id = post_threads(post)
