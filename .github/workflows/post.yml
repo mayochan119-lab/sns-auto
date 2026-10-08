@@ -23,7 +23,10 @@ jobs:
   post:
     runs-on: ubuntu-latest
     steps:
+      # 最新の main（posted.json を含む）を取る。古い状態だと二重投稿になるため
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"

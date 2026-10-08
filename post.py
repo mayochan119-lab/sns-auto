@@ -8,6 +8,7 @@ Instagram / Threads に投稿する。投稿済みのものは posted.json に�
   python post.py --dry-run # 投稿せずに、何が投稿されるかだけ表示
   python post.py --check   # 予定ファイルの書き方をチェック
   python post.py --verify  # 鍵（トークン）が使えるかを確認（投稿はしない）
+  python post.py --due     # 今出すべき投稿があれば終了コード0（なければ1）
   python post.py --now 2026-10-07_seiza_threads_morning  # 時刻を待たずに今すぐ投稿
 """
 
@@ -400,9 +401,18 @@ def main():
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--check", action="store_true")
     parser.add_argument("--verify", action="store_true")
+    parser.add_argument("--due", action="store_true")
     parser.add_argument("--now", default="", help="今すぐ投稿する投稿ID（カンマ区切り）")
     args = parser.parse_args()
 
+    if args.due:
+        now = dt.datetime.now(JST)
+        posted = load_posted()
+        due = [p for p in load_posts() if p.get("approved") and p["id"] not in posted
+               and p["due"] <= now and now - p["due"] <= MAX_DELAY]
+        for p in due:
+            print(p["id"])
+        sys.exit(0 if due else 1)
     if args.verify:
         sys.exit(0 if run_verify() else 1)
     posts = load_posts()
