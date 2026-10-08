@@ -31,3 +31,9 @@
 
 - `python dashboard.py` で `dashboard/index.html` を作り、Artifact https://claude.ai/artifact/Lbe1q2htQ5wpkTUbH6ynDg に公開し直す（同じURLを使う）
 - 予定を変えたとき・「ダッシュボード更新して」と言われたときに更新する。投稿済みの状態は `git pull` で posted.json を取ってから作る
+
+## 予約投稿の起動
+
+- GitHub の予約実行（cron）は遅れたり飛ばされたりして当てにならない。主な起動は cron-job.org のジョブ「インスタ・Threads投稿」（日本時間 7・20・21時の1分と20分に post.yml を workflow_dispatch）
+- 補助として、Mac の launchd（com.mochi.sns-auto.kick）が5分ごとに scripts/kick.sh を動かす。Mac がスリープ中は動かない
+- 投稿時刻を変えたら、accounts.yaml と cron-job.org の時刻の両方を変える
