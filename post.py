@@ -461,16 +461,48 @@ def run_verify():
     return ok
 
 
+def run_stats():
+    """最近の投稿の反応（いいね・コメント・表示回数など）を表示する。取れない項目は飛ばす。"""
+    for account_id, account in load_accounts().items():
+        print(f"== {account['name']}")
+        try:
+            items = api_call("GET", f"{IG_API}/me/media", fields="id,caption,media_type,timestamp,like_count,comments_count",
+                             limit=10, access_token=get_token("IG", account_id)).get("data", [])
+            for it in items:
+                line = (it.get("caption") or "").strip().splitlines()[0][:30] if it.get("caption") else ""
+                print(f"  IG {it['timestamp'][:16]} {it.get('media_type','')} いいね{it.get('like_count','?')} コメント{it.get('comments_count','?')} {line}")
+        except Exception as e:
+            print(f"  IG 取得できませんでした: {e}")
+        try:
+            token = get_token("THREADS", account_id)
+            items = api_call("GET", f"{TH_API}/me/threads", fields="id,text,timestamp", limit=10, access_token=token).get("data", [])
+            for it in items:
+                line = (it.get("text") or "").strip().splitlines()[0][:30]
+                try:
+                    ins = api_call("GET", f"{TH_API}/{it['id']}/insights", metric="views,likes,replies,reposts,shares", access_token=token).get("data", [])
+                    m = {d["name"]: d["values"][0]["value"] if d.get("values") else d.get("total_value", {}).get("value") for d in ins}
+                    stat = f"表示{m.get('views','?')} いいね{m.get('likes','?')} 返信{m.get('replies','?')}"
+                except Exception:
+                    stat = "（反応の数は権限がなく取得できません）"
+                print(f"  Threads {it['timestamp'][:16]} {stat} {line}")
+        except Exception as e:
+            print(f"  Threads 取得できませんでした: {e}")
+    return True
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--check", action="store_true")
     parser.add_argument("--verify", action="store_true")
     parser.add_argument("--due", action="store_true")
+    parser.add_argument("--stats", action="store_true")
     parser.add_argument("--prepare", default="", help="インスタの投稿IDを公開せずに準備だけ試す（カンマ区切り）")
     parser.add_argument("--now", default="", help="今すぐ投稿する投稿ID（カンマ区切り）")
     args = parser.parse_args()
 
+    if args.stats:
+        sys.exit(0 if run_stats() else 1)
     if args.prepare:
         ids = {i.strip() for i in args.prepare.split(",") if i.strip()}
         ok = True
