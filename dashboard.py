@@ -20,7 +20,7 @@ import post as P
 
 OUT = P.ROOT / "dashboard" / "index.html"
 HANDLES = {"seiza": "rei.seizauranai", "renai": "luna.loveuranai"}
-SLOT_LABELS = {"threads_morning": "Threads 朝", "instagram": "Instagram", "threads_night": "Threads 夜"}
+SLOT_LABELS = {"threads_morning": "Threads 朝", "threads_noon": "Threads 昼", "instagram": "Instagram", "threads_night": "Threads 夜"}
 TOKEN_EXPIRES = dt.date(2026, 12, 5)  # 2026-10-06 に作った鍵の期限（60日）
 
 _thumb_cache = {}
