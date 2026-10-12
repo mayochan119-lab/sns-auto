@@ -231,8 +231,16 @@ def api_call(method, url, **params):
 def wait_until_ready(url, token, field, tries=30):
     # インスタは status_code が状態、status に失敗の理由が入る。Threads は status と error_message
     detail = "status" if field == "status_code" else "error_message"
+    time.sleep(3)  # 作ったばかりのメディアは、すぐには見つからないことがある
     for _ in range(tries):
-        res = api_call("GET", url, fields=f"{field},{detail}", access_token=token)
+        try:
+            res = api_call("GET", url, fields=f"{field},{detail}", access_token=token)
+        except RuntimeError as e:
+            # 「メディアが見つからない」は作成直後によく起きる一時的なもの。少し待ってやり直す
+            if '"code":24' in str(e) or "Media Not Found" in str(e):
+                time.sleep(5)
+                continue
+            raise
         status = res.get(field)
         if status == "FINISHED":
             return
