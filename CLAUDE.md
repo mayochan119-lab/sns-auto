@@ -37,3 +37,11 @@
 - GitHub の予約実行（cron）は遅れたり飛ばされたりして当てにならない。主な起動は cron-job.org のジョブ「インスタ・Threads投稿」（日本時間 7・20・21時の1分と20分に post.yml を workflow_dispatch）
 - 補助として、Mac の launchd（com.mochi.sns-auto.kick）が5分ごとに scripts/kick.sh を動かす。Mac がスリープ中は動かない
 - 投稿時刻を変えたら、accounts.yaml と cron-job.org の時刻の両方を変える
+
+## Threads の書き方（2026-10 の調査から）
+
+- 1行目で指が止まる短い投稿にする。ほぼ全部を、一言で返せる質問で終える（何位だった？／どっち派？／いくつ当てはまった？／同じ人いる？）
+- ルナ：通知画像＋ひと言（`python make_notify.py images/notify/<日付>_renai_<枠>.jpg "メッセージ" --theme pastel|night|lavender|dusk` で作り、`image:` に指定）、2行の問いかけ、「これを見たあなたへ」系、あるある、本命チェック、直感3択、彼の本音3つ
+- レイ：参加型ランキング（最後に「何位だった？」）、星座別あるある、実は〇〇な星座TOP3、4グループ、二択。**レイには通知画像の投稿は使わない**
+- 「受け取ります」とコメントして、のような単語指定の呼びかけ、断定・不安をあおる表現は使わない
+- 下書きは `python make_review.py schedule/xx.yaml review/xx.html` で確認ページにして見せる
