@@ -2,7 +2,7 @@
 
   python make_notify.py images/notify/kita.jpg "久しぶり。ずっと連絡できなくてごめん。" --theme pastel
 
-LINE のロゴ（商標）は使わず、緑の吹き出しマークにしている。
+LINE の通知に見えるよう、アイコンは LINE 風にしている（商標のリスクは本人に説明済み）。
 送り主の名前はモザイクにして、誰からでも「あの人」に見えるようにする。
 """
 
@@ -50,27 +50,32 @@ def background(colors, seed):
 
 
 def avatar(size):
-    """水色の丸に人のシルエット。右下に緑の吹き出しマーク（ロゴではない）。"""
+    """水色の丸に、白く塗った人のシルエット（LINEの初期アイコン風）。"""
     av = Image.new("RGBA", (size, size), (0, 0, 0, 0))
     d = ImageDraw.Draw(av)
-    d.ellipse((0, 0, size, size), fill=(214, 236, 244, 255))
-    c = (150, 190, 205, 255)
-    w = size // 22
-    d.ellipse((size * 0.36, size * 0.24, size * 0.64, size * 0.52), outline=c, width=w)
-    d.arc((size * 0.24, size * 0.50, size * 0.76, size * 0.98), 180, 360, fill=c, width=w)
-    d.line((size * 0.24, size * 0.74, size * 0.76, size * 0.74), fill=c, width=w)
-    return av
+    d.ellipse((0, 0, size, size), fill=(190, 222, 238, 255))
+    w = (255, 255, 255, 255)
+    d.ellipse((size * 0.36, size * 0.22, size * 0.64, size * 0.50), fill=w)
+    d.pieslice((size * 0.20, size * 0.56, size * 0.80, size * 1.16), 180, 360, fill=w)
+    mask = Image.new("L", (size, size), 0)
+    ImageDraw.Draw(mask).ellipse((0, 0, size, size), fill=255)
+    out = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    out.paste(av, (0, 0), mask)
+    return out
 
 
 def badge(size):
+    """緑の角丸の四角に、白い吹き出しと「LINE」の文字（LINEのアプリアイコン風）。"""
     b = Image.new("RGBA", (size, size), (0, 0, 0, 0))
     d = ImageDraw.Draw(b)
-    d.rounded_rectangle((0, 0, size, size), radius=size // 4, fill=(6, 199, 85, 255), outline=(255, 255, 255, 255), width=size // 14)
-    # 白い吹き出し
-    bw, bh = size * 0.62, size * 0.42
-    x0, y0 = (size - bw) / 2, size * 0.24
+    d.rounded_rectangle((0, 0, size, size), radius=int(size * 0.24), fill=(6, 199, 85, 255), outline=(255, 255, 255, 255), width=max(2, size // 16))
+    bw, bh = size * 0.74, size * 0.56
+    x0, y0 = (size - bw) / 2, size * 0.17
     d.ellipse((x0, y0, x0 + bw, y0 + bh), fill=(255, 255, 255, 255))
-    d.polygon([(x0 + bw * 0.28, y0 + bh * 0.8), (x0 + bw * 0.22, y0 + bh * 1.25), (x0 + bw * 0.5, y0 + bh * 0.9)], fill=(255, 255, 255, 255))
+    d.polygon([(x0 + bw * 0.62, y0 + bh * 0.86), (x0 + bw * 0.50, y0 + bh * 1.22), (x0 + bw * 0.80, y0 + bh * 0.80)], fill=(255, 255, 255, 255))
+    f = ImageFont.truetype(FONT_BOLD, int(size * 0.20))
+    tw = f.getlength("LINE")
+    d.text(((size - tw) / 2, y0 + bh * 0.27), "LINE", font=f, fill=(6, 199, 85, 255))
     return b
 
 
@@ -100,7 +105,7 @@ def make(out, text, theme="pastel", seed=1, time_label="今"):
     av_size = 150 * SCALE
     ax, ay = pad + 36 * SCALE, (H * SCALE - av_size) // 2
     img.alpha_composite(avatar(av_size), (ax, ay))
-    bsize = 56 * SCALE
+    bsize = 62 * SCALE
     img.alpha_composite(badge(bsize), (ax + av_size - bsize + 8 * SCALE, ay + av_size - bsize + 8 * SCALE))
 
     tx = ax + av_size + 42 * SCALE
