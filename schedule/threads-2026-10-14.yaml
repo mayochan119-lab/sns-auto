@@ -24,7 +24,7 @@
 
         あなたの星座は何位だった？
         #星座占い
-      approved: false
+      approved: true
     threads_noon:  # R6
       text: |
         今日始めたことは、万倍になって返ってくる。
@@ -42,13 +42,26 @@
         あなたはどれにする？
         #星座占い
       approved: false
-    threads_night:  # N1
-      image: images/notify/2026-10-14_seiza_threads_night.jpg
+    threads_night:  # R2
       text: |
-        もう来ないと思っている、その連絡。
-        11/14までに、届くかもしれません。
+        🌙星座別｜好きな人にだけ見せる顔
+
+        おひつじ座｜急に口数が少なくなる
+        おうし座　｜好きな食べ物を分けてあげる
+        ふたご座　｜LINEだけ妙に長文になる
+        かに座　　｜相手の体調を本人より気にする
+        しし座　　｜いつもより声が大きくなる
+        おとめ座　｜送る前に5回読み直す
+        てんびん座｜「どっちでもいいよ」が増える
+        さそり座　｜相手のSNSは全部チェック済み
+        いて座　　｜好きすぎて逆にそっけない
+        やぎ座　　｜予定合わせの返事だけ異様に早い
+        みずがめ座｜友達ポジションを守りがち
+        うお座　　｜頭の中ではもう付き合ってる
+
+        当たってた？
         #星座占い
-      approved: false
+      approved: true
   renai:
     threads_morning:  # N3
       text: |
@@ -61,7 +74,7 @@
 
         待ってる人、いる？
         #恋愛占い
-      approved: false
+      approved: true
     threads_noon:  # L6
       text: |
         見ないって決めたのに、
@@ -85,7 +98,7 @@
 
         来たら、すぐ返す？
         #恋愛占い
-      approved: false
+      approved: true
 
 - date: 2026-10-15
   seiza:
@@ -110,7 +123,7 @@
 
         あなたの星座は何位だった？
         #星座占い
-      approved: false
+      approved: true
     threads_noon:  # R5
       text: |
         LINEの返信、
@@ -152,7 +165,7 @@
 
         あなたの星座、入ってた？
         #星座占い
-      approved: false
+      approved: true
   renai:
     threads_morning:  # L3
       text: |
@@ -167,7 +180,7 @@
 
         返事待ち、今日で何日目？
         #恋愛占い
-      approved: false
+      approved: true
     threads_noon:  # L5
       text: |
         あの人の今の気持ち、
@@ -190,7 +203,7 @@
         忘れたはずなのに、
         今でも夢に出てくる人、いますか？
         #恋愛占い
-      approved: false
+      approved: true
 
 - date: 2026-10-16
   seiza:
@@ -215,7 +228,7 @@
 
         あなたの星座は何位だった？
         #星座占い
-      approved: false
+      approved: true
     threads_noon:  # N2
       text: |
         タイミングさえ違えば、
@@ -241,7 +254,7 @@
 
         同じ人いる？
         #星座占い
-      approved: false
+      approved: true
   renai:
     threads_morning:  # L1
       text: |
@@ -256,7 +269,7 @@
 
         あなたも、まだ好き？
         #恋愛占い
-      approved: false
+      approved: true
     threads_noon:  # L2
       text: |
         連絡してこない彼の本音、3つ。
@@ -286,7 +299,7 @@
 
         いくつ当てはまった？
         #恋愛占い
-      approved: false
+      approved: true
 
 - date: 2026-10-17
   seiza:
@@ -311,7 +324,7 @@
 
         あなたの星座は何位だった？
         #星座占い
-      approved: false
+      approved: true
     threads_noon:  # R4
       text: |
         来週から、W逆行が始まります。
@@ -338,13 +351,22 @@
         あなたは何座？
         #星座占い
       approved: false
-    threads_night:  # N1
-      image: images/notify/2026-10-17_seiza_threads_night.jpg
+    threads_night:  # R3
       text: |
-        謝りたいのは、
-        あなただけじゃないかもしれません。
+        🌙実は、いちばんヤキモチ焼きな星座TOP3
+
+        ①さそり座
+        平気な顔で、全部覚えてる。
+
+        ②おうし座
+        「大事なもの」を取られるのが本当に苦手。
+
+        ③しし座
+        自分がいちばんじゃないと、静かにすねる。
+
+        あなたの星座、入ってた？
         #星座占い
-      approved: false
+      approved: true
   renai:
     threads_morning:  # L7
       text: |
@@ -359,7 +381,7 @@
 
         あなたが待ってるのは、元彼？片想いの人？
         #恋愛占い
-      approved: false
+      approved: true
     threads_noon:  # N2
       text: |
         あの人とのトーク、
@@ -374,7 +396,7 @@
 
         待ってる人、いる？
         #恋愛占い
-      approved: false
+      approved: true
 
 - date: 2026-10-18
   seiza:
@@ -399,12 +421,21 @@
 
         あなたは何位だった？数字だけでも教えてね
         #星座占い
-      approved: false
-    threads_noon:  # N1
-      image: images/notify/2026-10-18_seiza_threads_noon.jpg
+      approved: true
+    threads_noon:  # R5
       text: |
-        もう終わったと思っているのは、
-        あなただけかもしれません。
+        好きな人には
+        自分から連絡する派？
+        来るまで待つ派？
+
+        🔥火の星座（おひつじ座・しし座・いて座）
+        待つほうがストレス。つい送っちゃう
+
+        💧水の星座（かに座・さそり座・うお座）
+        相手の様子を見てから、そっと動く
+
+        あなたはどっち？
+        #星座占い
       approved: false
     threads_night:  # R4
       text: |
@@ -425,14 +456,14 @@
 
         いちばん刺さったのは🔥🌱🌬💧どれ？
         #星座占い
-      approved: false
+      approved: true
   renai:
     threads_morning:  # N1
       image: images/notify/2026-10-18_renai_threads_morning.jpg
       text: |
         待つのをやめようと決めた日に限って、
         届くんですよね。こういうの。
-      approved: false
+      approved: true
     threads_noon:  # L6
       text: |
         返事を待ってるあいだ、
@@ -463,7 +494,7 @@
         いくつ当てはまった？
 
         #恋愛占い
-      approved: false
+      approved: true
 
 - date: 2026-10-19
   seiza:
@@ -488,7 +519,7 @@
 
         何位だった？数字ひとつで教えてね
         #星座占い
-      approved: false
+      approved: true
     threads_noon:  # R3
       text: |
         実は、元恋人をいちばん忘れられない星座TOP3
@@ -513,13 +544,13 @@
         連絡しないと決めたのに、
         トークだけは消せなかったこと、
         ありますか？
-      approved: false
+      approved: true
   renai:
     threads_morning:  # N2
       text: |
         自分から終わらせたのに、
         まだ忘れられない人、いますか？
-      approved: false
+      approved: true
     threads_noon:  # L5
       text: |
         あの人に一言だけ送れるなら、
@@ -548,7 +579,7 @@
       text: |
         眠れない夜に思い出すあの人も、
         今夜、あなたのことを考えてるかもしれません。
-      approved: false
+      approved: true
 
 - date: 2026-10-20
   seiza:
@@ -574,13 +605,22 @@
 
         あなたの順位、数字だけでいいので教えてね
         #星座占い
-      approved: false
-    threads_noon:  # N1
-      image: images/notify/2026-10-20_seiza_threads_noon.jpg
+      approved: true
+    threads_noon:  # R3
       text: |
-        既読のまま止まった、あのトーク。
-        水星逆行が始まる24日から、
-        また動き出しますよ。
+        実は、いちばん一途な星座TOP3
+
+        ①やぎ座
+        一度決めた人とは、何年でも向き合う。
+
+        ②かに座
+        好きになったら、その人が帰る場所になりたい。
+
+        ③みずがめ座
+        意外かもしれないけど、浮気はいちばんしないタイプ。
+
+        あなたの星座、入ってた？
+        #星座占い
       approved: false
     threads_night:  # R6
       text: |
@@ -600,7 +640,7 @@
 
         この3週間で取り戻したいのは、恋？仕事？
         #星座占い
-      approved: false
+      approved: true
   renai:
     threads_morning:  # L7
       text: |
@@ -621,7 +661,7 @@
         戻ってきてほしい人、いる？
 
         #恋愛占い
-      approved: false
+      approved: true
     threads_noon:  # L2
       text: |
         既読のまま止まってる彼。
@@ -648,4 +688,4 @@
         止まっていた恋が動きだします🌙
 
         いま、連絡を待ってる人いる？
-      approved: false
+      approved: true
