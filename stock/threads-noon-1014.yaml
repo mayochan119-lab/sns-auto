@@ -1,0 +1,86 @@
+# 昼の枠をやめたので、使わなかった昼の下書き（あとで朝・夜に回せる）
+
+# 2026-10-14 seiza
+    threads_noon:  # R6
+      text: |
+        今日始めたことは、万倍になって返ってくる。
+        10/14は一粒万倍日です。
+
+# 2026-10-14 renai
+    threads_noon:  # L6
+      text: |
+        見ないって決めたのに、
+        あの人のストーリーだけは開いちゃう。
+
+# 2026-10-15 seiza
+    threads_noon:  # R5
+      text: |
+        LINEの返信、
+        すぐ返す派？ 寝かせる派？
+
+# 2026-10-15 renai
+    threads_noon:  # L5
+      text: |
+        あの人の今の気持ち、
+        直感で1つ選んで🌙
+
+# 2026-10-16 seiza
+    threads_noon:  # N2
+      text: |
+        タイミングさえ違えば、
+        続いていたと思う恋、ありますか？
+        #星座占い
+      approved: false
+
+# 2026-10-16 renai
+    threads_noon:  # L2
+      text: |
+        連絡してこない彼の本音、3つ。
+
+# 2026-10-17 seiza
+    threads_noon:  # R4
+      text: |
+        来週から、W逆行が始まります。
+
+# 2026-10-17 renai
+    threads_noon:  # N2
+      text: |
+        あの人とのトーク、
+        まだ消せずに残してる人、いますか？
+        #恋愛占い
+      approved: false
+
+# 2026-10-18 seiza
+    threads_noon:  # R5
+      text: |
+        好きな人には
+        自分から連絡する派？
+        来るまで待つ派？
+
+# 2026-10-18 renai
+    threads_noon:  # L6
+      text: |
+        返事を待ってるあいだ、
+        用もないのにトーク画面を開いちゃう。
+
+# 2026-10-19 seiza
+    threads_noon:  # R3
+      text: |
+        実は、元恋人をいちばん忘れられない星座TOP3
+
+# 2026-10-19 renai
+    threads_noon:  # L5
+      text: |
+        あの人に一言だけ送れるなら、
+        どれを選ぶ？
+
+# 2026-10-20 seiza
+    threads_noon:  # R3
+      text: |
+        実は、いちばん一途な星座TOP3
+
+# 2026-10-20 renai
+    threads_noon:  # L2
+      text: |
+        既読のまま止まってる彼。
+        本音はだいたい、この3つ。
