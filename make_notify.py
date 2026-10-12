@@ -35,6 +35,7 @@ def find_font(names):
 
 FONT_BOLD = find_font(["YuGothic-Bold.otf"])
 FONT_MED = find_font(["YuGothic-Medium.otf"])
+FONT_LATIN = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
 
 
 def background(colors, seed):
@@ -65,18 +66,24 @@ def avatar(size):
 
 
 def badge(size):
-    """緑の角丸の四角に、白い吹き出しと「LINE」の文字（LINEのアプリアイコン風）。"""
-    b = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    """LINEのアプリアイコンと同じ形：緑の角丸の四角に、白い吹き出しと緑の「LINE」。白いふちはなし。"""
+    k = 4  # 大きく描いてから縮めて、ふちをなめらかにする
+    S = size * k
+    b = Image.new("RGBA", (S, S), (0, 0, 0, 0))
     d = ImageDraw.Draw(b)
-    d.rounded_rectangle((0, 0, size, size), radius=int(size * 0.24), fill=(6, 199, 85, 255), outline=(255, 255, 255, 255), width=max(2, size // 16))
-    bw, bh = size * 0.74, size * 0.56
-    x0, y0 = (size - bw) / 2, size * 0.17
-    d.ellipse((x0, y0, x0 + bw, y0 + bh), fill=(255, 255, 255, 255))
-    d.polygon([(x0 + bw * 0.62, y0 + bh * 0.86), (x0 + bw * 0.50, y0 + bh * 1.22), (x0 + bw * 0.80, y0 + bh * 0.80)], fill=(255, 255, 255, 255))
-    f = ImageFont.truetype(FONT_BOLD, int(size * 0.20))
+    d.rounded_rectangle((0, 0, S, S), radius=int(S * 0.225), fill=(6, 199, 85, 255))
+    # 吹き出し：横長の楕円と、左下の小さなしっぽ
+    bw, bh = S * 0.80, S * 0.62
+    x0, y0 = (S - bw) / 2, S * 0.155
+    white = (255, 255, 255, 255)
+    d.ellipse((x0, y0, x0 + bw, y0 + bh), fill=white)
+    d.polygon([(x0 + bw * 0.30, y0 + bh * 0.86), (x0 + bw * 0.27, y0 + bh * 1.13), (x0 + bw * 0.50, y0 + bh * 0.95)], fill=white)
+    f = ImageFont.truetype(FONT_LATIN, int(S * 0.235))
     tw = f.getlength("LINE")
-    d.text(((size - tw) / 2, y0 + bh * 0.27), "LINE", font=f, fill=(6, 199, 85, 255))
-    return b
+    bbox = f.getbbox("LINE")
+    th = bbox[3] - bbox[1]
+    d.text(((S - tw) / 2, y0 + (bh - th) / 2 - bbox[1]), "LINE", font=f, fill=(6, 199, 85, 255))
+    return b.resize((size, size), Image.LANCZOS)
 
 
 def mosaic_name(draw_img, x, y, color, seed):
