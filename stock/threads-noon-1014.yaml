@@ -17,7 +17,6 @@
 
         どれかひとつで十分。
         あなたはどれにする？
-        #星座占い
       approved: false
   renai:
     threads_noon:  # L6
@@ -32,7 +31,6 @@
         それだけ好きってことだよ💜
 
         同じ人いる？
-        #恋愛占い
       approved: false
 
 - date: 2026-10-15
@@ -55,7 +53,6 @@
         みずがめ座
 
         当たってた？
-        #星座占い
       approved: false
   renai:
     threads_noon:  # L5
@@ -73,7 +70,6 @@
         3. 気持ちを整理中。追わないほど近づくよ
 
         何番だった？
-        #恋愛占い
       approved: false
 
 - date: 2026-10-16
@@ -82,7 +78,6 @@
       text: |
         タイミングさえ違えば、
         続いていたと思う恋、ありますか？
-        #星座占い
       approved: false
   renai:
     threads_noon:  # L2
@@ -96,7 +91,6 @@
         どれも「冷めた」わけじゃないよ🌙
 
         あなたの彼は何番っぽい？
-        #恋愛占い
       approved: false
 
 - date: 2026-10-17
@@ -125,14 +119,12 @@
         過去の縁が動いても、まずは深呼吸
 
         あなたは何座？
-        #星座占い
       approved: false
   renai:
     threads_noon:  # N2
       text: |
         あの人とのトーク、
         まだ消せずに残してる人、いますか？
-        #恋愛占い
       approved: false
 
 - date: 2026-10-18
@@ -150,7 +142,6 @@
         相手の様子を見てから、そっと動く
 
         あなたはどっち？
-        #星座占い
       approved: false
   renai:
     threads_noon:  # L6
@@ -165,8 +156,6 @@
         ぜんぜん違う人。
 
         …これ、私だけじゃないよね？🌙
-
-        #恋愛占い
       approved: false
 
 - date: 2026-10-19
@@ -188,7 +177,6 @@
         金星逆行中のいまは、なおさら。
 
         あなたの星座、入ってた？
-        #星座占い
       approved: false
   renai:
     threads_noon:  # L5
@@ -211,8 +199,6 @@
         → 待てる強さがある人。今は自分を満たすことが、いちばんの近道。
 
         あなたは何番？✨
-
-        #恋愛占い
       approved: false
 
 - date: 2026-10-20
@@ -231,7 +217,6 @@
         意外かもしれないけど、浮気はいちばんしないタイプ。
 
         あなたの星座、入ってた？
-        #星座占い
       approved: false
   renai:
     threads_noon:  # L2
@@ -250,6 +235,4 @@
         追いかけるより、待つほうが届くこともあるよ。
 
         あなたの彼は何番っぽい？
-
-        #恋愛占い
       approved: false
