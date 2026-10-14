@@ -87,6 +87,8 @@
         ⑫ふたご座　｜言葉より、うなずきを大事に
 
         あなたの星座は何位だった？
+
+        #星座占い
       approved: true
     threads_night:  # R3
       text: |
@@ -108,6 +110,8 @@
         「大丈夫？」のひとことに救われるんだよね。
 
         あなたの星座、入ってた？
+
+        #星座占い
       approved: true
   renai:
     threads_morning:  # L3
@@ -122,11 +126,15 @@
         焦って追わなくて大丈夫✨
 
         返事待ち、今日で何日目？
+
+        #片思い
       approved: true
     threads_night:  # N2
       text: |
         忘れたはずなのに、
         今でも夢に出てくる人、いますか？
+
+        #復縁
       approved: true
 
 - date: 2026-10-16
@@ -151,6 +159,8 @@
         ⑫おとめ座　｜今日は「できた」を数えてね
 
         あなたの星座は何位だった？
+
+        #星座占い
       approved: true
     threads_night:  # R2
       text: |
@@ -170,6 +180,8 @@
         うお座　　｜妄想の物語が完結しない
 
         同じ人いる？
+
+        #星座占い
       approved: true
   renai:
     threads_morning:  # L1
@@ -184,6 +196,8 @@
         それだけで尊いよ💜
 
         あなたも、まだ好き？
+
+        #片思い
       approved: true
     threads_night:  # L4
       text: |
@@ -200,6 +214,8 @@
         3つ以上なら、あなたは本命かも。
 
         いくつ当てはまった？
+
+        #片思い
       approved: true
 
 - date: 2026-10-17
@@ -224,6 +240,8 @@
         ⑫やぎ座　　｜今日だけは仕事を忘れてね
 
         あなたの星座は何位だった？
+
+        #星座占い
       approved: true
     threads_night:  # R3
       text: |
@@ -239,6 +257,8 @@
         自分がいちばんじゃないと、静かにすねる。
 
         あなたの星座、入ってた？
+
+        #星座占い
       approved: true
   renai:
     threads_morning:  # L7
@@ -253,6 +273,8 @@
         思いがけない再会が起きやすい時期🌙
 
         あなたが待ってるのは、元彼？片想いの人？
+
+        #復縁
       approved: true
     threads_night:  # N1
       image: images/notify/2026-10-17_renai_threads_night.jpg
@@ -261,6 +283,8 @@
         この通知、もうすぐ届くよ🌙
 
         待ってる人、いる？
+
+        #恋愛占い
       approved: true
 
 - date: 2026-10-18
@@ -285,6 +309,8 @@
         ⑫さそり座　｜答えを急がなくていい日
 
         あなたは何位だった？数字だけでも教えてね
+
+        #星座占い
       approved: true
     threads_night:  # R4
       text: |
@@ -304,6 +330,8 @@
         言えなかった気持ちは、紙に書いてから眠って。
 
         いちばん刺さったのは🔥🌱🌬💧どれ？
+
+        #星座占い
       approved: true
   renai:
     threads_morning:  # N1
@@ -311,6 +339,8 @@
       text: |
         待つのをやめようと決めた日に限って、
         届くんですよね。こういうの。
+
+        #片思い
       approved: true
     threads_night:  # L4
       text: |
@@ -325,6 +355,8 @@
         □ 人前だと、なぜかちょっとそっけない
 
         いくつ当てはまった？
+
+        #脈あり
       approved: true
 
 - date: 2026-10-19
@@ -349,24 +381,32 @@
         ⑫おうし座　｜エンジンはゆっくりかけて
 
         何位だった？数字ひとつで教えてね
+
+        #星座占い
       approved: true
     threads_night:  # N2
       text: |
         連絡しないと決めたのに、
         トークだけは消せなかったこと、
         ありますか？
+
+        #星座占い
       approved: true
   renai:
     threads_morning:  # N2
       text: |
         自分から終わらせたのに、
         まだ忘れられない人、いますか？
+
+        #復縁
       approved: true
     threads_night:  # N1
       image: images/notify/2026-10-19_renai_threads_night.jpg
       text: |
         眠れない夜に思い出すあの人も、
         今夜、あなたのことを考えてるかもしれません。
+
+        #恋愛占い
       approved: true
 
 - date: 2026-10-20
@@ -392,6 +432,8 @@
         ⑫いて座　　｜ひとり時間で心を充電
 
         あなたの順位、数字だけでいいので教えてね
+
+        #星座占い
       approved: true
     threads_night:  # R6
       text: |
@@ -410,6 +452,8 @@
         じっくり占ってほしい人は、DMで「鑑定希望」と送ってね。
 
         この3週間で取り戻したいのは、恋？仕事？
+
+        #星座占い
       approved: true
   renai:
     threads_morning:  # L7
@@ -429,6 +473,8 @@
         本当に戻りたいのか、ゆっくり確かめてね🌙
 
         戻ってきてほしい人、いる？
+
+        #復縁
       approved: true
     threads_night:  # N3
       text: |
@@ -437,4 +483,6 @@
         止まっていた恋が動きだします🌙
 
         いま、連絡を待ってる人いる？
+
+        #恋愛占い
       approved: true
