@@ -25,7 +25,13 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          new=$(curl -fsS "${{ matrix.url }}&access_token=$TOKEN" | jq -r .access_token)
+          # 貼り付けで入った空白・改行を取り除いてから送る
+          TOKEN=$(printf %s "$TOKEN" | tr -d '[:space:]')
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "GH_PAT（金庫に入れる鍵）が設定されていないので、更新できません"
+            exit 1
+          fi
+          new=$(curl -fsS -G "${{ matrix.url }}" --data-urlencode "access_token=$TOKEN" | jq -r .access_token)
           # 取得に失敗したら、今の鍵を消さずに止める
           if [ -z "$new" ] || [ "$new" = "null" ]; then
             echo "鍵の更新に失敗しました（今の鍵はそのまま残しています）"
