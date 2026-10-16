@@ -474,6 +474,17 @@ def run_stats():
     for account_id, account in load_accounts().items():
         print(f"== {account['name']}")
         try:
+            me = api_call("GET", f"{IG_API}/me", fields="username,followers_count,media_count", access_token=get_token("IG", account_id))
+            print(f"  IGフォロワー {me.get('followers_count','?')} 投稿数 {me.get('media_count','?')}")
+        except Exception as e:
+            print(f"  IGフォロワー 取得できませんでした: {e}")
+        try:
+            ins = api_call("GET", f"{TH_API}/me/threads_insights", metric="followers_count", access_token=get_token("THREADS", account_id)).get("data", [])
+            fc = next((d.get("total_value", {}).get("value") for d in ins if d.get("name") == "followers_count"), "?")
+            print(f"  Threadsフォロワー {fc}")
+        except Exception as e:
+            print(f"  Threadsフォロワー 取得できませんでした: {e}")
+        try:
             items = api_call("GET", f"{IG_API}/me/media", fields="id,caption,media_type,timestamp,like_count,comments_count",
                              limit=10, access_token=get_token("IG", account_id)).get("data", [])
             for it in items:
@@ -483,7 +494,7 @@ def run_stats():
             print(f"  IG 取得できませんでした: {e}")
         try:
             token = get_token("THREADS", account_id)
-            items = api_call("GET", f"{TH_API}/me/threads", fields="id,text,timestamp", limit=10, access_token=token).get("data", [])
+            items = api_call("GET", f"{TH_API}/me/threads", fields="id,text,timestamp,topic_tag", limit=25, access_token=token).get("data", [])
             for it in items:
                 line = (it.get("text") or "").strip().splitlines()[0][:30]
                 try:
@@ -492,7 +503,7 @@ def run_stats():
                     stat = f"表示{m.get('views','?')} いいね{m.get('likes','?')} 返信{m.get('replies','?')}"
                 except Exception:
                     stat = "（反応の数は権限がなく取得できません）"
-                print(f"  Threads {it['timestamp'][:16]} {stat} {line}")
+                print(f"  Threads {it['timestamp'][:16]} {stat} [{it.get('topic_tag') or '-'}] {line}")
         except Exception as e:
             print(f"  Threads 取得できませんでした: {e}")
     return True
