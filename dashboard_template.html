@@ -217,7 +217,7 @@ function renderSummary() {
   }
   const days = Math.ceil((new Date(DATA.tokenExpires + "T00:00:00+09:00") - now) / 86400000);
   document.getElementById("tokenDays").textContent = `${days}日`;
-  document.getElementById("tokenDate").textContent = `${DATA.tokenExpires.slice(5).replace("-", "/")} ごろ。自動延長は未設定`;
+  document.getElementById("tokenDate").textContent = `${DATA.tokenExpires.slice(5).replace("-", "/")} ごろ。毎月1日・15日に自動で延長`;
   if (days <= 30) document.getElementById("tokenBox").classList.add("warn");
   document.getElementById("gen").textContent = DATA.generatedAt.slice(0, 16).replace("T", " ");
 }
