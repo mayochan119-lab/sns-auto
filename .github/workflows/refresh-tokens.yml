@@ -30,6 +30,8 @@ jobs:
           # GH_PAT も、空白・改行や先頭の「Bearer」が入っていたら取り除く
           GH_TOKEN=$(printf %s "${GH_TOKEN:-}" | sed 's/^[[:space:]]*[Bb]earer[[:space:]]*//' | tr -d '[:space:]')
           export GH_TOKEN
+          # 中身は出さずに、形だけ確認する（本物の鍵は github_pat_ で始まる90文字くらい）
+          echo "GH_PAT: ${#GH_TOKEN}文字 / 先頭が github_pat_: $([ "${GH_TOKEN#github_pat_}" != "$GH_TOKEN" ] && echo はい || echo いいえ)"
           if [ -z "${GH_TOKEN:-}" ]; then
             echo "GH_PAT（金庫に入れる鍵）が設定されていないので、更新できません"
             exit 1
