@@ -27,6 +27,9 @@ jobs:
           set -euo pipefail
           # 貼り付けで入った空白・改行を取り除いてから送る
           TOKEN=$(printf %s "$TOKEN" | tr -d '[:space:]')
+          # GH_PAT も、空白・改行や先頭の「Bearer」が入っていたら取り除く
+          GH_TOKEN=$(printf %s "${GH_TOKEN:-}" | sed 's/^[[:space:]]*[Bb]earer[[:space:]]*//' | tr -d '[:space:]')
+          export GH_TOKEN
           if [ -z "${GH_TOKEN:-}" ]; then
             echo "GH_PAT（金庫に入れる鍵）が設定されていないので、更新できません"
             exit 1
