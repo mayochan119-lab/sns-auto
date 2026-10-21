@@ -509,6 +509,28 @@ def run_stats():
     return True
 
 
+def run_remaining(min_days=4):
+    """アカウント・SNSごとに、承認済みの予定があと何日分あるかを表示する。少なければ失敗にしてメールで知らせる。"""
+    now = dt.datetime.now(JST)
+    ok = True
+    last = {}
+    for p in load_posts():
+        if p.get("approved"):
+            k = (p["account"], p["platform"])
+            last[k] = max(last.get(k, now), p["due"])
+    names = {k: v["name"] for k, v in load_accounts().items()}
+    for acc in load_accounts():
+        for platform in ("threads", "instagram"):
+            end = last.get((acc, platform))
+            days = (end - now).days if end else -1
+            mark = "✅" if days >= min_days else "❌"
+            ok &= days >= min_days
+            print(f"{mark} {names[acc]} {platform}: 予定は {end.strftime('%m/%d') if end else 'なし'} まで（あと{max(days, 0)}日）")
+    if not ok:
+        print(f"予定が残り{min_days}日を切っています。Claudeに「次の分を作って」と頼んでください。")
+    return ok
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
@@ -516,10 +538,13 @@ def main():
     parser.add_argument("--verify", action="store_true")
     parser.add_argument("--due", action="store_true")
     parser.add_argument("--stats", action="store_true")
+    parser.add_argument("--remaining", action="store_true")
     parser.add_argument("--prepare", default="", help="インスタの投稿IDを公開せずに準備だけ試す（カンマ区切り）")
     parser.add_argument("--now", default="", help="今すぐ投稿する投稿ID（カンマ区切り）")
     args = parser.parse_args()
 
+    if args.remaining:
+        sys.exit(0 if run_remaining() else 1)
     if args.stats:
         sys.exit(0 if run_stats() else 1)
     if args.prepare:
