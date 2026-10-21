@@ -1,0 +1,74 @@
+# レイ：W逆行（金星＋水星）エレメント別  python make_carousel.py stock/carousel-samples/rei_W逆行.yaml
+theme: rei
+seed: 3
+slides:
+  - type: cover
+    eyebrow: "12星座"
+    title: "W逆行中に\n起こりやすいこと"
+    subtitle: "エレメント別"
+    art: wheel
+    art_size: 340
+    note: "あとで見返せるように保存してね"
+
+  - type: text
+    eyebrow: "W逆行ってなに？"
+    heading: "愛の金星と、言葉の水星が\nそろって逆行する期間"
+    body: "金星は10/3から逆行中。\n10/24 16:13からは水星も逆行し、\n11/14にそろって順行に戻ります。\n\n逆行はこわいものではなく\n**立ち止まって見直す時期**。\nあせらず、ゆっくりで大丈夫です。"
+
+  - type: text
+    icon: fire
+    eyebrow: "火のエレメント"
+    heading_size: 56
+    heading: "おひつじ座・しし座・いて座"
+    sections:
+      - label: "起こりやすいこと"
+        text: "勢いで送ったメッセージを\nあとで読み返して焦る\n予定の急な変更にモヤっとしやすい"
+      - label: "おすすめの過ごし方"
+        text: "大事な連絡は**ひと晩寝かせて**から\n体を動かして気持ちをリセット"
+
+  - type: text
+    icon: earth
+    eyebrow: "地のエレメント"
+    heading_size: 56
+    heading: "おうし座・おとめ座・やぎ座"
+    sections:
+      - label: "起こりやすいこと"
+        text: "買い物や契約で\n「やっぱり違ったかも」が起きやすい\n昔好きだったものが恋しくなる"
+      - label: "おすすめの過ごし方"
+        text: "大きな買い物は**11/14以降**に\n手持ちのものを整える時間にしてみて"
+
+  - type: text
+    icon: air
+    eyebrow: "風のエレメント"
+    heading_size: 56
+    heading: "ふたご座・てんびん座・みずがめ座"
+    sections:
+      - label: "起こりやすいこと"
+        text: "既読・未読のすれ違いや\n言葉の行き違いが増えやすい\nなつかしい人から連絡がくることも"
+      - label: "おすすめの過ごし方"
+        text: "**短く・ていねいに**を意識して\n大切な話は会って伝えるのがおすすめ"
+
+  - type: text
+    icon: water
+    eyebrow: "水のエレメント"
+    heading_size: 56
+    heading: "かに座・さそり座・うお座"
+    sections:
+      - label: "起こりやすいこと"
+        text: "過去の恋や思い出が\nふとよみがえって気持ちが揺れる\n相手の言葉を深読みしやすい"
+      - label: "おすすめの過ごし方"
+        text: "気持ちは**ノートに書き出して**整理\n答えを急がなくて大丈夫"
+
+  - type: list
+    eyebrow: "11/14まで"
+    heading: "W逆行中に\nやるといいこと3つ"
+    style: number
+    items:
+      - text: "見直す・整える"
+        sub: "部屋やスマホ、予定をすっきりさせる"
+      - text: "もう一度つながる"
+        sub: "なつかしい人に、やさしく連絡してみる"
+      - text: "ひと呼吸おく"
+        sub: "送る前・決める前に、もう一度確認"
+
+  - type: closing

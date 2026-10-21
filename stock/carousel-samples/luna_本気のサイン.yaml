@@ -1,0 +1,40 @@
+# ルナ：彼が本気になった時にだけ出るサイン  python make_carousel.py stock/carousel-samples/luna_本気のサイン.yaml
+theme: luna
+seed: 5
+slides:
+  - type: cover
+    title: "彼が**本気**に\nなった時にだけ\n出る**サイン**"
+    subtitle: "いくつ当てはまる？"
+
+  - type: text
+    icon: moon
+    heading: "本題の前に…"
+    divider: false
+    body: "いま気になっている彼のことを\nひとり思い浮かべてみてね\n\nその人を思いながら\n**ゆっくり読み進めてください**"
+
+  - type: text
+    eyebrow: "サイン 1"
+    heading: "予定を\n**その日のうちに**決めたがる"
+    body: "「また今度」で終わらせず\n日にちまで決めようとするのは\nあなたとの時間を**大切にしたい**気持ちの表れかも"
+
+  - type: text
+    eyebrow: "サイン 2"
+    heading: "あなたの**小さな話**を\n覚えている"
+    body: "何気なく話したことを\nあとから話題にしてくれるなら\nちゃんと**あなたを見ている**サイン"
+
+  - type: text
+    eyebrow: "サイン 3"
+    heading: "**弱いところ**を\n見せてくれる"
+    body: "疲れた、不安だった…\nそんな本音を話してくれるのは\n**心を許している**からかもしれません"
+
+  - type: text
+    eyebrow: "サイン 4"
+    heading: "「今度」の話を\n**彼から**してくる"
+    body: "行きたい場所や季節のイベント\n少し先の予定の中に\nあなたがいるのが**自然になっている**のかも"
+
+  - type: text
+    eyebrow: "サイン 5"
+    heading: "あなたの**名前**を\nよく呼ぶ"
+    body: "会話の中で名前を呼ぶのは\nあなたを**特別に感じている**表れのひとつ\n\nサインの数より、彼と過ごす時間の\n心地よさを大切にしてね"
+
+  - type: closing

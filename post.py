@@ -101,7 +101,9 @@ def post_images(post):
     for entry in entries:
         path = ROOT / entry
         if path.is_dir():
-            files = sorted(f for f in path.iterdir() if f.suffix.lower() in IMAGE_EXTS)
+            # 1.jpg, 2.jpg, ..., 10.jpg の順に並べる（文字の順だと 10 が 1 のすぐ後ろに来てしまう）
+            files = sorted((f for f in path.iterdir() if f.suffix.lower() in IMAGE_EXTS),
+                           key=lambda f: (0, int(f.stem)) if f.stem.isdigit() else (1, f.name))
             paths += [str(f.relative_to(ROOT)) for f in files]
         else:
             paths.append(entry)
