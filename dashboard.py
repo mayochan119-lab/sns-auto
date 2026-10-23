@@ -26,7 +26,7 @@ TOKEN_EXPIRES = dt.date(2026, 12, 15)  # 2026-10-16 に延長した鍵の期限�
 _thumb_cache = {}
 
 
-def thumb(rel, width=280):
+def thumb(rel, width=240):
     """画像（または動画の最初のフレーム）を小さな JPEG の data URI にする。"""
     if rel in _thumb_cache:
         return _thumb_cache[rel]
