@@ -53,10 +53,11 @@ THEMES = {
         "sizes": {}, "closing": (62, 42, 58),
     },
     "luna": {
-        "head": (255, 232, 248), "ink": (255, 226, 245), "bright": (255, 250, 254),
-        "accent": (255, 150, 220), "glow": (255, 60, 200), "line": (255, 150, 220),
+        # 文字は白、**強調** はシャンパンゴールド、まわりの光はピンク（ピンク一色にならないように）
+        "head": (255, 251, 253), "ink": (255, 247, 250), "bright": (255, 218, 160),
+        "accent": (255, 160, 222), "glow": (240, 60, 180), "glow_e": (236, 120, 70), "line": (255, 160, 222),
         "frame": (214, 176, 120), "faint": (120, 90, 70), "star": (255, 220, 245),
-        "passes": [(0.45, 1.0), (0.45, 1.0), (0.12, 1.0), (0.12, 1.0), (0.05, 1.0)],
+        "passes": [(0.45, 0.75), (0.13, 0.75), (0.05, 0.55)],
         "emph": 1.24, "thanks": "moon", "extra": 0.6,
         # ルナは見本の画像のように文字を大きく
         "sizes": {"title": 118, "subtitle": 50, "eyebrow": 34, "heading": 80, "body": 46, "label": 32,
@@ -696,9 +697,10 @@ class Text:
                     continue
                 f = font(s)
                 dl.text((x, base), txt, font=f, fill=rgba(col), anchor="ls")
-                dg.text((x, base), txt, font=f, fill=rgba(t["glow"]), anchor="ls")
+                gcol = t.get("glow_e", t["glow"]) if at.e else t["glow"]
+                dg.text((x, base), txt, font=f, fill=rgba(gcol), anchor="ls")
                 if at.e:
-                    de.text((x, base), txt, font=f, fill=rgba(t["glow"]), anchor="ls")
+                    de.text((x, base), txt, font=f, fill=rgba(gcol), anchor="ls")
                 x += f.getlength(txt)
 
     def draw(self, slide, top, cx=CX, left=None):
