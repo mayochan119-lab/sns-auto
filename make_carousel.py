@@ -646,13 +646,13 @@ def constellation(slide, rnd):
 # ---------------------------------------------------------------- 部品（縦に積む）
 
 class Text:
-    def __init__(self, text, role, t, size=None, emphasis=(), maxw=MAX_W, strength=None, color=None):
+    def __init__(self, text, role, t, size=None, emphasis=(), maxw=None, strength=None, color=None):
         base, self.leading, st, ckey = ROLES[role]
         self.t, self.role = t, role
         self.base = size or t["sizes"].get(role, base)
         self.strength = st if strength is None else strength
         self.color = color or t[ckey]
-        self.maxw = maxw
+        self.maxw = maxw or MAX_W  # 呼ばれたときの文字幅を使う（背景ありのページは狭くなる）
         lines = parse(text)
         self.lines0 = [[a._replace(e=True) for a in l] if i in set(emphasis) else l for i, l in enumerate(lines)]
         self.es = t["emph"] if role != "title" else t["emph"] * 1.03
@@ -1067,10 +1067,15 @@ def load_background(path):
 def render_slide(s, theme_name, seed, index, bg_path=None):
     t = THEMES[theme_name]
     rnd = random.Random(seed)
+    global SAFE_L, SAFE_R, MAX_W
+    saved = (SAFE_L, SAFE_R, MAX_W)
     if bg_path:
-        # 用意された背景（飾りや枠が描かれている）を使うときは、枠を描かず、下の飾りをよけて文字を置く
+        # 用意された背景（飾りや枠が描かれている）を使うときは、枠を描かず、
+        # 下の飾りと、左上・右上につり下がった飾りをよけるため、文字を置く範囲を内側に狭める
         slide = Slide(t, load_background(bg_path))
         top, bottom = SAFE_T + 20, H - 300
+        SAFE_L, SAFE_R = 175, W - 175
+        MAX_W = SAFE_R - SAFE_L
     else:
         slide = Slide(t, background(theme_name, t, rnd, index))
         frame(slide, theme_name)
@@ -1093,6 +1098,7 @@ def render_slide(s, theme_name, seed, index, bg_path=None):
         constellation(slide, rnd)
     if g < 1:
         slide.warnings.append(f"縦に入りきらないので {g:.2f} 倍に縮めました")
+    SAFE_L, SAFE_R, MAX_W = saved
     return slide.img.convert("RGB"), slide.warnings
 
 
