@@ -1,0 +1,46 @@
+# 生まれた日の下一桁ランキング（0〜9の全員が入る。10位→1位の順に、下から出てくる）
+seed: 63
+scenes:
+  - text: "追いかけられる\n女度ランキング"
+    size: 116
+    emphasis: [0]
+    y: 880
+    note: "生まれた日の\n下一桁でチェック"
+    note_size: 76
+    note_y: 1240
+    note_emphasis: [1]
+    seconds: 2.4
+  - text: "本題の前に…\n\n追いかけてほしい\n彼のことを\n思い浮かべてね"
+    size: 80
+    emphasis: [0]
+    y: 880
+    note: "17日生まれなら\n下一桁は「7」"
+    note_size: 60
+    note_y: 1480
+    seconds: 2.6
+  - text: "追いかけられる女度\n10位〜6位"
+    size: 80
+    y: 360
+    emphasis: [1]
+    items:
+      - {text: "10位　下一桁4", y: 1520, at: 0.3, sub_size: 44, sub: "まっすぐ愛を届けられる人"}
+      - {text: "9位　下一桁8", y: 1280, at: 1.1, sub_size: 44, sub: "面倒見のよさで安心させる人"}
+      - {text: "8位　下一桁2", y: 1040, at: 1.9, sub_size: 44, sub: "寄り添う優しさで癒やす人"}
+      - {text: "7位　下一桁6", y: 800, at: 2.7, sub_size: 44, sub: "一途さで信頼を育てる人"}
+      - {text: "6位　下一桁0", y: 570, at: 3.5, sub_size: 44, sub: "自然体の笑顔が心に残る人"}
+    seconds: 5.4
+  - text: "追いかけられる女度\n5位〜1位"
+    size: 80
+    y: 360
+    emphasis: [1]
+    items:
+      - {text: "5位　下一桁5", y: 1520, at: 0.3, sub_size: 44, sub: "会うたび違う顔で惹きつける人"}
+      - {text: "4位　下一桁1", y: 1280, at: 1.1, sub_size: 44, sub: "自分の軸がぶれない人"}
+      - {text: "3位　下一桁9", y: 1040, at: 1.9, sub_size: 44, sub: "つかめない魅力で目を引く人"}
+      - {text: "2位　下一桁3", y: 800, at: 2.7, sub_size: 44, sub: "自分の時間を楽しめる人"}
+      - {text: "1位　下一桁7", y: 570, at: 3.5, size: 84, emphasis: [0], sub_size: 44, sub: "少しの余白で彼を夢中にさせる人"}
+    seconds: 6.4
+  - text: "あなたは\n何位だった？"
+    size: 80
+    note: "もっと詳しく視てほしい人は\nDMで「鑑定希望」と送ってね"
+    seconds: 3.0

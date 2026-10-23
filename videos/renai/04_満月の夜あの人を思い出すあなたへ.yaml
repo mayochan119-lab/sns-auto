@@ -1,0 +1,35 @@
+# 問いかけ型（10/26 13:12 牡牛座の満月・W逆行中）
+seed: 44
+scenes:
+  - text: "満月の夜、\nあの人を\n思い出す\nあなたへ"
+    size: 112
+    emphasis: [1]
+    y: 870
+    note: "10/26 牡牛座の満月"
+    note_size: 76
+    note_y: 1320
+    seconds: 2.6
+  - text: "本題の前に…\n\n彼のことを\nそっと\n思い浮かべてね"
+    size: 80
+    emphasis: [0]
+    seconds: 2.0
+  - text: "帰り道、\n月を見上げたら\nあの人の顔が\n浮かばなかった？"
+    size: 80
+    emphasis: [2]
+    seconds: 3.0
+  - text: "今日は\n牡牛座の満月。\nしかも今は\nW逆行のさなか。\n\n過去の恋を\n思い出しやすい時期。"
+    size: 72
+    emphasis: [1, 3]
+    seconds: 3.4
+  - text: "思い出すのは\n弱いからじゃない。\n\nそれだけ本気で\n誰かを愛した証。"
+    size: 76
+    emphasis: [4]
+    seconds: 3.0
+  - text: "今夜は無理に\n忘れなくていい。\n\n残っている想いを\n紙に書き出して\n月にあずけてみて。"
+    size: 76
+    emphasis: [5]
+    seconds: 3.4
+  - text: "あの人を思い出す夜に\n見返せるように\n保存してね"
+    size: 76
+    note: "もっと詳しく視てほしい人は\nDMで「鑑定希望」と送ってね"
+    seconds: 3.0

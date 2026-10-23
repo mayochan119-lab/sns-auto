@@ -1,0 +1,41 @@
+theme: luna
+backgrounds: [images/renai/backgrounds/bg1.jpg, images/renai/backgrounds/bg2.jpg]
+seed: 11
+slides:
+  - type: cover
+    title: "**追いかける**のを\nやめた時、\n彼の中で\n**起きること**"
+    title_size: 96
+    subtitle: "いくつ当てはまる？"
+
+  - type: text
+    icon: moon
+    heading: "本題の前に…"
+    divider: false
+    body: "少し距離を置いている彼を\nひとり思い浮かべてみてね\n\nその人の顔を思いながら\n**ゆっくり読み進めてください**"
+
+  - type: text
+    eyebrow: "変化 1"
+    heading: "**静けさ**に\n気づき始める"
+    body: "毎日のように届いていた通知が\nふっと鳴らなくなる\nその静けさの中で\n**あなたの存在の大きさ**に\n気づいていくのかも"
+
+  - type: text
+    eyebrow: "変化 2"
+    heading: "あなたの**ストーリー**が\n気になり始める"
+    body: "連絡はしてこなくても\n「最近どうしてるかな」と\nあなたの毎日を\n**そっとのぞいている**のかも"
+
+  - type: text
+    eyebrow: "変化 3"
+    heading: "**余裕のある**\n**あなた**に\n惹かれ直す"
+    body: "自分の時間を楽しむ姿は\n彼の目に**新鮮に**映るもの\n追われる安心から\n「手放したくない」へ\n気持ちが動き出すことも"
+
+  - type: text
+    eyebrow: "変化 4"
+    heading: "**もらっていた**\n**言葉**を思い出す"
+    body: "「おつかれさま」のひと言\nあたりまえだったやりとりが\nどれだけ**温かかったか**\n離れてから気づくのは\nよくあることなの"
+
+  - type: text
+    eyebrow: "変化 5"
+    heading: "**連絡する理由**を\n探し始める"
+    body: "「この写真、見て」みたいな\nきっかけを**彼から**作ることも\n\n追わないのはあきらめじゃなく\n**自分を大切にする**こと"
+
+  - type: closing

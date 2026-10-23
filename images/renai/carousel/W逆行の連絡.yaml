@@ -1,0 +1,45 @@
+theme: luna
+backgrounds: [images/renai/backgrounds/bg1.jpg, images/renai/backgrounds/bg2.jpg]
+seed: 11
+slides:
+  - type: cover
+    title: "**W逆行**の今\nあの人から\n連絡が来やすい\n人の**特徴**"
+    subtitle: "いくつ当てはまる？"
+
+  - type: text
+    icon: moon
+    heading: "本題の前に…"
+    divider: false
+    body: "連絡を待っている彼のことを\nひとり思い浮かべてみてね\n\n元彼でも、片想いの人でも\n**その人を思いながら読んでね**"
+
+  - type: text
+    eyebrow: "W逆行って？"
+    heading: "愛と言葉の星が\n**そろって逆行**中"
+    body: "金星は10/3から逆行中\n10/24から水星も逆行し\nどちらも11/14まで続きます\n**過去の縁が動きやすい**\n時期といわれています"
+
+  - type: text
+    eyebrow: "特徴 1"
+    heading: "SNSで**ゆるく**\nつながっている"
+    body: "ブロックもミュートもせず\nストーリーが届く距離にいる\nそれが彼にとって\nあなたを**思い出すきっかけ**に\nなるかもしれません"
+
+  - type: text
+    eyebrow: "特徴 2"
+    heading: "最後のトークが\n**やさしい言葉**"
+    body: "責める言葉で終わらず\n「ありがとう」や「またね」で\n締めくくれているなら\n彼も**連絡しやすい空気**を\n感じているのかも"
+
+  - type: text
+    eyebrow: "特徴 3"
+    heading: "**自分の毎日**を\n楽しんでいる"
+    body: "彼のことばかり考えず\n好きなことに夢中な人は\n表情も投稿も**明るくなる**\nその変化が、ふと\n彼の目にとまることも"
+
+  - type: text
+    eyebrow: "特徴 4"
+    heading: "**ふたりの思い出**を\n大切にしている"
+    body: "一緒に行った場所や\n好きだった曲を\n無理に消さなくて大丈夫\n振り返る流れのW逆行と\n**相性がいい**といわれています"
+
+  - type: text
+    eyebrow: "特徴 5"
+    heading: "**待ちすぎず**\n自然体でいる"
+    body: "通知を何度も確かめるより\nスマホを置いて眠れた夜に\nふっと届くこともあるから\n**11/14まで**は焦らず\nあなたのペースでいてね"
+
+  - type: closing

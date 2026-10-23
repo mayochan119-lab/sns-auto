@@ -1,0 +1,52 @@
+theme: luna
+backgrounds: [images/renai/backgrounds/bg1.jpg, images/renai/backgrounds/bg2.jpg]
+seed: 11
+slides:
+  - type: cover
+    title: "**本命**になれる\n女性がしている\n**小さな習慣**"
+    subtitle: "いくつ当てはまる？"
+
+  - type: text
+    icon: moon
+    heading: "本題の前に…"
+    divider: false
+    body: "いま想っている彼のことを\nひとり思い浮かべてみてね\n\n彼の隣にいる自分を想像しながら\n**ゆっくり読み進めてください**"
+
+  - type: text
+    eyebrow: "習慣 1"
+    heading: "返信を\n**急かさない**"
+    body: "既読がついたままでも\n追いLINEはひと呼吸おいて\n\n彼のペースを**待てる余裕**が\n安心感につながっていきます"
+
+  - type: text
+    eyebrow: "習慣 2"
+    heading: "「ありがとう」を\n**言葉にする**"
+    body: "駅まで送ってくれた\n話を聞いてくれた\n小さなことでも伝えると\n彼は**また喜ばせたい**と\n思いやすくなるもの"
+
+  - type: text
+    eyebrow: "習慣 3"
+    heading: "**自分の時間**を\n楽しんでいる"
+    body: "通知を待つだけの夜より\n好きなことに夢中な夜を\n\n楽しそうに過ごすあなたは\n彼の目に**魅力的に映る**もの"
+
+  - type: text
+    eyebrow: "習慣 4"
+    heading: "彼の話を\n**最後まで聞く**"
+    body: "アドバイスより先に\n「そうだったんだね」と\n受け止めてもらえると\n彼は**心をひらきやすく**\nなっていきます"
+
+  - type: text
+    eyebrow: "習慣 5"
+    heading: "不安を\n**やわらかく伝える**"
+    body: "「なんで連絡くれないの」より\n「声が聞けるとうれしいな」\n\n責めない言い方のほうが\n彼の心に**届きやすく**なります"
+
+  - type: list
+    eyebrow: "まとめ"
+    heading: "本命になれる\n**5つの習慣**"
+    style: check
+    items:
+      - "返信を急かさない"
+      - "「ありがとう」を伝える"
+      - "自分の時間を楽しむ"
+      - "彼の話を最後まで聞く"
+      - "不安をやわらかく伝える"
+    note: "全部じゃなくて大丈夫。ひとつずつでいいよ"
+
+  - type: closing

@@ -1,0 +1,45 @@
+theme: luna
+backgrounds: [images/renai/backgrounds/bg1.jpg, images/renai/backgrounds/bg2.jpg]
+seed: 12
+slides:
+  - type: cover
+    title: "好きな人からの\n**脈ありLINE**\n**5つの特徴**"
+    subtitle: "いくつ当てはまる？"
+
+  - type: text
+    icon: moon
+    heading: "本題の前に…"
+    divider: false
+    body: "いまLINEを待っている彼を\nひとり思い浮かべてみてね\n\nトーク画面を思い出しながら\n**ゆっくり読み進めてください**"
+
+  - type: text
+    eyebrow: "特徴 1"
+    heading: "**質問**で\n返してくれる"
+    body: "「そっちはどうだった？」\n質問で返してくれるのは\n会話を続けたいから\nあなたのことを\n**もっと知りたい**のかも"
+
+  - type: text
+    eyebrow: "特徴 2"
+    heading: "**返信のテンポ**が\nあなたに似てくる"
+    body: "長文には長文で\n短い時は短めに\n無意識に合わせてくれるのは\nあなたに**寄り添いたい**\nサインのひとつかも"
+
+  - type: text
+    eyebrow: "特徴 3"
+    heading: "**何気ない写真**を\n送ってくる"
+    body: "空がきれいだった\nごはんがおいしかった\n用事がなくても送るのは\n**あなたを思い出した**から\nかもしれません"
+
+  - type: text
+    eyebrow: "特徴 4"
+    heading: "スタンプで\n**終わらせない**"
+    body: "「おやすみ」のあとにも\nもうひとこと届いたり\nスタンプだけで終わらないのは\n**まだ話していたい**\n気持ちの表れかも"
+
+  - type: text
+    eyebrow: "特徴 5"
+    heading: "前に話したことを\n**覚えていてくれる**"
+    body: "「明日のプレゼンがんばって」\n「風邪、もう大丈夫？」\nそんなひとことは\nあなたを**気にかけている**\nサインかもしれません"
+
+  - type: text
+    eyebrow: "ルナから"
+    heading: "返信が遅い日も\n**あせらないで**"
+    body: "11/14まではW逆行中\n連絡のすれ違いが起きやすい時期\n\n返信の早さより\n**言葉のぬくもり**を見てね"
+
+  - type: closing

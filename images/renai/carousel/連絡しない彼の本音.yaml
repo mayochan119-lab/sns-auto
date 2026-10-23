@@ -1,0 +1,52 @@
+theme: luna
+backgrounds: [images/renai/backgrounds/bg1.jpg, images/renai/backgrounds/bg2.jpg]
+seed: 23
+slides:
+  - type: cover
+    title: "連絡してこない\n彼が**本当は**\n考えていること"
+    subtitle: "あなたの彼はどれ？"
+
+  - type: text
+    icon: moon
+    heading: "本題の前に…"
+    divider: false
+    body: "最近、連絡が少ない彼のことを\nひとり思い浮かべてみてね\n\n最後のトークを思い出しながら\n**ゆっくり読み進めてください**"
+
+  - type: text
+    eyebrow: "本音 1"
+    heading: "**言葉を選び**すぎて\n送れずにいる"
+    body: "どう返せば喜ぶかな\n変に思われないかな\n考えるほど指が止まるのは\nあなたを**大事に思っている**\nからかもしれません"
+
+  - type: text
+    eyebrow: "本音 2"
+    heading: "**自分のこと**で\n手いっぱい"
+    body: "仕事や家族のこと\n悩みを抱えると\nひとりで**閉じこもる**人もいる\n連絡がないのは\nあなたのせいとは限らないよ"
+
+  - type: text
+    eyebrow: "本音 3"
+    heading: "**あなたから**の\n連絡を待っている"
+    body: "自分ばかり送っていないか\n重いと思われないか\n彼もトーク画面を\n開いては閉じて\n**迷っているのかも**"
+
+  - type: text
+    eyebrow: "本音 4"
+    heading: "**会った時に**\n話そうと思っている"
+    body: "大事なことほど\n文字にするのが苦手な人もいる\n**顔を見て話したい**タイプなら\n連絡が少ないのも自然なこと"
+
+  - type: text
+    eyebrow: "本音 5"
+    heading: "**安心しているから**\n連絡しない"
+    body: "連絡しなくても平気なのは\nあなたに**安心している**から\nかもしれません\n通知の数より、会えた時の\n彼の表情を信じてみてね"
+
+  - type: list
+    eyebrow: "まとめ"
+    heading: "連絡を待つ夜に\n**できること**"
+    style: check
+    items:
+      - text: "トーク画面を閉じる"
+        sub: "既読を何度も確かめなくて大丈夫"
+      - text: "好きなことに時間を使う"
+        sub: "あなたの笑顔が、いちばんの魅力"
+      - text: "送るなら、短くやさしく"
+        sub: "W逆行中は、返しやすい一言を"
+
+  - type: closing

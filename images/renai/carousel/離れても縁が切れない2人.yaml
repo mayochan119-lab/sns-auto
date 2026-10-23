@@ -1,0 +1,40 @@
+theme: luna
+backgrounds: [images/renai/backgrounds/bg1.jpg, images/renai/backgrounds/bg2.jpg]
+seed: 17
+slides:
+  - type: cover
+    title: "**離れても**\n縁が切れない\n**2人の特徴**"
+    subtitle: "いくつ当てはまる？"
+
+  - type: text
+    icon: moon
+    heading: "本題の前に…"
+    divider: false
+    body: "離れてしまった彼を\nひとり思い浮かべてみてね\n\nふたりの時間を思い出しながら\n**ゆっくり読み進めてください**"
+
+  - type: text
+    eyebrow: "特徴 1"
+    heading: "**沈黙**が\n気まずくなかった"
+    body: "何も話さなくても\n隣にいるだけで落ち着けた\nそんな**自然体の時間**は\n心の深いところで\nつながっていた証かも"
+
+  - type: text
+    eyebrow: "特徴 2"
+    heading: "**ふとした瞬間**に\n思い出す"
+    body: "似た香りとすれ違った時\nふたりで聴いた曲が流れた時\n**理由もなく彼が浮かぶ**のは\n心がまだ\nつながっているからかも"
+
+  - type: text
+    eyebrow: "特徴 3"
+    heading: "**タイミング**が\nなぜか重なる"
+    body: "送ろうとした瞬間に\n彼から通知が届いた\nそんな**不思議な重なり**は\n見えない糸でつながる2人に\nよく起きることなの"
+
+  - type: text
+    eyebrow: "特徴 4"
+    heading: "**ケンカしても**\n最後は戻れた"
+    body: "言いすぎてしまった夜も\nどちらからともなく\n「ごめんね」が言えた\nその**戻れる力**は\n今もふたりの中にあるのかも"
+
+  - type: text
+    eyebrow: "特徴 5"
+    heading: "**相手の幸せ**を\n願える"
+    body: "離れていても\n「元気でいてね」と思える\nその気持ちが**縁を育てる**の\n\n**今の自分**も大切にしてね"
+
+  - type: closing

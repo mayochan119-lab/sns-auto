@@ -1,0 +1,52 @@
+theme: luna
+backgrounds: [images/renai/backgrounds/bg1.jpg, images/renai/backgrounds/bg2.jpg]
+seed: 37
+slides:
+  - type: cover
+    title: "復縁できた人が\n**「やめた」**\n**5つ**のこと"
+    subtitle: "今のあなたはどう？"
+
+  - type: text
+    icon: moon
+    heading: "本題の前に…"
+    divider: false
+    body: "もう一度つながりたい彼のことを\nひとり思い浮かべてみてね\n\nふたりの今の距離を感じながら\n**ゆっくり読み進めてください**"
+
+  - type: text
+    eyebrow: "やめたこと 1"
+    heading: "夜中に**トーク画面**を\n開くこと"
+    body: "昔のやりとりを読み返すたび\n心が過去に戻ってしまう\n復縁できた人は\n**今の自分**に目を向ける\n時間を増やしていました"
+
+  - type: text
+    eyebrow: "やめたこと 2"
+    heading: "**彼のSNS**を\n毎日チェックすること"
+    body: "ストーリーの足あと\n新しいフォロー、いいね\n気にするほど不安は大きくなる\n**見ない日**をつくることが\n心を整える第一歩"
+
+  - type: text
+    eyebrow: "やめたこと 3"
+    heading: "**自分ばかり**を\n責めること"
+    body: "あの時こう言わなければ…\nそう思うのは自然なこと\nでも、別れの理由は\nひとつだけじゃないから\n**自分を許すこと**から始めてね"
+
+  - type: text
+    eyebrow: "やめたこと 4"
+    heading: "**長文メッセージ**を\n送ること"
+    body: "気持ちを全部伝えようと\n長い文章を送りたくなる\nでも復縁できた人ほど\n**短く、軽く**\n返しやすい言葉を選んでいました"
+
+  - type: text
+    eyebrow: "やめたこと 5"
+    heading: "**前と同じ**ふたりに\n戻ろうとすること"
+    body: "復縁は昔に戻ることではなく\n**新しく始めること**\n今のあなたのままで\nもう一度出会い直す気持ちを\n大切にしてね"
+
+  - type: list
+    eyebrow: "まとめ"
+    heading: "復縁できた人が\n**やめたこと**"
+    style: number
+    items:
+      - "夜中にトーク画面を開く"
+      - "彼のSNSを毎日チェック"
+      - "自分ばかりを責める"
+      - "長文メッセージを送る"
+      - "前と同じに戻ろうとする"
+    note: "ひとつずつで大丈夫だよ"
+
+  - type: closing

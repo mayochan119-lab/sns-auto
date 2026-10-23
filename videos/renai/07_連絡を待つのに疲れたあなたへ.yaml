@@ -1,0 +1,35 @@
+# 問いかけ型（W逆行中・11/14にW逆行が終わる）
+seed: 76
+scenes:
+  - text: "連絡を待つのに\n疲れた\nあなたへ"
+    size: 120
+    emphasis: [1]
+    y: 880
+    note: "通知が鳴るたび\nため息ついてない？"
+    note_size: 76
+    note_y: 1300
+    seconds: 2.6
+  - text: "本題の前に…\n\n彼のことを\nそっと\n思い浮かべてね"
+    size: 80
+    emphasis: [0]
+    seconds: 2.0
+  - text: "トーク画面を開いては\n閉じて。\n既読がついたまま\n返事を待って。\n\nそれだけで\nもう十分\nがんばってるよ。"
+    size: 72
+    emphasis: [7]
+    seconds: 3.4
+  - text: "今はW逆行のさなか。\n\n連絡のタイミングが\nずれやすい時期。\n\n返事が遅いのは\nあなたのせいとは\n限らないよ。"
+    size: 72
+    emphasis: [0]
+    seconds: 3.4
+  - text: "11/14に\nW逆行が終わるまで\n焦らなくて大丈夫。"
+    size: 80
+    emphasis: [2]
+    seconds: 2.6
+  - text: "だから今夜は\n通知をオフにして\n自分を甘やかして\nあげてね。"
+    size: 80
+    emphasis: [2]
+    seconds: 3.0
+  - text: "待つのに疲れた夜に\n見返せるように\n保存してね"
+    size: 76
+    note: "もっと詳しく視てほしい人は\nDMで「鑑定希望」と送ってね"
+    seconds: 3.0

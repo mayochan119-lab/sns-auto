@@ -1,0 +1,53 @@
+theme: luna
+backgrounds: [images/renai/backgrounds/bg1.jpg, images/renai/backgrounds/bg2.jpg]
+seed: 14
+slides:
+  - type: cover
+    title: "W逆行が終わる\n**11/14**までに\nしておきたいこと"
+    title_size: 92
+    subtitle: "片想い・復縁のあなたへ"
+
+  - type: text
+    icon: moon
+    heading: "本題の前に…"
+    divider: false
+    body: "いま気になっている彼を\nひとり思い浮かべてみてね\n\n片想いの彼でも、元彼でも大丈夫\n**その人を思いながら読んでね**"
+
+  - type: text
+    eyebrow: "W逆行ってなに？"
+    heading: "恋も言葉も\n**立ち止まる時期**"
+    body: "恋の金星は10/3から\n言葉の水星は10/24から逆行中\n**11/14**にそろって順行へ\n\n今は**見つめ直す**とき"
+
+  - type: text
+    eyebrow: "片想い 1"
+    heading: "**本当の気持ち**を\n書き出してみる"
+    body: "好き、さみしい、くやしい\n言葉にできなかった気持ちを\nノートに書き出すと\n**心の奥の願い**が\n見えてくるかも"
+
+  - type: text
+    eyebrow: "片想い 2"
+    heading: "送る前に\n**ひと晩**寝かせる"
+    body: "夜中に打ったメッセージは\n朝もう一度読み返して\n水星逆行中は\n**言葉のすれ違い**が\n起きやすいから"
+
+  - type: text
+    eyebrow: "復縁 1"
+    heading: "**別れた理由**を\nやさしく振り返る"
+    body: "責めるためじゃなく\n次は同じことで\nすれ違わないために\nふたりの間にあったことを\n**静かに見つめてみて**"
+
+  - type: text
+    eyebrow: "復縁 2"
+    heading: "**なつかしい通知**は\nあたたかく受け止める"
+    body: "W逆行中は\n昔の人から連絡が届くことも\nもし彼から通知が来たら\nすぐに答えを出さず\n**やさしく返すだけ**で十分"
+
+  - type: list
+    eyebrow: "これからの流れ"
+    heading: "11/14までの\n**大切な日**"
+    style: dot
+    items:
+      - text: "11/7 立冬・一粒万倍日"
+        sub: "新しい季節の願いをノートに書いてみて"
+      - text: "11/9 蠍座の新月"
+        sub: "16:02から、深い想いと向き合うとき"
+      - text: "11/14 W逆行が終わる"
+        sub: "温めてきた気持ちを、少しずつ動かそう"
+
+  - type: closing

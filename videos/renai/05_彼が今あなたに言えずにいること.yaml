@@ -1,0 +1,43 @@
+# 直感3択（月・星・太陽）
+seed: 52
+scenes:
+  - text: "彼が今\nあなたに\n言えずに\nいること"
+    size: 116
+    emphasis: [2]
+    y: 860
+    note: "直感で1つ選んでね"
+    note_size: 76
+    note_y: 1330
+    note_emphasis: [0]
+    seconds: 2.6
+  - text: "本題の前に…\n\n彼のことを\nそっと\n思い浮かべてね"
+    size: 80
+    emphasis: [0]
+    seconds: 2.0
+  - text: "直感で1つ選んで"
+    size: 80
+    y: 520
+    note: "画面を長押しして止めてね"
+    note_size: 56
+    note_y: 1640
+    items:
+      - {text: "A　月", size: 104, y: 860, at: 0.3, sub: "やさしく見守る光", sub_size: 46}
+      - {text: "B　星", size: 104, y: 1120, at: 0.7, sub: "遠くで輝く道しるべ", sub_size: 46}
+      - {text: "C　太陽", size: 104, y: 1380, at: 1.1, sub: "まっすぐ照らすぬくもり", sub_size: 46}
+    seconds: 4.0
+  - text: "A　月を選んだ\nあなたへ\n\n「本当は、もっと\n連絡したい」\n重いと思われそうで\n言えずにいるみたい。"
+    emphasis: [0, 1]
+    size: 72
+    seconds: 3.4
+  - text: "B　星を選んだ\nあなたへ\n\n「俺でいいのかな」\nあなたがまぶしくて\n自信が持てないのかも。"
+    emphasis: [0, 1]
+    size: 72
+    seconds: 3.4
+  - text: "C　太陽を選んだ\nあなたへ\n\n「ちゃんと\n大切にしたい」\n本気だからこそ\n言葉を選んでいるところ。"
+    emphasis: [0, 1]
+    size: 72
+    seconds: 3.4
+  - text: "どれを選んだ？\nコメントで\nA・B・Cを教えてね"
+    size: 76
+    note: "もっと詳しく視てほしい人は\nDMで「鑑定希望」と送ってね"
+    seconds: 3.0
