@@ -9,6 +9,7 @@ YAML と同じ名前のフォルダに 1.jpg, 2.jpg, ...（1080x1350）を書き
 YAML の書き方:
   theme: rei | luna          # rei = 紺と金の星空 / luna = 紫とピンクのネオン（make_reel.py と同じ雰囲気）
   seed: 3                    # 星の配置（省略可）
+  backgrounds: [images/renai/backgrounds/bg1.jpg, ...]  # 用意した背景画像を順番に使う（省略可）
   slides:
     - type: cover            # 表紙: eyebrow / title / subtitle / note / art: wheel | moon
     - type: text             # icon / eyebrow / heading / body / emphasis: [行番号] / sections: [{label, text}] / note
@@ -1050,13 +1051,32 @@ def build(s, t, theme_name):
     return els
 
 
-def render_slide(s, theme_name, seed, index):
+def load_background(path):
+    """用意された背景画像を 1080x1350 にそろえ、文字が乗る真ん中を少しだけ暗くする。"""
+    im = Image.open(path).convert("RGB")
+    scale = max(W / im.width, H / im.height)
+    im = im.resize((round(im.width * scale), round(im.height * scale)), Image.LANCZOS)
+    left, top = (im.width - W) // 2, (im.height - H) // 2
+    arr = np.asarray(im.crop((left, top, left + W, top + H))).astype("float32")
+    yy, xx = np.mgrid[0:H, 0:W]
+    calm = np.exp(-(((xx - W / 2) / (W * 0.40)) ** 2 + ((yy - H * 0.42) / (H * 0.34)) ** 2))[..., None]
+    arr *= 1 - 0.35 * calm
+    return Image.fromarray(np.clip(arr, 0, 255).astype("uint8")).convert("RGBA")
+
+
+def render_slide(s, theme_name, seed, index, bg_path=None):
     t = THEMES[theme_name]
     rnd = random.Random(seed)
-    slide = Slide(t, background(theme_name, t, rnd, index))
-    frame(slide, theme_name)
+    if bg_path:
+        # 用意された背景（飾りや枠が描かれている）を使うときは、枠を描かず、下の飾りをよけて文字を置く
+        slide = Slide(t, load_background(bg_path))
+        top, bottom = SAFE_T + 20, H - 300
+    else:
+        slide = Slide(t, background(theme_name, t, rnd, index))
+        frame(slide, theme_name)
+        top, bottom = SAFE_T, SAFE_B
     els = build(s, t, theme_name)
-    avail = SAFE_B - SAFE_T
+    avail = bottom - top
     g = 1.0
     for _ in range(14):
         hs = [el.measure(g) for el, _ in els]
@@ -1065,11 +1085,11 @@ def render_slide(s, theme_name, seed, index):
         if total <= avail or g < 0.5:
             break
         g *= 0.95
-    y = max(SAFE_T, (SAFE_T + SAFE_B) / 2 - total / 2 - 8)
+    y = max(top, (top + bottom) / 2 - total / 2 - 8)
     for (el, _), h, gap in zip(els, hs, gaps + [0]):
         el.draw(slide, y)
         y += h + gap
-    if theme_name == "rei" and s.get("constellation", True):
+    if theme_name == "rei" and s.get("constellation", True) and not bg_path:
         constellation(slide, rnd)
     if g < 1:
         slide.warnings.append(f"縦に入りきらないので {g:.2f} 倍に縮めました")
@@ -1106,8 +1126,11 @@ def main(argv):
             old.unlink()
     seed = spec.get("seed", 7)
     paths = []
+    # backgrounds: [画像, ...] を書くと、ページごとに順番に背景として使う（slide の background: で個別指定も可）
+    bgs = [spec_path.parent / b if not Path(b).is_absolute() and not Path(b).exists() else Path(b) for b in spec.get("backgrounds", [])]
     for i, s in enumerate(slides, 1):
-        img, warnings = render_slide(s, theme_name, seed * 100 + i, i)
+        bg = s.get("background") or (bgs[(i - 1) % len(bgs)] if bgs else None)
+        img, warnings = render_slide(s, theme_name, seed * 100 + i, i, bg)
         path = out_dir / f"{i}.jpg"
         img.save(path, quality=92, subsampling=0)
         paths.append(path)
