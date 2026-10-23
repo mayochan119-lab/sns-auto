@@ -1,0 +1,89 @@
+theme: rei
+seed: 7
+slides:
+  - type: cover
+    eyebrow: "12星座の相性"
+    title: "一緒にいると\n心地いい星座"
+    subtitle: "エレメント別の組み合わせ"
+    art: wheel
+    art_size: 340
+    note: "あとで見返せるよう保存してください"
+
+  - type: list
+    eyebrow: "相性の考え方"
+    heading: "12星座は4つの\nエレメントに分かれます"
+    style: dot
+    items:
+      - text: "火｜情熱・行動"
+        sub: "牡羊座・獅子座・射手座"
+      - text: "地｜安定・現実"
+        sub: "牡牛座・乙女座・山羊座"
+      - text: "風｜知性・会話"
+        sub: "双子座・天秤座・水瓶座"
+      - text: "水｜感情・共感"
+        sub: "蟹座・蠍座・魚座"
+
+  - type: text
+    icon: sparkle
+    eyebrow: "相性の考え方"
+    heading: "心地いい関係の\n2つのパターン"
+    sections:
+      - label: "同じエレメント同士"
+        text: "感覚やペースが似ていて\n**自然体でいられる**関係"
+      - label: "火と風／地と水"
+        text: "足りないところを補い合い\n**おたがいを活かせる**関係"
+
+  - type: text
+    icon: fire
+    eyebrow: "エレメント別の相性"
+    heading: "火の星座"
+    sections:
+      - label: "牡羊座"
+        text: "**獅子座**とは熱量がぴったり\n**水瓶座**とは挑戦を楽しめる"
+      - label: "獅子座"
+        text: "**射手座**とは夢を語り合える\n**双子座**とは笑いが絶えない"
+      - label: "射手座"
+        text: "**牡羊座**とは冒険仲間になれる\n**天秤座**とは楽しい計画が広がる"
+
+  - type: text
+    icon: earth
+    eyebrow: "エレメント別の相性"
+    heading: "地の星座"
+    sections:
+      - label: "牡牛座"
+        text: "**乙女座**とは生活のペースが合う\n**蟹座**とは家のような安心感"
+      - label: "乙女座"
+        text: "**山羊座**とは努力を認め合える\n**蠍座**とはゆっくり信頼が深まる"
+      - label: "山羊座"
+        text: "**牡牛座**とは沈黙さえ心地いい\n**魚座**とは心がやわらかくなる"
+
+  - type: text
+    icon: air
+    eyebrow: "エレメント別の相性"
+    heading: "風の星座"
+    sections:
+      - label: "双子座"
+        text: "**天秤座**とは会話が尽きない\n**牡羊座**とは刺激し合える"
+      - label: "天秤座"
+        text: "**水瓶座**とは距離感が心地いい\n**獅子座**とは素直にほめ合える"
+      - label: "水瓶座"
+        text: "**双子座**とはアイデアが次々わく\n**射手座**とは自由を認め合える"
+
+  - type: text
+    icon: water
+    eyebrow: "エレメント別の相性"
+    heading: "水の星座"
+    sections:
+      - label: "蟹座"
+        text: "**蠍座**とは言葉がなくても伝わる\n**牡牛座**とはおだやかに過ごせる"
+      - label: "蠍座"
+        text: "**魚座**とは心の奥でつながれる\n**乙女座**とは誠実さで通じ合う"
+      - label: "魚座"
+        text: "**蟹座**とはやさしさで包み合える\n**山羊座**とは安心して甘えられる"
+
+  - type: text
+    eyebrow: "最後に"
+    heading: "ちがうからこそ\n深まる関係もある"
+    body: "エレメントがちがう相手は\n自分にない見方をくれる人。\n\n相性は決めつけではなく\n**歩み寄るためのヒント**として\n使ってみてください。"
+
+  - type: closing

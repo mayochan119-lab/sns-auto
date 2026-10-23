@@ -1,0 +1,78 @@
+theme: rei
+seed: 7
+slides:
+  - type: cover
+    eyebrow: "12星座別"
+    title: "好きな人にだけ\n見せる顔"
+    subtitle: "あなたの星座は、どんな顔？"
+    art: wheel
+    art_size: 340
+    note: "自分と、気になる人の星座をチェック"
+
+  - type: text
+    icon: heart
+    eyebrow: "好きな人にだけ見せる顔"
+    heading: "牡羊座と牡牛座"
+    sections:
+      - label: "牡羊座"
+        text: "**無邪気な笑顔**\nふだんは強くて頼もしいのに\n好きな人の前では子どもみたい"
+      - label: "牡牛座"
+        text: "**ほどけた素顔**\nいつもは慎重でしっかり者\n心を許すと、ふわっとゆるむ"
+
+  - type: text
+    icon: heart
+    eyebrow: "好きな人にだけ見せる顔"
+    heading: "双子座と蟹座"
+    sections:
+      - label: "双子座"
+        text: "**本音を話す顔**\n誰とでも楽しく話せるけれど\n本当の気持ちは好きな人にだけ"
+      - label: "蟹座"
+        text: "**さみしがりな顔**\nみんなを守るやさしい人\n好きな人には「そばにいて」が言える"
+
+  - type: text
+    icon: heart
+    eyebrow: "好きな人にだけ見せる顔"
+    heading: "獅子座と乙女座"
+    sections:
+      - label: "獅子座"
+        text: "**弱音をこぼす顔**\nいつも明るく堂々としているけれど\n好きな人の前でだけ、肩の力を抜く"
+      - label: "乙女座"
+        text: "**ちょっと抜けた顔**\nきちんとしていて隙がない人\n好きな人には、うっかりも見せられる"
+
+  - type: text
+    icon: heart
+    eyebrow: "好きな人にだけ見せる顔"
+    heading: "天秤座と蠍座"
+    sections:
+      - label: "天秤座"
+        text: "**わがままを言う顔**\n誰にでも合わせられるやさしい人\n好きな人には「こうしたい」が言える"
+      - label: "蠍座"
+        text: "**とびきりの甘え顔**\nふだんは心の奥を見せないけれど\n好きな人にはとことん甘える"
+
+  - type: text
+    icon: heart
+    eyebrow: "好きな人にだけ見せる顔"
+    heading: "射手座と山羊座"
+    sections:
+      - label: "射手座"
+        text: "**真剣なまなざし**\n自由でさっぱりして見えるけれど\n好きな人のことはずっと考えている"
+      - label: "山羊座"
+        text: "**ふざけて笑う顔**\nまじめで、しっかり者に見える人\n好きな人の前では冗談も言う"
+
+  - type: text
+    icon: heart
+    eyebrow: "好きな人にだけ見せる顔"
+    heading: "水瓶座と魚座"
+    sections:
+      - label: "水瓶座"
+        text: "**素直に喜ぶ顔**\nクールでひとりの時間も大切な人\n好きな人には、うれしさが顔に出る"
+      - label: "魚座"
+        text: "**安心しきった顔**\nまわりの気持ちに敏感な人\n好きな人のそばでは、心から安らぐ"
+
+  - type: text
+    icon: sparkle
+    eyebrow: "さいごに"
+    heading: "その顔は\n信頼のしるし"
+    body: "好きな人にだけ見せる顔は\n「あなたなら大丈夫」という\n心のサインです。\n\nもし見せてもらえたら\n**そっと受けとめてあげてください**。"
+
+  - type: closing

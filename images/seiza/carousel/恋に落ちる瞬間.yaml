@@ -1,0 +1,76 @@
+theme: rei
+seed: 11
+slides:
+  - type: cover
+    eyebrow: "12星座別"
+    title: "恋に落ちる\n瞬間"
+    subtitle: "心が動くのはこんなとき"
+    art: moon
+    note: "あとで見返せるよう保存してください"
+
+  - type: text
+    eyebrow: "はじめに"
+    heading: "恋のスイッチは\n星座ごとにちがう"
+    body: "好きになるきっかけは\nほんの小さな瞬間です。\n\n気になる人の星座から\n**心が動くポイント**を\nのぞいてみてください。"
+
+  - type: text
+    icon: heart
+    eyebrow: "恋に落ちる瞬間"
+    heading: "牡羊座・牡牛座"
+    sections:
+      - label: "牡羊座"
+        text: "**真剣な横顔を見たとき**\n何かに本気で向き合う姿に\n一瞬で心をうばわれます"
+      - label: "牡牛座"
+        text: "**「おいしいね」が重なったとき**\n同じものを同じように味わえる\nその安心感が恋の始まりに"
+
+  - type: text
+    icon: heart
+    eyebrow: "恋に落ちる瞬間"
+    heading: "双子座・蟹座"
+    sections:
+      - label: "双子座"
+        text: "**話のテンポが合ったとき**\n気づけば何時間も話していた\nそんな相手に惹かれます"
+      - label: "蟹座"
+        text: "**変化に気づいてくれたとき**\n「疲れてない？」のひと言で\n心の扉がふっと開きます"
+
+  - type: text
+    icon: heart
+    eyebrow: "恋に落ちる瞬間"
+    heading: "獅子座・乙女座"
+    sections:
+      - label: "獅子座"
+        text: "**まっすぐ見つめられたとき**\n自分だけを見てくれていると\n感じた瞬間に恋が動き出します"
+      - label: "乙女座"
+        text: "**ていねいな仕事ぶりを見たとき**\n細かいところまで手を抜かない\nその姿に心がほどけます"
+
+  - type: text
+    icon: heart
+    eyebrow: "恋に落ちる瞬間"
+    heading: "天秤座・蠍座"
+    sections:
+      - label: "天秤座"
+        text: "**所作の美しさにふれたとき**\n言葉づかいやふるまいの\n品のよさにときめきます"
+      - label: "蠍座"
+        text: "**弱さを打ち明けられたとき**\n誰にも見せない一面を\n見せてくれた瞬間に心が動きます"
+
+  - type: text
+    icon: heart
+    eyebrow: "恋に落ちる瞬間"
+    heading: "射手座・山羊座"
+    sections:
+      - label: "射手座"
+        text: "**知らない世界にふれたとき**\n行ったことのない場所や考え方\nそのわくわくが恋に変わります"
+      - label: "山羊座"
+        text: "**約束を守る誠実さを見たとき**\n小さな約束も大切にする人に\n静かに心が傾いていきます"
+
+  - type: text
+    icon: heart
+    eyebrow: "恋に落ちる瞬間"
+    heading: "水瓶座・魚座"
+    sections:
+      - label: "水瓶座"
+        text: "**個性を面白がってくれたとき**\n変わった考えも否定せず\n聞いてくれる人に心をひらきます"
+      - label: "魚座"
+        text: "**そっと寄り添ってくれたとき**\n言葉にしきれない思いを\nわかってくれる人に惹かれます"
+
+  - type: closing

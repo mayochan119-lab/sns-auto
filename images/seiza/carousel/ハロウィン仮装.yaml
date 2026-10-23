@@ -1,0 +1,77 @@
+theme: rei
+seed: 11
+slides:
+  - type: cover
+    eyebrow: "ハロウィン｜12星座別"
+    title: "あなたに\n似合う仮装"
+    subtitle: "性格の魅力から選びました"
+    art: moon
+    note: "自分と、大切な人の星座をチェック"
+
+  - type: text
+    icon: star
+    eyebrow: "あなたに似合う仮装"
+    heading: "牡羊座と牡牛座"
+    sections:
+      - label: "牡羊座"
+        text: "**騎士**\nまっすぐ進む勇気と正義感が\n凛としたマントによく映えます"
+      - label: "牡牛座"
+        text: "**パティシエ**\nおいしいものと心地よさを\n大切にする人柄がにじみ出ます"
+
+  - type: text
+    icon: sparkle
+    eyebrow: "あなたに似合う仮装"
+    heading: "双子座と蟹座"
+    sections:
+      - label: "双子座"
+        text: "**マジシャン**\n会話でまわりを楽しませる人\n軽やかなトリックがぴったりです"
+      - label: "蟹座"
+        text: "**黒猫**\n人見知りなのに、心を許すと甘えん坊\nそのギャップが、まさに黒猫"
+
+  - type: text
+    icon: star
+    eyebrow: "あなたに似合う仮装"
+    heading: "獅子座と乙女座"
+    sections:
+      - label: "獅子座"
+        text: "**王さま・女王さま**\n自然と人が集まる華やかさ\n主役の衣装がいちばん似合います"
+      - label: "乙女座"
+        text: "**名探偵**\n細かいことによく気がつく人\nその観察力は、まさに名探偵"
+
+  - type: text
+    icon: sparkle
+    eyebrow: "あなたに似合う仮装"
+    heading: "天秤座と蠍座"
+    sections:
+      - label: "天秤座"
+        text: "**仮面舞踏会の貴族**\nセンスのよさと上品なふるまいが\n華やかな仮面で、さらに輝きます"
+      - label: "蠍座"
+        text: "**ヴァンパイア**\n秘めた色気とミステリアスさ\n深いまなざしがいちばん活きます"
+
+  - type: text
+    icon: star
+    eyebrow: "あなたに似合う仮装"
+    heading: "射手座と山羊座"
+    sections:
+      - label: "射手座"
+        text: "**海賊**\n自由と冒険が大好きな人\n地図を片手に、どこへでも行けそう"
+      - label: "山羊座"
+        text: "**魔法使い**\nコツコツ積み上げてきた知恵と\n落ち着いた貫禄がよく似合います"
+
+  - type: text
+    icon: sparkle
+    eyebrow: "あなたに似合う仮装"
+    heading: "水瓶座と魚座"
+    sections:
+      - label: "水瓶座"
+        text: "**宇宙人**\n発想がユニークで、未来的な人\n個性がいちばん光る仮装です"
+      - label: "魚座"
+        text: "**人魚**\n想像力ゆたかなロマンチスト\n幻想的な姿がぴったりです"
+
+  - type: text
+    icon: star
+    eyebrow: "10/31はW逆行中"
+    heading: "ハロウィンの夜の\nおすすめ"
+    body: "今年のハロウィンは\n水星と金星がそろって逆行中。\n\n待ち合わせや写真の送り先は\n**いつもよりていねいに確認**を。\nゆっくり楽しんでくださいね。"
+
+  - type: closing
