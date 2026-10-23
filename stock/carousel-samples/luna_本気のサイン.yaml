@@ -1,6 +1,6 @@
 # ルナ：彼が本気になった時にだけ出るサイン  python make_carousel.py stock/carousel-samples/luna_本気のサイン.yaml
 theme: luna
-backgrounds: [images/renai/backgrounds/bg1.jpg, images/renai/backgrounds/bg2.jpg, images/renai/backgrounds/bg3.jpg]
+backgrounds: [images/renai/backgrounds/bg1.jpg, images/renai/backgrounds/bg2.jpg]
 seed: 5
 slides:
   - type: cover
