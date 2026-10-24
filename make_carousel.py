@@ -41,6 +41,8 @@ MINCHO = "/System/Library/Fonts/ヒラギノ明朝 ProN.ttc"
 SAFE_L, SAFE_R, SAFE_T, SAFE_B = 118, W - 118, 124, H - 124  # 文字を置ける範囲
 MAX_W = SAFE_R - SAFE_L
 CX = W // 2
+# ルナの背景で文字を重ねたくない所（左下の水晶・右下の2枚のカード・いちばん下の花）。少し余裕をとってある
+BG_KEEP_OUT = [(0, 960, 210, H), (0, 1085, 260, H), (870, 955, W, H), (785, 1005, W, H), (0, 1150, W, H)]
 TAU = math.tau
 
 THEMES = {
@@ -429,6 +431,7 @@ class Slide:
         self.t = theme
         self.img = img.convert("RGBA")
         self.boxes = []      # 描いたものの範囲（星座の置き場所探し用）
+        self.ink = np.zeros((H, W), bool)  # 文字や記号そのものが乗った所（背景の飾りとの重なり確認用）
         self.warnings = []
 
     def paint(self, fn, size, strength=1.0, extra=0.0, record=True):
@@ -444,6 +447,7 @@ class Slide:
             self.img.alpha_composite(ink.crop(box), box[:2])
             if record:
                 self.boxes.append(box)
+                self.ink |= np.asarray(ink.getchannel("A")) > 40
         return box
 
     def _glow(self, layer, size, k):
@@ -1061,9 +1065,20 @@ def load_background(path):
     left, top = (im.width - W) // 2, (im.height - H) // 2
     arr = np.asarray(im.crop((left, top, left + W, top + H))).astype("float32")
     yy, xx = np.mgrid[0:H, 0:W]
-    calm = np.exp(-(((xx - W / 2) / (W * 0.40)) ** 2 + ((yy - H * 0.42) / (H * 0.34)) ** 2))[..., None]
+    calm = np.exp(-(((xx - W / 2) / (W * 0.40)) ** 2 + ((yy - H * 0.50) / (H * 0.34)) ** 2))[..., None]
     arr *= 1 - 0.35 * calm
     return Image.fromarray(np.clip(arr, 0, 255).astype("uint8")).convert("RGBA")
+
+
+def keep_out_lift(ink):
+    """文字を何px上げれば BG_KEEP_OUT にかからなくなるか（かかっていなければ 0）。"""
+    zone = np.zeros((H, W), bool)
+    for x0, y0, x1, y1 in BG_KEEP_OUT:
+        zone[y0:y1, x0:x1] = True
+    for lift in range(0, H // 2, 4):
+        if not (ink[lift:] & zone[:H - lift]).any():
+            return lift
+    return H // 2
 
 
 def render_slide(s, theme_name, seed, index, bg_path=None):
@@ -1074,7 +1089,8 @@ def render_slide(s, theme_name, seed, index, bg_path=None):
     if bg_path:
         # 用意された背景（飾りや枠が描かれている）を使うときは、枠を描かず、
         # 下の飾りと、左上・右上につり下がった飾りをよけるため、文字を置く範囲を内側に狭める
-        slide = Slide(t, load_background(bg_path))
+        bg_img = load_background(bg_path)
+        slide = Slide(t, bg_img.copy())
         top, bottom = SAFE_T + 20, H - 300
         SAFE_L, SAFE_R = 175, W - 175
         MAX_W = SAFE_R - SAFE_L
@@ -1084,18 +1100,51 @@ def render_slide(s, theme_name, seed, index, bg_path=None):
         top, bottom = SAFE_T, SAFE_B
     els = build(s, t, theme_name)
     avail = bottom - top
-    g = 1.0
-    for _ in range(14):
+
+    def layout(g):
         hs = [el.measure(g) for el, _ in els]
         gaps = [gap * 30 * g for _, gap in els[:-1]]
-        total = sum(hs) + sum(gaps)
+        return hs, gaps, sum(hs) + sum(gaps)
+
+    def draw_all(slide, y, hs, gaps):
+        for (el, _), h, gap in zip(els, hs, gaps + [0]):
+            el.draw(slide, y)
+            y += h + gap
+
+    g = 1.0
+    for _ in range(14):
+        hs, gaps, total = layout(g)
         if total <= avail or g < 0.5:
             break
         g *= 0.95
-    y = max(top, (top + bottom) / 2 - total / 2 - 8)
-    for (el, _), h, gap in zip(els, hs, gaps + [0]):
-        el.draw(slide, y)
-        y += h + gap
+    shrink = 1.0
+    if bg_path:
+        # 背景ありは、ページのちょうど真ん中に置く。
+        # 文字が下の飾り（水晶・カード）にかかるときは、まず少しだけ（最大15%）文字を小さくして真ん中のまま収め、
+        # それでも無理なら、かからない所まで上へずらす
+        tries = []
+        for k in (1.0, 0.95, 0.9, 0.85):
+            hs, gaps, total = layout(g * k)
+            y = max(top, H / 2 - total / 2)
+            slide = Slide(t, bg_img.copy())
+            draw_all(slide, y, hs, gaps)
+            lift = keep_out_lift(slide.ink)
+            tries.append((lift, k))
+            if lift <= 12:
+                break
+        lift, shrink = min(tries, key=lambda x: x[0] + (1 - x[1]) * 300)  # 5%小さくする ≒ 15px ずらす と考えて、ましな方
+        if (lift, shrink) != tries[-1]:
+            hs, gaps, total = layout(g * shrink)
+            y = max(top, H / 2 - total / 2)
+        if lift or (lift, shrink) != tries[-1]:
+            slide = Slide(t, bg_img.copy())
+            draw_all(slide, max(top, y - lift), hs, gaps)
+        if keep_out_lift(slide.ink):
+            slide.warnings.append("文字が下の飾りにかかっています")
+        if shrink < 1:
+            slide.warnings.append(f"下の飾りをよけるため {shrink:.2f} 倍に縮めました")
+    else:
+        draw_all(slide, max(top, (top + bottom) / 2 - total / 2 - 8), hs, gaps)
     if theme_name == "rei" and s.get("constellation", True) and not bg_path:
         constellation(slide, rnd)
     if g < 1:
