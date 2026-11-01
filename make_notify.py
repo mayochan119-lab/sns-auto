@@ -119,7 +119,7 @@ def make(out, text, theme="pastel", seed=1, time_label="今"):
     mosaic_name(img, tx, ay + 22 * SCALE, ink, seed)
     d = ImageDraw.Draw(img)
     f_time = ImageFont.truetype(FONT_MED, 34 * SCALE)
-    d.text((W * SCALE - pad - 70 * SCALE, pad + 34 * SCALE), time_label, font=f_time, fill=sub)
+    d.text((W * SCALE - pad - 36 * SCALE, pad + 34 * SCALE), time_label, font=f_time, fill=sub, anchor="ra")
 
     # 本文：長ければ2行に折り返す
     max_w = W * SCALE - pad - 60 * SCALE - tx
