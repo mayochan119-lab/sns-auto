@@ -486,12 +486,25 @@ def run_stats():
             print(f"  Threadsフォロワー {fc}")
         except Exception as e:
             print(f"  Threadsフォロワー 取得できませんでした: {e}")
+        try:  # 最近28日のアカウント全体の数字
+            until = int(dt.datetime.now(JST).timestamp())
+            ins = api_call("GET", f"{IG_API}/me/insights", metric="reach,profile_views,accounts_engaged,website_clicks,follows_and_unfollows",
+                           period="day", metric_type="total_value", since=until - 28 * 86400, until=until, access_token=get_token("IG", account_id)).get("data", [])
+            print("  IG 28日: " + " ".join(f"{d['name']}={d.get('total_value', {}).get('value', '?')}" for d in ins))
+        except Exception as e:
+            print(f"  IG 28日の数字は取得できません: {str(e)[:160]}")
         try:
             items = api_call("GET", f"{IG_API}/me/media", fields="id,caption,media_type,timestamp,like_count,comments_count",
                              limit=10, access_token=get_token("IG", account_id)).get("data", [])
             for it in items:
                 line = (it.get("caption") or "").strip().splitlines()[0][:30] if it.get("caption") else ""
-                print(f"  IG {it['timestamp'][:16]} {it.get('media_type','')} いいね{it.get('like_count','?')} コメント{it.get('comments_count','?')} {line}")
+                try:
+                    ins = api_call("GET", f"{IG_API}/{it['id']}/insights", metric="reach,views,saved,shares", access_token=get_token("IG", account_id)).get("data", [])
+                    m = {d["name"]: d["values"][0]["value"] if d.get("values") else d.get("total_value", {}).get("value") for d in ins}
+                    reach = f" 届いた人{m.get('reach','?')} 表示{m.get('views','?')} 保存{m.get('saved','?')} シェア{m.get('shares','?')}"
+                except Exception as e:
+                    reach = f"（届いた人数は取得できません: {str(e)[:120]}）"
+                print(f"  IG {it['timestamp'][:16]} {it.get('media_type','')} いいね{it.get('like_count','?')} コメント{it.get('comments_count','?')}{reach} {line}")
         except Exception as e:
             print(f"  IG 取得できませんでした: {e}")
         try:
