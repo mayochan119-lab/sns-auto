@@ -1,0 +1,30 @@
+# 誕生日ランキング（1〜5位が下から順に出てくる）
+seed: 85
+scenes:
+  - text: "好きな人の前で\n素直になれない人"
+    size: 92
+    emphasis: [1]
+    y: 900
+    note: "誕生日TOP5"
+    note_size: 96
+    note_y: 1200
+    note_emphasis: [0]
+    seconds: 2.4
+  - text: "好きな人の前で\n素直になれない人\n誕生日TOP5"
+    size: 66
+    y: 330
+    emphasis: [2]
+    items:
+      - {text: "5位　3日", y: 1520, at: 0.3, sub_size: 44, sub: "照れて冗談にしてしまう"}
+      - {text: "4位　16日", y: 1280, at: 1.1, sub_size: 44, sub: "言葉を選びすぎてしまう"}
+      - {text: "3位　25日", y: 1040, at: 1.9, sub_size: 44, sub: "弱みを見せるのが苦手"}
+      - {text: "2位　11日", y: 800, at: 2.7, sub_size: 44, sub: "好きなほどそっけなくなる"}
+      - {text: "1位　8日", y: 570, at: 3.5, size: 84, emphasis: [0], sub_size: 44, sub: "しっかり者で甘えられない"}
+    seconds: 6.4
+  - text: "あなたの誕生日は\n入っていましたか？"
+    size: 80
+    note: "明日20時は\n「片想いが長くなりやすい人」"
+    note_size: 59
+    note_y: 1230
+    note_emphasis: [1]
+    seconds: 3.0

@@ -1,0 +1,30 @@
+# 誕生日ランキング（1〜5位が下から順に出てくる）
+seed: 97
+scenes:
+  - text: "彼の嘘に\n気づいてしまう人"
+    size: 92
+    emphasis: [1]
+    y: 900
+    note: "誕生日TOP5"
+    note_size: 96
+    note_y: 1200
+    note_emphasis: [0]
+    seconds: 2.4
+  - text: "彼の嘘に気づいてしまう人\n誕生日TOP5"
+    size: 72
+    y: 360
+    emphasis: [1]
+    items:
+      - {text: "5位　1日", y: 1520, at: 0.3, sub_size: 44, sub: "話のつじつまに敏感"}
+      - {text: "4位　21日", y: 1280, at: 1.1, sub_size: 44, sub: "表情の変化によく気づく"}
+      - {text: "3位　13日", y: 1040, at: 1.9, sub_size: 44, sub: "話の細部まで覚えている"}
+      - {text: "2位　29日", y: 800, at: 2.7, sub_size: 44, sub: "直感が鋭く違和感に気づく"}
+      - {text: "1位　9日", y: 570, at: 3.5, size: 84, emphasis: [0], sub_size: 44, sub: "声のトーンで本音を感じる"}
+    seconds: 6.4
+  - text: "あなたの誕生日は\n入っていましたか？"
+    size: 80
+    note: "明日20時は\n「尽くしすぎてしまう人」"
+    note_size: 60
+    note_y: 1230
+    note_emphasis: [1]
+    seconds: 3.0
