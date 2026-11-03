@@ -131,7 +131,7 @@
         あなたの星座、図星だった？
 
         #星座占い
-      approved: false
+      approved: true
   renai:
     threads_morning:  # L6
       text: |
@@ -203,7 +203,7 @@
         あなたは何位だった？
 
         #星座占い
-      approved: false
+      approved: true
   renai:
     threads_morning:  # L2
       text: |
@@ -289,7 +289,7 @@
         あなたが頼りたい人は何座？
 
         #星座占い
-      approved: false
+      approved: true
   renai:
     threads_morning:  # R6
       text: |
