@@ -24,7 +24,7 @@
         今日は何位だった？
 
         #星座占い
-      approved: false
+      approved: true
     threads_night:  # R6
       text: |
         🌙この10日ほど、なんだか進まなかった人へ
@@ -44,7 +44,7 @@
         この10日で、見直したものはある？
 
         #星座占い
-      approved: false
+      approved: true
   renai:
     threads_morning:  # L6
       text: |
@@ -60,7 +60,7 @@
         脈あり会議、開いたことある？
 
         #脈あり
-      approved: false
+      approved: true
     threads_night:  # 週1の流れ
       text: |
         🌙今週の恋の流れ（11/4〜11/10）
@@ -83,7 +83,7 @@
         今週は、気持ちと距離感、どっちを大事にしたい？
 
         #恋愛占い
-      approved: false
+      approved: true
 
 - date: 2026-11-05
   seiza:
@@ -107,7 +107,7 @@
         今朝、二度寝した？
 
         #星座占い
-      approved: false
+      approved: true
     threads_night:  # R2
       text: |
         🌙星座別｜平気なふりして、実は気にしていること
@@ -144,7 +144,7 @@
         元彼の影響で、今も好きなものってある？
 
         #復縁
-      approved: false
+      approved: true
     threads_night:  # N1
       image: images/notify/2026-11-05_renai_threads_night.jpg
       text: |
@@ -157,7 +157,7 @@
         あなたにも、言えなかった一言はある？
 
         #恋愛占い
-      approved: false
+      approved: true
 
 - date: 2026-11-06
   seiza:
@@ -179,7 +179,7 @@
         今夜のあなたはどれ？
 
         #星座占い
-      approved: false
+      approved: true
     threads_night:  # R1
       text: |
         🌙つい気をつかいすぎる星座ランキング
@@ -220,7 +220,7 @@
         あなたの彼はどれっぽい？
 
         #片思い
-      approved: false
+      approved: true
     threads_night:  # L1
       text: |
         片思いって、
@@ -238,7 +238,7 @@
         今週いちばんしんどかったのは、何曜日？
 
         #片思い
-      approved: false
+      approved: true
 
 - date: 2026-11-07
   seiza:
@@ -264,7 +264,7 @@
         あなたは何から出す？
 
         #星座占い
-      approved: false
+      approved: true
     threads_night:  # R2
       text: |
         🌙星座別｜しんどい日に、頼りたくなる星座
@@ -302,7 +302,7 @@
         あなたならひと言目、何にする？
 
         #片思い
-      approved: false
+      approved: true
     threads_night:  # N1
       image: images/notify/2026-11-07_renai_threads_night.jpg
       text: |
@@ -319,7 +319,7 @@
         あなたにも、無理して言った「大丈夫」がある？
 
         #復縁
-      approved: false
+      approved: true
 
 - date: 2026-11-08
   seiza:
@@ -343,7 +343,7 @@
         今朝のあなたは何位だった？
 
         #星座占い
-      approved: false
+      approved: true
     threads_night:  # 週1の流れ
       text: |
         🌙来週の星座の流れ（11/9〜11/15）
@@ -363,7 +363,7 @@
         来週、楽しみにしている予定はある？
 
         #星座占い
-      approved: false
+      approved: true
   renai:
     threads_morning:  # L6
       text: |
@@ -376,7 +376,7 @@
         1日2回、恋のあるあると気持ちの話を置いています。よかったらフォローしてね。
 
         #片思い
-      approved: false
+      approved: true
     threads_night:  # N1
       image: images/notify/2026-11-08_renai_threads_night.jpg
       text: |
@@ -389,7 +389,7 @@
         好きな人と会った帰り道、いつも何を考えてる？
 
         #片思い
-      approved: false
+      approved: true
 
 - date: 2026-11-09
   seiza:
@@ -415,7 +415,7 @@
         今日は何位だった？
 
         #星座占い
-      approved: false
+      approved: true
     threads_night:  # R2
       text: |
         🌙星座別｜今日、飲みこんだひと言
@@ -441,7 +441,7 @@
         今日のあなたは、どのひと言に近い？
 
         #星座占い
-      approved: false
+      approved: true
   renai:
     threads_morning:  # R5
       text: |
@@ -456,7 +456,7 @@
         3. 寝る前に考える時間
 
         #恋愛占い
-      approved: false
+      approved: true
     threads_night:  # L1
       text: |
         あの人の気持ちは何度も考えるのに、
@@ -470,7 +470,7 @@
         私は、待ちたい？伝えたい？手放したい？
 
         #恋愛占い
-      approved: false
+      approved: true
 
 - date: 2026-11-10
   seiza:
@@ -500,7 +500,7 @@
         何位だった？
 
         #星座占い
-      approved: false
+      approved: true
     threads_night:  # R4
       text: |
         🌙エレメント別｜つい自分を責めてしまう夜に
@@ -528,7 +528,7 @@
         今夜のあなたに近いのはどれ？
 
         #星座占い
-      approved: false
+      approved: true
   renai:
     threads_morning:  # L6
       text: |
@@ -539,7 +539,7 @@
         これ、わかる人いる？
 
         #片思い
-      approved: false
+      approved: true
     threads_night:  # L1
       text: |
         元彼の誕生日、
@@ -554,4 +554,4 @@
         毎年つい思い出す日付って、ある？
 
         #復縁
-      approved: false
+      approved: true
