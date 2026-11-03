@@ -13,6 +13,7 @@ import sys
 from pathlib import Path
 
 import imageio_ffmpeg
+from add_audio import add_audio
 import numpy as np
 import yaml
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -184,6 +185,7 @@ def main(spec_path):
             first = rgb
         writer.send(np.asarray(rgb).tobytes())
     writer.close()
+    add_audio(out, "luna")
     first.save(spec_path.with_suffix(".cover.jpg"), quality=92)
     print(f"{out}  {total:.1f}秒")
 
