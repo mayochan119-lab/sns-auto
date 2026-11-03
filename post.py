@@ -495,7 +495,7 @@ def run_stats():
             print(f"  IG 28日の数字は取得できません: {str(e)[:160]}")
         try:
             items = api_call("GET", f"{IG_API}/me/media", fields="id,caption,media_type,timestamp,like_count,comments_count",
-                             limit=10, access_token=get_token("IG", account_id)).get("data", [])
+                             limit=30, access_token=get_token("IG", account_id)).get("data", [])
             for it in items:
                 line = (it.get("caption") or "").strip().splitlines()[0][:30] if it.get("caption") else ""
                 try:

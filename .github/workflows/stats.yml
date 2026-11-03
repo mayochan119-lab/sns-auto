@@ -1,0 +1,34 @@
+name: 数字の記録
+
+# 毎日、フォロワー数や届いた人数を stats/ に残す（実行の記録は消えてしまうため）
+on:
+  schedule:
+    - cron: "30 15 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: 記録
+        env:
+          IG_ACCESS_TOKEN_SEIZA: ${{ secrets.IG_ACCESS_TOKEN_SEIZA }}
+          THREADS_ACCESS_TOKEN_SEIZA: ${{ secrets.THREADS_ACCESS_TOKEN_SEIZA }}
+          IG_ACCESS_TOKEN_RENAI: ${{ secrets.IG_ACCESS_TOKEN_RENAI }}
+          THREADS_ACCESS_TOKEN_RENAI: ${{ secrets.THREADS_ACCESS_TOKEN_RENAI }}
+        run: |
+          mkdir -p stats
+          python post.py --stats > "stats/$(TZ=Asia/Tokyo date +%F).txt"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add stats
+          git commit -m "数字を記録" || exit 0
+          git pull --rebase && git push
