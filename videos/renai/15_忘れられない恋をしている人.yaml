@@ -1,0 +1,65 @@
+# 誕生日ランキング（1〜5位が下から順に出てくる）
+seed: 109
+scenes:
+- text: '忘れられない
+
+    恋をしている人'
+  size: 108
+  emphasis:
+  - 1
+  y: 900
+  note: 誕生日TOP5
+  note_size: 96
+  note_y: 1200
+  note_emphasis:
+  - 0
+  seconds: 2.4
+- text: '忘れられない恋をしている人
+
+    誕生日TOP5'
+  size: 68
+  y: 360
+  emphasis:
+  - 1
+  items:
+  - text: 5位　10日
+    y: 1520
+    at: 0.3
+    sub_size: 44
+    sub: 思い出を大事にしまっておく
+  - text: 4位　31日
+    y: 1280
+    at: 1.1
+    sub_size: 44
+    sub: ひとつの恋を深く心に刻む
+  - text: 3位　18日
+    y: 1040
+    at: 1.9
+    sub_size: 44
+    sub: 香りや音で記憶がよみがえる
+  - text: 2位　5日
+    y: 800
+    at: 2.7
+    sub_size: 44
+    sub: 心が動いた瞬間を覚えている
+  - text: 1位　27日
+    y: 570
+    at: 3.5
+    size: 84
+    emphasis:
+    - 0
+    sub_size: 44
+    sub: 本気で愛した日々を宝にできる
+  seconds: 6.4
+- text: 'あなたの誕生日は
+
+    入っていましたか？'
+  size: 80
+  note: '明日20時は
+
+    「本気の恋ほど臆病になる人」'
+  note_size: 59
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.0

@@ -1,0 +1,69 @@
+# 誕生日ランキング（1〜5位が下から順に出てくる）
+seed: 129
+scenes:
+- text: '失恋から
+
+    立ち直るのに
+
+    時間がかかる人'
+  size: 100
+  emphasis:
+  - 2
+  y: 870
+  note: 誕生日TOP5
+  note_size: 96
+  note_y: 1200
+  note_emphasis:
+  - 0
+  seconds: 2.4
+- text: '失恋から立ち直るのに
+
+    時間がかかる人
+
+    誕生日TOP5'
+  size: 66
+  y: 330
+  emphasis:
+  - 2
+  items:
+  - text: 5位　9日
+    y: 1520
+    at: 0.3
+    sub_size: 44
+    sub: 思い出を一つずつ整理する
+  - text: 4位　12日
+    y: 1280
+    at: 1.1
+    sub_size: 44
+    sub: 気持ちにうそがつけない
+  - text: 3位　23日
+    y: 1040
+    at: 1.9
+    sub_size: 44
+    sub: 心の底から恋をしていた
+  - text: 2位　17日
+    y: 800
+    at: 2.7
+    sub_size: 44
+    sub: 自分のペースで向き合う
+  - text: 1位　4日
+    y: 570
+    at: 3.5
+    size: 84
+    emphasis:
+    - 0
+    sub_size: 44
+    sub: 深く愛した分ゆっくり癒える
+  seconds: 6.4
+- text: 'あなたの誕生日は
+
+    入っていましたか？'
+  size: 80
+  note: '明日20時は
+
+    「好きな人にだけ甘えん坊になる人」'
+  note_size: 48
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.0

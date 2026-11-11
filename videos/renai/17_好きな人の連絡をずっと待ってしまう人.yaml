@@ -1,0 +1,69 @@
+# 誕生日ランキング（1〜5位が下から順に出てくる）
+seed: 117
+scenes:
+- text: '好きな人の
+
+    連絡をずっと
+
+    待ってしまう人'
+  size: 100
+  emphasis:
+  - 2
+  y: 870
+  note: 誕生日TOP5
+  note_size: 96
+  note_y: 1200
+  note_emphasis:
+  - 0
+  seconds: 2.4
+- text: '好きな人の連絡を
+
+    ずっと待ってしまう人
+
+    誕生日TOP5'
+  size: 66
+  y: 330
+  emphasis:
+  - 2
+  items:
+  - text: 5位　1日
+    y: 1520
+    at: 0.3
+    sub_size: 44
+    sub: 自分から送るのをためらう
+  - text: 4位　26日
+    y: 1280
+    at: 1.1
+    sub_size: 44
+    sub: 通知音につい反応してしまう
+  - text: 3位　11日
+    y: 1040
+    at: 1.9
+    sub_size: 44
+    sub: 相手の都合を思いやる
+  - text: 2位　20日
+    y: 800
+    at: 2.7
+    sub_size: 44
+    sub: 待つ時間も相手を想っている
+  - text: 1位　6日
+    y: 570
+    at: 3.5
+    size: 84
+    emphasis:
+    - 0
+    sub_size: 44
+    sub: ひとりの人をまっすぐ想う
+  seconds: 6.4
+- text: 'あなたの誕生日は
+
+    入っていましたか？'
+  size: 80
+  note: '明日20時は
+
+    「好きになると周りが見えなくなる人」'
+  note_size: 46
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.0

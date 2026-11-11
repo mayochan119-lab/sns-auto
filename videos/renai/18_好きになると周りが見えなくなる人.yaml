@@ -1,0 +1,67 @@
+# 誕生日ランキング（1〜5位が下から順に出てくる）
+seed: 121
+scenes:
+- text: '好きになると周りが
+
+    見えなくなる人'
+  size: 96
+  emphasis:
+  - 1
+  y: 900
+  note: 誕生日TOP5
+  note_size: 96
+  note_y: 1200
+  note_emphasis:
+  - 0
+  seconds: 2.4
+- text: '好きになると周りが
+
+    見えなくなる人
+
+    誕生日TOP5'
+  size: 66
+  y: 330
+  emphasis:
+  - 2
+  items:
+  - text: 5位　19日
+    y: 1520
+    at: 0.3
+    sub_size: 44
+    sub: 楽しいことに夢中になれる
+  - text: 4位　15日
+    y: 1280
+    at: 1.1
+    sub_size: 44
+    sub: 好きな人の話ばかりしてしまう
+  - text: 3位　28日
+    y: 1040
+    at: 1.9
+    sub_size: 44
+    sub: 気づけば頭の中がその人だけ
+  - text: 2位　7日
+    y: 800
+    at: 2.7
+    sub_size: 44
+    sub: 気持ちに正直に動ける
+  - text: 1位　21日
+    y: 570
+    at: 3.5
+    size: 84
+    emphasis:
+    - 0
+    sub_size: 44
+    sub: 恋をすると一直線になる
+  seconds: 6.4
+- text: 'あなたの誕生日は
+
+    入っていましたか？'
+  size: 80
+  note: '明日20時は
+
+    「恋をすると綺麗になる人」'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.0

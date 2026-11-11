@@ -1,0 +1,65 @@
+# 誕生日ランキング（1〜5位が下から順に出てくる）
+seed: 125
+scenes:
+- text: '恋をすると
+
+    綺麗になる人'
+  size: 124
+  emphasis:
+  - 1
+  y: 900
+  note: 誕生日TOP5
+  note_size: 96
+  note_y: 1200
+  note_emphasis:
+  - 0
+  seconds: 2.4
+- text: '恋をすると綺麗になる人
+
+    誕生日TOP5'
+  size: 80
+  y: 360
+  emphasis:
+  - 1
+  items:
+  - text: 5位　8日
+    y: 1520
+    at: 0.3
+    sub_size: 44
+    sub: 笑う回数が自然と増える
+  - text: 4位　30日
+    y: 1280
+    at: 1.1
+    sub_size: 44
+    sub: おしゃれを楽しむ余裕が出る
+  - text: 3位　2日
+    y: 1040
+    at: 1.9
+    sub_size: 44
+    sub: ときめきが表情に出る
+  - text: 2位　25日
+    y: 800
+    at: 2.7
+    sub_size: 44
+    sub: 自分を大切にし始める
+  - text: 1位　14日
+    y: 570
+    at: 3.5
+    size: 84
+    emphasis:
+    - 0
+    sub_size: 44
+    sub: 内側から輝きがあふれる
+  seconds: 6.4
+- text: 'あなたの誕生日は
+
+    入っていましたか？'
+  size: 80
+  note: '明日20時は
+
+    「失恋から立ち直るのに時間がかかる人」'
+  note_size: 43
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.0
