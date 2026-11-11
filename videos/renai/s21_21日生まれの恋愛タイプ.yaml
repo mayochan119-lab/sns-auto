@@ -1,0 +1,62 @@
+seed: 321
+scenes:
+- text: '21日生まれの
+
+    恋愛タイプ'
+  size: 108
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 60
+  note_y: 1180
+  seconds: 2.6
+- text: '好きな人の
+
+    ためなら
+
+    遠出も平気'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: 片道2時間でも苦にならない
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: '苦手なことにも
+
+    一緒なら
+
+    挑戦できる'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: 絶叫マシンもふたりなら乗れる
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: '気持ちを
+
+    言葉より
+
+    行動で示しやすい'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: 手伝う、そばにいるで愛を伝える
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: 熱いハートで愛する人
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は22日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

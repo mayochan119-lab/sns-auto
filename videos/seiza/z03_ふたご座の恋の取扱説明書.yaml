@@ -1,0 +1,68 @@
+theme: rei
+seed: 203
+scenes:
+- text: 'ふたご座の
+
+    恋の取扱説明書'
+  size: 120
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何座？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '話していて
+
+    楽しい人に
+
+    恋をしやすい'
+  size: 92
+  emphasis:
+  - 1
+  y: 880
+  note: '見た目より
+
+    テンポの合う会話が決め手'
+  note_size: 50
+  note_y: 1330
+  seconds: 3.2
+- text: '会うたびに
+
+    違う一面を
+
+    見せる'
+  size: 92
+  emphasis:
+  - 1
+  y: 880
+  note: '話題の引き出しが多く
+
+    相手を退屈させにくい'
+  note_size: 50
+  note_y: 1330
+  seconds: 3.2
+- text: 'ほどよい距離感で
+
+    恋を楽しみたい'
+  size: 92
+  emphasis:
+  - 0
+  y: 880
+  note: 'ひとりの時間も
+
+    大事にしたいタイプ'
+  note_size: 50
+  note_y: 1330
+  seconds: 3.2
+- text: 軽やかな恋心が素敵
+  size: 80
+  y: 940
+  note: '毎朝7時に1星座ずつ
+
+    明日はかに座'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

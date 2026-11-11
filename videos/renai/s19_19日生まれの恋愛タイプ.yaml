@@ -1,0 +1,62 @@
+seed: 319
+scenes:
+- text: '19日生まれの
+
+    恋愛タイプ'
+  size: 108
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 60
+  note_y: 1180
+  seconds: 2.6
+- text: '好きな人の
+
+    前でも
+
+    自然体でいたい'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: メイクも服も無理しすぎない
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: '好きなことに
+
+    夢中な姿が
+
+    いちばん輝く'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: 趣味の話をする顔が生き生き
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: '特別な日より
+
+    ふつうの日が
+
+    楽しい'
+  size: 92
+  emphasis:
+  - 1
+  y: 880
+  note: なんでもない散歩が思い出に
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: そのままのあなたが素敵
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は20日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

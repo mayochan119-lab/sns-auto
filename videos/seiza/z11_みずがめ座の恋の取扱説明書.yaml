@@ -1,0 +1,63 @@
+theme: rei
+seed: 111
+scenes:
+- text: 'みずがめ座の
+
+    恋の取扱説明書'
+  size: 116
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何座？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '友情から
+
+    恋が
+
+    始まりやすい'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: まずは人として信頼したい
+  note_size: 48
+  note_y: 1290
+  seconds: 3.2
+- text: '「普通は」より
+
+    ふたりの形を
+
+    選びたい'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: 決まりごとより納得感を大切に
+  note_size: 48
+  note_y: 1290
+  seconds: 3.2
+- text: '優しさを
+
+    さらっと
+
+    差し出す'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: 押しつけない気づかいが心地いい
+  note_size: 48
+  note_y: 1290
+  seconds: 3.2
+- text: 自分らしい恋でいい
+  size: 80
+  note: '毎朝7時に1星座ずつ
+
+    明日はうお座'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

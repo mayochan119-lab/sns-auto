@@ -1,0 +1,60 @@
+seed: 201
+scenes:
+- text: '1日生まれの
+
+    恋愛タイプ'
+  size: 112
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '好きになったら
+
+    自分から
+
+    動きたいタイプ'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: 誘うのも告白も先手派
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: '尊敬できる人に
+
+    惹かれやすい'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: 打ちこむ横顔に弱い傾向
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: '強がりの奥に
+
+    さみしがりな
+
+    一面がある'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: 二人きりだと少しだけ素直に
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: まっすぐな恋が似合う人
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は2日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

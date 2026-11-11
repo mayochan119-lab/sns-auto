@@ -1,0 +1,68 @@
+theme: rei
+seed: 204
+scenes:
+- text: 'かに座の
+
+    恋の取扱説明書'
+  size: 120
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何座？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '好きな人には
+
+    つい世話を
+
+    焼きたくなる'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: '体調を気づかうひと言が
+
+    自然と出てくる'
+  note_size: 50
+  note_y: 1330
+  seconds: 3.2
+- text: '相手の気持ちの
+
+    変化に
+
+    すぐ気づく'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: '声のトーンだけで
+
+    今日の調子がわかることも'
+  note_size: 50
+  note_y: 1330
+  seconds: 3.2
+- text: '心を許した人には
+
+    とことん甘えたい'
+  size: 92
+  emphasis:
+  - 1
+  y: 880
+  note: '外ではしっかり者でも
+
+    二人きりだと素直になる'
+  note_size: 50
+  note_y: 1330
+  seconds: 3.2
+- text: その愛情の深さは本物
+  size: 80
+  y: 940
+  note: '毎朝7時に1星座ずつ
+
+    明日はしし座'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

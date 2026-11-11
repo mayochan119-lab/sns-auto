@@ -1,0 +1,62 @@
+seed: 324
+scenes:
+- text: '24日生まれの
+
+    恋愛タイプ'
+  size: 108
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 60
+  note_y: 1180
+  seconds: 2.6
+- text: '相手の
+
+    いいところを
+
+    見つけるのが得意'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: ほめ言葉が自然に出てくる
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: 'ほめられると
+
+    照れて
+
+    話をそらす'
+  size: 92
+  emphasis:
+  - 1
+  y: 880
+  note: 本当はしっかりうれしい
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: 'ほっとできる
+
+    相手のそばで
+
+    笑顔が増える'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: 気取らない笑顔がこぼれやすい
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: その笑顔がいちばん素敵
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は25日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

@@ -1,0 +1,62 @@
+seed: 314
+scenes:
+- text: '14日生まれの
+
+    恋愛タイプ'
+  size: 112
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 60
+  note_y: 1180
+  seconds: 2.6
+- text: '季節の行事を
+
+    ふたりで
+
+    楽しみたい'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 花火や紅葉は外せない派
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: '思い出の写真が
+
+    どんどん
+
+    増えていく'
+  size: 92
+  emphasis:
+  - 0
+  y: 900
+  note: スマホのアルバムは恋の記録
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: 'おそろいの
+
+    小物に
+
+    心がはずむ'
+  size: 92
+  emphasis:
+  - 0
+  y: 900
+  note: さりげないペアがちょうどいい
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: 思い出づくりの名人
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は15日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

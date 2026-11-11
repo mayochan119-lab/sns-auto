@@ -1,0 +1,62 @@
+seed: 311
+scenes:
+- text: '11日生まれの
+
+    恋愛タイプ'
+  size: 112
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 60
+  note_y: 1180
+  seconds: 2.6
+- text: '相手の気持ちを
+
+    言葉より先に
+
+    感じとる'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 返信の温度の違いに敏感な傾向
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: 'ひと目で
+
+    ピンとくる
+
+    恋が多い'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: 最初の直感を大事にしやすい
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: 'デートは
+
+    静かな場所が
+
+    落ち着く'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: 夜のカフェや水族館が似合う
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: その感受性は、贈りもの
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は12日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

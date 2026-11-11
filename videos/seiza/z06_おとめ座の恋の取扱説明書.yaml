@@ -1,0 +1,66 @@
+theme: rei
+seed: 206
+scenes:
+- text: 'おとめ座の
+
+    恋の取扱説明書'
+  size: 120
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何座？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '好きになる前に
+
+    じっくり観察する'
+  size: 92
+  emphasis:
+  - 1
+  y: 880
+  note: '話し方や店員さんへの
+
+    態度まで見ている'
+  note_size: 50
+  note_y: 1330
+  seconds: 3.2
+- text: '愛情は言葉より
+
+    行動で示す'
+  size: 92
+  emphasis:
+  - 1
+  y: 880
+  note: '好きな飲み物を覚えて
+
+    さりげなく用意する'
+  note_size: 50
+  note_y: 1330
+  seconds: 3.2
+- text: '完璧を目指して
+
+    自分に厳しく
+
+    なりやすい'
+  size: 92
+  emphasis:
+  - 1
+  y: 880
+  note: '送る前のメッセージを
+
+    何度も読み返すことも'
+  note_size: 50
+  note_y: 1330
+  seconds: 3.2
+- text: その丁寧さが愛のかたち
+  size: 80
+  y: 940
+  note: '毎朝7時に1星座ずつ
+
+    明日はてんびん座'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

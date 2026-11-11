@@ -1,0 +1,66 @@
+theme: rei
+seed: 202
+scenes:
+- text: 'おうし座の
+
+    恋の取扱説明書'
+  size: 120
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何座？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '好きになるまで
+
+    時間をかける'
+  size: 92
+  emphasis:
+  - 1
+  y: 880
+  note: '何度か会って
+
+    安心できてから心を開く'
+  note_size: 50
+  note_y: 1330
+  seconds: 3.2
+- text: '一緒にいて
+
+    心地いい人に
+
+    惹かれやすい'
+  size: 92
+  emphasis:
+  - 1
+  y: 880
+  note: 'ごはんの好みが合うと
+
+    距離が縮まりやすい'
+  note_size: 50
+  note_y: 1330
+  seconds: 3.2
+- text: '一度決めた相手を
+
+    大切にし続ける'
+  size: 92
+  emphasis:
+  - 1
+  y: 880
+  note: '行きつけのお店に
+
+    何年も通うタイプ'
+  note_size: 50
+  note_y: 1330
+  seconds: 3.2
+- text: 穏やかな愛し方が宝物
+  size: 80
+  y: 940
+  note: '毎朝7時に1星座ずつ
+
+    明日はふたご座'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

@@ -1,0 +1,64 @@
+seed: 429
+scenes:
+- text: '29日生まれの
+
+    恋愛タイプ'
+  size: 120
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '恋をすると
+
+    想像が
+
+    ふくらみやすい'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 'まだ決まっていないデートを
+
+    何度も思い描く'
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: '気持ちの波が
+
+    少し大きめ'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: '嬉しい日は
+
+    一日中ふわふわしている'
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 'ラブソングに
+
+    共感しやすい'
+  size: 92
+  emphasis:
+  - 0
+  y: 900
+  note: '歌詞を自分の恋に
+
+    重ねてしまう'
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 心豊かに恋をする人
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は30日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

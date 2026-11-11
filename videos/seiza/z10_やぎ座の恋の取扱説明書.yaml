@@ -1,0 +1,63 @@
+theme: rei
+seed: 110
+scenes:
+- text: 'やぎ座の
+
+    恋の取扱説明書'
+  size: 116
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何座？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '本気の相手ほど
+
+    照れて
+
+    口数が減る'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 目が合うと、つい視線をそらす
+  note_size: 48
+  note_y: 1290
+  seconds: 3.2
+- text: '恋も
+
+    先のことまで
+
+    考えやすい'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: 将来の話が自然にできると安心
+  note_size: 48
+  note_y: 1290
+  seconds: 3.2
+- text: 'まじめな顔で
+
+    ぽつりと
+
+    冗談を言う'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 仲良くなるほど見えるおちゃめさ
+  note_size: 48
+  note_y: 1290
+  seconds: 3.2
+- text: 不器用な優しさも素敵
+  size: 80
+  note: '毎朝7時に1星座ずつ
+
+    明日はみずがめ座'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

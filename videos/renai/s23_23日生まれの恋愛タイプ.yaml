@@ -1,0 +1,62 @@
+seed: 323
+scenes:
+- text: '23日生まれの
+
+    恋愛タイプ'
+  size: 108
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 60
+  note_y: 1180
+  seconds: 2.6
+- text: '好きな人の
+
+    名前を見るだけで
+
+    ドキッとする'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: 同じ漢字の看板にも反応しがち
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: '伝えたいことが
+
+    あふれて
+
+    メッセージが長め'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: 送る前に読み返して少し削ることも
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: '恋をするときは
+
+    いつも
+
+    心の底から'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: 軽い恋より深い恋を選びやすい
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: 素直な愛を大切にね
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は24日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

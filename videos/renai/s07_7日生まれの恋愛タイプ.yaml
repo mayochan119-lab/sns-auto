@@ -1,0 +1,62 @@
+seed: 207
+scenes:
+- text: '7日生まれの
+
+    恋愛タイプ'
+  size: 112
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '本音を見せる
+
+    相手は
+
+    ほんのひと握り'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 心を許した人をとても大切に
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 'ひとりの時間で
+
+    気持ちを
+
+    整えたい'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 静かな夜に恋を考えがち
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: '深い話が
+
+    できる人に
+
+    強く惹かれる'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 好きな本や映画の話で近づく
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 静かに深く愛する人
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は8日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

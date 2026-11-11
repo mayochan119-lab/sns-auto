@@ -1,0 +1,62 @@
+seed: 206
+scenes:
+- text: '6日生まれの
+
+    恋愛タイプ'
+  size: 112
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '好きな人には
+
+    手料理を
+
+    ふるまいたい'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: 手作りに想いをこめやすい
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: '結婚や家庭を
+
+    自然と
+
+    思い描きやすい'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: ふたりの暮らしを想像するのが好き
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 'ロマンチックな
+
+    演出に
+
+    心がときめく'
+  size: 92
+  emphasis:
+  - 0
+  y: 900
+  note: 花束や手紙にじんとくるタイプ
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: あたたかな愛で包む人
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は7日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

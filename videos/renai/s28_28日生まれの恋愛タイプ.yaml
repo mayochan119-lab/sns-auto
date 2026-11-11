@@ -1,0 +1,68 @@
+seed: 428
+scenes:
+- text: '28日生まれの
+
+    恋愛タイプ'
+  size: 120
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '失敗しても
+
+    くよくよ
+
+    引きずらない'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 'ひと晩寝たら
+
+    気持ちを切り替える'
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: '好きな人を
+
+    笑わせるのが
+
+    うれしい'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: 'ツボを見つけたら
+
+    何度でも'
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 'デートは
+
+    体を動かす
+
+    遊びが好き'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: 'ボウリングや公園で
+
+    盛り上がる'
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 前を向いて恋する人
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は29日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

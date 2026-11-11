@@ -1,0 +1,62 @@
+seed: 317
+scenes:
+- text: '17日生まれの
+
+    恋愛タイプ'
+  size: 108
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 60
+  note_y: 1180
+  seconds: 2.6
+- text: '駆け引きより
+
+    素直な言葉を
+
+    選びやすい'
+  size: 92
+  emphasis:
+  - 1
+  y: 880
+  note: 「会いたい」を飾らず言える
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: '隠しごとを
+
+    しない関係が
+
+    心地いい'
+  size: 92
+  emphasis:
+  - 1
+  y: 880
+  note: 秘密がないほうが落ち着く
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: '髪型を変えたら
+
+    気づいて
+
+    ほしいタイプ'
+  size: 92
+  emphasis:
+  - 1
+  y: 880
+  note: ひと言ふれてもらえたら満足
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: 飾らない心が魅力です
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は18日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

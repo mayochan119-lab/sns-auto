@@ -1,0 +1,62 @@
+seed: 203
+scenes:
+- text: '3日生まれの
+
+    恋愛タイプ'
+  size: 112
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '好きな人の前で
+
+    つい
+
+    はしゃいでしまう'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 楽しそうな姿がいちばんの魅力
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: '会話のテンポが
+
+    合う人に
+
+    恋しやすい'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 笑いのツボが同じだと急接近
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 'マンネリより
+
+    新しいデートを
+
+    楽しみたい'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: 初めての場所に誘うのが好き
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 恋を明るく楽しめる人
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は4日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

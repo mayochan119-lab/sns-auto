@@ -1,0 +1,62 @@
+seed: 312
+scenes:
+- text: '12日生まれの
+
+    恋愛タイプ'
+  size: 112
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 60
+  note_y: 1180
+  seconds: 2.6
+- text: '好きな人が
+
+    できたら
+
+    まず友だちに報告'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 相談のつもりがほぼ報告に
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: 'デートの日は
+
+    朝から
+
+    そわそわ'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 服選びに時間がかかりがち
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: '気持ちは
+
+    顔に全部
+
+    出るタイプ'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: 隠しているつもりでも表情に出やすい
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: その明るさは、恋の光
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は13日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

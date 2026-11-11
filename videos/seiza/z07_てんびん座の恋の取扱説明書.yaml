@@ -1,0 +1,63 @@
+theme: rei
+seed: 107
+scenes:
+- text: 'てんびん座の
+
+    恋の取扱説明書'
+  size: 116
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何座？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '空気を読んで
+
+    本音を
+
+    あと回しにしがち'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 「どっちでもいい」が口ぐせ
+  note_size: 48
+  note_y: 1290
+  seconds: 3.2
+- text: '片方だけが
+
+    頑張る恋は
+
+    疲れやすい'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 支え合える距離感が心地いい
+  note_size: 48
+  note_y: 1290
+  seconds: 3.2
+- text: 'デートは
+
+    場所選びから
+
+    楽しむタイプ'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: お店の雰囲気も大切な思い出
+  note_size: 48
+  note_y: 1290
+  seconds: 3.2
+- text: 迷うのは優しいから
+  size: 80
+  note: '毎朝7時に1星座ずつ
+
+    明日はさそり座'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

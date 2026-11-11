@@ -1,0 +1,61 @@
+theme: rei
+seed: 109
+scenes:
+- text: 'いて座の
+
+    恋の取扱説明書'
+  size: 116
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何座？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '束縛より
+
+    信頼で
+
+    つながりたい'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: お互いの夢を応援し合いたい
+  note_size: 48
+  note_y: 1290
+  seconds: 3.2
+- text: '一緒に
+
+    新しいことを
+
+    始めたくなる'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: 初めての体験を分け合うと近づく
+  note_size: 48
+  note_y: 1290
+  seconds: 3.2
+- text: '気持ちが
+
+    すぐ顔に出る'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: うれしいと声まで弾みやすい
+  note_size: 48
+  note_y: 1290
+  seconds: 3.2
+- text: まっすぐさが魅力です
+  size: 80
+  note: '毎朝7時に1星座ずつ
+
+    明日はやぎ座'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

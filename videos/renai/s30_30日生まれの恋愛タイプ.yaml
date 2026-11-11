@@ -1,0 +1,68 @@
+seed: 430
+scenes:
+- text: '30日生まれの
+
+    恋愛タイプ'
+  size: 120
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: 'おっとりして
+
+    見えて
+
+    芯は強い'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: '大事な場面では
+
+    ぶれない'
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 'おうちで
+
+    まったり過ごす
+
+    日が幸せ'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: '映画とお菓子が
+
+    あれば満足'
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: '相手の
+
+    ちょっとした癖も
+
+    愛おしい'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: '考えごとの仕草に
+
+    ついほほえむ'
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: ふんわり芯のある人
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は31日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

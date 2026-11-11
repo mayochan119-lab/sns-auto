@@ -1,0 +1,62 @@
+seed: 316
+scenes:
+- text: '16日生まれの
+
+    恋愛タイプ'
+  size: 112
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 60
+  note_y: 1180
+  seconds: 2.6
+- text: '友だちから
+
+    恋の相談を
+
+    されやすい'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: 的確なひと言で背中を押す
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: '自分の恋は
+
+    なぜか
+
+    少し不器用'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 人の恋ならよく見えるのに
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: '気持ちを
+
+    日記やメモに
+
+    書きとめる'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 書くと本音が見えてくる
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: 人の恋にもやさしい人
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は17日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

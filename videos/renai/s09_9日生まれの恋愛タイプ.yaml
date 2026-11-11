@@ -1,0 +1,62 @@
+seed: 309
+scenes:
+- text: '9日生まれの
+
+    恋愛タイプ'
+  size: 112
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 60
+  note_y: 1180
+  seconds: 2.6
+- text: '好きな人の
+
+    疲れた顔に
+
+    すぐ気づく'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 「大丈夫？」が口ぐせになりやすい
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: '恋をすると
+
+    自分のことを
+
+    後回しにしがち'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 予定も相手に合わせる傾向
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: '好きな人の
+
+    好きなものを
+
+    好きになる'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: おすすめの曲はすぐ聴いてみる
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: その優しさが、魅力です
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は10日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

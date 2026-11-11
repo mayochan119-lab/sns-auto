@@ -1,0 +1,62 @@
+seed: 310
+scenes:
+- text: '10日生まれの
+
+    恋愛タイプ'
+  size: 112
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 60
+  note_y: 1180
+  seconds: 2.6
+- text: '好きな人にも
+
+    言うべきことは
+
+    はっきり言える'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 違うと思ったら笑顔で伝える
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: '恋をしても
+
+    自分の時間は
+
+    ちゃんと守る'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: ひとりの休日も大切にする傾向
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: '見た目より
+
+    価値観の近さに
+
+    惹かれやすい'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: お金や時間の使い方を見ている
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: 自分の軸で恋をする人
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は11日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

@@ -1,0 +1,66 @@
+seed: 426
+scenes:
+- text: '26日生まれの
+
+    恋愛タイプ'
+  size: 120
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '頼られると
+
+    つい張り切る'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: '相談に乗るうちに
+
+    距離が縮まりやすい'
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: '恋人の
+
+    友だちとも
+
+    すぐ打ち解ける'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: '気づけば
+
+    輪の中心にいることも'
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 'ふたりのことは
+
+    ふたりで
+
+    決めたい'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: '大事なことは
+
+    話し合って決める派'
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 頼もしくて温かい人
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は27日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

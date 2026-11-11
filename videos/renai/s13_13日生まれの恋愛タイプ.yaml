@@ -1,0 +1,62 @@
+seed: 313
+scenes:
+- text: '13日生まれの
+
+    恋愛タイプ'
+  size: 112
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 60
+  note_y: 1180
+  seconds: 2.6
+- text: '第一印象は
+
+    クールに
+
+    見られやすい'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: 話すと意外とよく笑う
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: 'やきもちは
+
+    平気なふりで
+
+    やりすごす'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: 気にしていないふりが上手
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: '帰り際に
+
+    いつまでも
+
+    手をふる'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 見えなくなるまで見送りたい派
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: クールで情に厚い人
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は14日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

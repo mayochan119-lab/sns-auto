@@ -1,0 +1,68 @@
+theme: rei
+seed: 201
+scenes:
+- text: 'おひつじ座の
+
+    恋の取扱説明書'
+  size: 120
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何座？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '好きになったら
+
+    考えるより
+
+    先に動く'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: '気になった日のうちに
+
+    声をかけたくなる傾向'
+  note_size: 50
+  note_y: 1330
+  seconds: 3.2
+- text: '駆け引きより
+
+    素直な言葉が
+
+    響きやすい'
+  size: 92
+  emphasis:
+  - 1
+  y: 880
+  note: '遠回しなサインには
+
+    気づかないことも'
+  note_size: 50
+  note_y: 1330
+  seconds: 3.2
+- text: 'ライバルがいると
+
+    むしろ燃える'
+  size: 92
+  emphasis:
+  - 1
+  y: 880
+  note: '追いかける恋ほど
+
+    楽しく感じやすい'
+  note_size: 50
+  note_y: 1330
+  seconds: 3.2
+- text: その熱さが一番の魅力
+  size: 80
+  y: 940
+  note: '毎朝7時に1星座ずつ
+
+    明日はおうし座'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

@@ -1,0 +1,62 @@
+seed: 205
+scenes:
+- text: '5日生まれの
+
+    恋愛タイプ'
+  size: 112
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: 'ほどよい
+
+    距離感が
+
+    いちばん心地いい'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 会えない日の自分時間も大切
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: '好奇心から
+
+    恋が
+
+    はじまりやすい'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 「この人おもしろい」が入り口
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: '恋人とは
+
+    親友みたいな
+
+    関係が理想'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: なんでも話せる気楽さが好き
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 軽やかに恋を楽しむ人
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は6日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

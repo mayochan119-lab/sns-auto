@@ -1,0 +1,62 @@
+seed: 318
+scenes:
+- text: '18日生まれの
+
+    恋愛タイプ'
+  size: 108
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 60
+  note_y: 1180
+  seconds: 2.6
+- text: '感動する話に
+
+    すぐ
+
+    涙ぐんでしまう'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: 恋愛映画のラストは毎回泣く
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: 'モヤモヤは
+
+    その日のうちに
+
+    晴らしたい'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: 不安を抱えたままにするのが苦手
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: '好きな人の
+
+    香りや声が
+
+    記憶に残りやすい'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: 五感で恋をするロマンチスト
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: 繊細さは愛の深さです
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は19日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

@@ -1,0 +1,68 @@
+seed: 425
+scenes:
+- text: '25日生まれの
+
+    恋愛タイプ'
+  size: 120
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '片想いの時間も
+
+    大切に
+
+    味わえる'
+  size: 92
+  emphasis:
+  - 0
+  y: 900
+  note: '見ているだけで
+
+    心が満ちる日も'
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: '気になる人には
+
+    さりげなく
+
+    優しくする'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: '好意は控えめに
+
+    そっと伝える'
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: '恋の話は
+
+    うまくいくまで
+
+    秘密にしたい'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: '大事な恋ほど
+
+    胸にしまっておく'
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 秘めた想いが美しい人
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は26日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

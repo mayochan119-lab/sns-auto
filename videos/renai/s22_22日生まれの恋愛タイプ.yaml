@@ -1,0 +1,62 @@
+seed: 322
+scenes:
+- text: '22日生まれの
+
+    恋愛タイプ'
+  size: 108
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 60
+  note_y: 1180
+  seconds: 2.6
+- text: '話を最後まで
+
+    ちゃんと聞ける
+
+    聞き上手'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: 相手の言葉をさえぎらない
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: '同じ景色を
+
+    黙って見る
+
+    時間も好き'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: 沈黙が気まずくならない相手が理想
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: '穏やかで
+
+    一緒にいると
+
+    ほっとされやすい'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: そばにいるだけで空気がなごむ
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: 静かなやさしさの人
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は23日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

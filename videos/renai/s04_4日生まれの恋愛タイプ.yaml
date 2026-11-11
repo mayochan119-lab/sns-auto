@@ -1,0 +1,62 @@
+seed: 204
+scenes:
+- text: '4日生まれの
+
+    恋愛タイプ'
+  size: 112
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '好きになるまで
+
+    時間を
+
+    かけるタイプ'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 友だち期間が長めになりやすい
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: '約束を守る人に
+
+    ぐっと
+
+    心がひらく'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 小さな約束ほど大事にしたい
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 'ふたりの未来を
+
+    具体的に
+
+    考えやすい'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: 旅行の計画を立てるのも得意
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 誠実さで愛を深める人
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は5日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

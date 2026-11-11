@@ -1,0 +1,62 @@
+seed: 315
+scenes:
+- text: '15日生まれの
+
+    恋愛タイプ'
+  size: 112
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 60
+  note_y: 1180
+  seconds: 2.6
+- text: '手をつなぐのが
+
+    いちばんの
+
+    愛情表現'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 歩くときは自然と隣に
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: '一緒に
+
+    ごはんを食べる
+
+    時間が好き'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: 「おいしいね」が言えたら満点
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: 'ふたりだけの
+
+    呼び名や
+
+    合言葉をつくる'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 内輪ネタが増えるほど楽しい
+  note_size: 46
+  note_y: 1340
+  seconds: 3.2
+- text: ぬくもりは、あなたの力
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は16日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

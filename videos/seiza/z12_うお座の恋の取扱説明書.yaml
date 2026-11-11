@@ -1,0 +1,63 @@
+theme: rei
+seed: 112
+scenes:
+- text: 'うお座の
+
+    恋の取扱説明書'
+  size: 116
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何座？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '相手の気持ちを
+
+    自分ごとのように
+
+    感じやすい'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 人の涙にもらい泣きしやすい
+  note_size: 48
+  note_y: 1290
+  seconds: 3.2
+- text: '恋をすると
+
+    毎日が
+
+    ドラマになる'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: ささいな出来事にも心がときめく
+  note_size: 48
+  note_y: 1290
+  seconds: 3.2
+- text: 'そばにいる人を
+
+    ふんわり
+
+    癒やしやすい'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: やわらかな空気に安心する人も
+  note_size: 48
+  note_y: 1290
+  seconds: 3.2
+- text: 感じやすさは宝もの
+  size: 80
+  note: '毎朝7時に1星座ずつ
+
+    明日からは新シリーズ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

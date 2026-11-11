@@ -1,0 +1,62 @@
+seed: 320
+scenes:
+- text: '20日生まれの
+
+    恋愛タイプ'
+  size: 108
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 60
+  note_y: 1180
+  seconds: 2.6
+- text: '今の関係を
+
+    大切にしすぎて
+
+    慎重になりやすい'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: 友だちとしての時間も守りたい
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: '会えない日も
+
+    「元気かな」と
+
+    気にかける'
+  size: 92
+  emphasis:
+  - 1
+  y: 880
+  note: 見返りを求めない思いやり
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: '好きな人の
+
+    何気ない話を
+
+    よく覚えている'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: 前に話したお店の名前まで
+  note_size: 48
+  note_y: 1330
+  seconds: 3.2
+- text: やさしさを惜しまない人
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は21日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

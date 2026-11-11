@@ -1,0 +1,63 @@
+theme: rei
+seed: 108
+scenes:
+- text: 'さそり座の
+
+    恋の取扱説明書'
+  size: 116
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何座？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '多くを語らず
+
+    ミステリアスに
+
+    見られやすい'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: 「もっと知りたい」と思わせる人
+  note_size: 48
+  note_y: 1290
+  seconds: 3.2
+- text: '好きになると
+
+    気持ちの深さが
+
+    けた違い'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 中途半端な恋は選びにくい
+  note_size: 48
+  note_y: 1290
+  seconds: 3.2
+- text: '小さな約束を
+
+    ずっと
+
+    覚えている'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 何気ない一言も心に残りやすい
+  note_size: 48
+  note_y: 1290
+  seconds: 3.2
+- text: 深く想えるのは才能
+  size: 80
+  note: '毎朝7時に1星座ずつ
+
+    明日はいて座'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

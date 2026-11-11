@@ -1,0 +1,68 @@
+seed: 431
+scenes:
+- text: '31日生まれの
+
+    恋愛タイプ'
+  size: 120
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '一緒にいると
+
+    時間を
+
+    忘れてしまう'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: '終電間際まで
+
+    話しこむことも'
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: '旅行先で
+
+    おみやげを
+
+    真っ先に選ぶ'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: '相手の顔を
+
+    思い浮かべながら'
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 'ふたりの
+
+    お気に入りの店を
+
+    つくりたい'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: '「いつもの」で
+
+    通じる場所が理想'
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 毎日を愛おしむ人
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日からは新シリーズ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

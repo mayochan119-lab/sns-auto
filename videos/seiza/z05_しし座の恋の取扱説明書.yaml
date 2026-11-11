@@ -1,0 +1,68 @@
+theme: rei
+seed: 205
+scenes:
+- text: 'しし座の
+
+    恋の取扱説明書'
+  size: 120
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何座？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '恋人からは
+
+    特別扱い
+
+    されたい'
+  size: 92
+  emphasis:
+  - 1
+  y: 880
+  note: '大勢の中でも
+
+    自分を見つけてほしいタイプ'
+  note_size: 50
+  note_y: 1330
+  seconds: 3.2
+- text: '愛情表現は
+
+    スケール大きめ'
+  size: 92
+  emphasis:
+  - 1
+  y: 880
+  note: '誕生日のサプライズに
+
+    本気を出しやすい'
+  note_size: 50
+  note_y: 1330
+  seconds: 3.2
+- text: '弱いところは
+
+    なかなか
+
+    見せられない'
+  size: 92
+  emphasis:
+  - 2
+  y: 880
+  note: 'プライドの奥に
+
+    繊細なハートを隠している'
+  note_size: 50
+  note_y: 1330
+  seconds: 3.2
+- text: 主役の恋がよく似合う
+  size: 80
+  y: 940
+  note: '毎朝7時に1星座ずつ
+
+    明日はおとめ座'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

@@ -1,0 +1,62 @@
+seed: 202
+scenes:
+- text: '2日生まれの
+
+    恋愛タイプ'
+  size: 112
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: 'ドキドキより
+
+    安心できる恋を
+
+    選びやすい'
+  size: 92
+  emphasis:
+  - 1
+  y: 900
+  note: 穏やかに長く続く関係が理想
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 'うれしい言葉を
+
+    心の中で
+
+    何度も読み返す'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 「ありがとう」のひと言が宝物
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 'ケンカのあと
+
+    先に歩み寄る
+
+    仲直り上手'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: ぎくしゃくしたままが苦手
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: やさしさで恋を育てる人
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は3日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4

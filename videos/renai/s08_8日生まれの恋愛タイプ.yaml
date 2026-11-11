@@ -1,0 +1,62 @@
+seed: 208
+scenes:
+- text: '8日生まれの
+
+    恋愛タイプ'
+  size: 112
+  emphasis:
+  - 0
+  y: 860
+  note: あなたは何日生まれ？
+  note_size: 64
+  note_y: 1180
+  seconds: 2.6
+- text: '大切な人は
+
+    全力で
+
+    守りたい'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 困っている姿を放っておけない
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: '恋も仕事も
+
+    どちらも
+
+    手を抜かない'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 忙しい日も会う時間をやりくり
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 'がんばる姿を
+
+    認められると
+
+    心がほどける'
+  size: 92
+  emphasis:
+  - 2
+  y: 900
+  note: 「おつかれさま」に弱い一面も
+  note_size: 48
+  note_y: 1320
+  seconds: 3.2
+- text: 強さとやさしさを持つ人
+  size: 80
+  note: '毎朝7時に1日ずつ発表
+
+    明日は9日生まれ'
+  note_size: 60
+  note_y: 1230
+  note_emphasis:
+  - 1
+  seconds: 3.4
