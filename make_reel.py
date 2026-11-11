@@ -23,10 +23,21 @@ FADE = 0.45  # 場面の切り替えの秒数
 MINCHO = "/System/Library/Fonts/ヒラギノ明朝 ProN.ttc"
 ROOT = Path(__file__).parent
 
-INK = (255, 240, 250)
-GLOW = (255, 60, 200)
-ACCENT = (255, 150, 220)
-GOLD = (214, 176, 120)
+# 色。spec の theme: rei でレイの色（紺の夜空と金）に切り替える
+THEMES = {
+    "luna": {"INK": (255, 240, 250), "GLOW": (255, 60, 200), "ACCENT": (255, 150, 220), "GOLD": (214, 176, 120), "STAR": (255, 220, 245),
+             "SKY": ((20, 4, 22), (44, 8, 38)), "HAZE": [(150, 30, 120), (110, 20, 140), (170, 40, 100)], "FRAME2": (120, 90, 70)},
+    "rei": {"INK": (252, 246, 232), "GLOW": (225, 165, 60), "ACCENT": (255, 214, 140), "GOLD": (214, 176, 120), "STAR": (255, 240, 210),
+            "SKY": ((5, 9, 26), (12, 20, 48)), "HAZE": [(30, 50, 120), (55, 40, 115), (20, 70, 110)], "FRAME2": (90, 90, 120)},
+}
+INK, GLOW, ACCENT, GOLD, STAR = (THEMES["luna"][k] for k in ("INK", "GLOW", "ACCENT", "GOLD", "STAR"))
+SKY, HAZE, FRAME2 = THEMES["luna"]["SKY"], THEMES["luna"]["HAZE"], THEMES["luna"]["FRAME2"]
+
+
+def use_theme(name):
+    global INK, GLOW, ACCENT, GOLD, STAR, SKY, HAZE, FRAME2
+    t = THEMES[name]
+    INK, GLOW, ACCENT, GOLD, STAR, SKY, HAZE, FRAME2 = (t[k] for k in ("INK", "GLOW", "ACCENT", "GOLD", "STAR", "SKY", "HAZE", "FRAME2"))
 
 
 def font(size):
@@ -37,7 +48,7 @@ def background(seed=7):
     """深い紫の夜空に、ピンクのもや・星・細い金の枠。"""
     rnd = random.Random(seed)
     y = np.linspace(0, 1, H)[:, None]
-    top, bottom = np.array([20, 4, 22]), np.array([44, 8, 38])
+    top, bottom = np.array(SKY[0]), np.array(SKY[1])
     base = (top * (1 - y) + bottom * y)[:, :, None].transpose(0, 2, 1).repeat(W, axis=1)
     img = Image.fromarray(base.astype("uint8"))
     haze = Image.new("RGB", (W, H), (0, 0, 0))
@@ -45,14 +56,14 @@ def background(seed=7):
     for _ in range(9):
         cx, cy = rnd.randint(-200, W + 200), rnd.randint(0, H)
         r = rnd.randint(220, 520)
-        c = rnd.choice([(150, 30, 120), (110, 20, 140), (170, 40, 100)])
+        c = rnd.choice(HAZE)
         d.ellipse((cx - r, cy - r * 0.6, cx + r, cy + r * 0.6), fill=c)
     haze = haze.filter(ImageFilter.GaussianBlur(160))
     img = Image.blend(img, haze, 0.5)
     d = ImageDraw.Draw(img)
     m = 46
     d.rectangle((m, m, W - m, H - m), outline=GOLD + (0,), width=2)
-    d.rectangle((m + 14, m + 14, W - m - 14, H - m - 14), outline=(120, 90, 70), width=1)
+    d.rectangle((m + 14, m + 14, W - m - 14, H - m - 14), outline=FRAME2, width=1)
     return img
 
 
@@ -65,7 +76,7 @@ def draw_stars(img, star_list, t):
     d = ImageDraw.Draw(img)
     for x, y, r, phase, speed in star_list:
         a = 0.45 + 0.55 * (0.5 + 0.5 * math.sin(phase + t * speed * 2))
-        c = tuple(int(v * a) for v in (255, 220, 245))
+        c = tuple(int(v * a) for v in STAR)
         d.ellipse((x - r, y - r, x + r, y + r), fill=c)
 
 
@@ -143,6 +154,8 @@ def main(spec_path):
     spec_path = Path(spec_path)
     spec = yaml.safe_load(spec_path.read_text(encoding="utf-8"))
     out = spec_path.with_suffix(".mp4")
+    theme = spec.get("theme", "luna")
+    use_theme(theme)
     bg, star_list = background(spec.get("seed", 7)), stars(spec.get("seed", 7) + 4)
     layers = [scene_layer(s) for s in spec["scenes"]]
     times = []
@@ -185,7 +198,7 @@ def main(spec_path):
             first = rgb
         writer.send(np.asarray(rgb).tobytes())
     writer.close()
-    add_audio(out, "luna")
+    add_audio(out, theme)
     first.save(spec_path.with_suffix(".cover.jpg"), quality=92)
     print(f"{out}  {total:.1f}秒")
 
